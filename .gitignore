@@ -2,3 +2,6 @@
 !.gitignore
 !*.fdf
 !*.out
+!Pseudos/*
+!*.sh
+!*.bash
