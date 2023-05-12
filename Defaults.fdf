@@ -1,0 +1,78 @@
+#############
+# Functional
+#############
+XC.Functional   GGA
+XC.Authors      PBE
+
+#############
+# Base
+#############
+PAO.BasisSize       DZP
+PAO.BasisType       split
+PAO.SplitNorm       0.28
+PAO.SplitNormH      0.62
+PAO.EnergyShift     0.002 Ry
+Mesh.Cutoff         340 Ry
+Spin                spin-orbit # polarized, non-colinear, spin-orbit
+
+###################
+# Self Consistance
+###################
+MinSCFIterations            1
+MaxSCFIterations            200
+SCF.MustConverge            T
+SCF.Mixer.Method            Pulay
+SCF.Mixer.History           6
+SCF.Mixer.Restart           24
+SCF.Mixer.Restart.Save      3
+SCF.H.Tolerance             0.000001 eV
+SCF.DM.Tolerance            0.000008
+DM.History.Depth            3
+
+################
+# Diagon Solver
+################
+SolutionMethod      diagon
+Diag.Algorithm      ELPA-1stage
+Diag.UseNewDiagk    T
+
+################
+# Metis Support
+################
+UseDomainDecomposition  T
+UseSpatialDecomposition T
+AllocReportLevel        2 
+
+#############
+# Calculate
+############
+MD.TypeOfRun                CG  # CG, Verlet
+MD.VariableCell             F
+MD.Steps                    185
+MD.MaxForceTol              0.005 eV/Ang
+ElectronicTemperature       300.00 K
+MD.MaxDispl                 0.3 Ang
+MD.LengthTimeStep           0.5 fs
+MD.InitialTemperature       100 K
+
+##############
+# Output info
+##############
+UseSaveData         F
+Write.Denchar       T
+WriteCoorInital     T
+WriteCoorStep       T
+WriteMDHistory      F
+WriteForces         T
+WriteKpoints        F
+WriteEigenvalues    T
+WriteKbands         F
+WriteBands          F
+WriteWaveFunctions  F
+WriteMullikenPop    1
+WriteDM             F
+WriteCoorXmol       F
+WriteCoorCerius     F
+WriteMDXmol         F
+CDF.Save            F
+CDF.MPI             F
