@@ -1,0 +1,39 @@
+# mpirun -np 4 siesta-4.1.5 < Thymine.fdf > Thymine.out
+
+SystemLabel      Thymine
+
+NumberOfAtoms    15
+
+NumberOfSpecies  4
+%block ChemicalSpeciesLabel
+    1    7  N
+    2   14  Si
+    3    1  H
+    4    8  O
+%endblock ChemicalSpeciesLabel
+
+###################################
+# This overrides Defaults.fdf conf
+###################################
+MD.TypeOfRun                CG # CG, Verlet
+
+AtomicCoordinatesFormat NotScaledCartesianAng
+%block AtomicCoordinatesAndAtomicSpecies
+    -0.993644000     4.656972000     0.000000000    1
+    -2.731370000     4.442714000     0.000000000    2
+    -3.345363000     5.786444000     0.000000000    3
+    -3.667574000     2.720677000     0.000000000    2
+    -5.687201000     2.400258000     0.000000000    2
+    -6.779822000     3.122409000     0.000000000    3
+    -5.967710000     0.918551000     0.000000000    3
+    -5.692367000     2.855847000     0.000000000    3
+    -2.146293000     1.246922000     0.000000000    2
+    -2.356959000    -0.270441000     0.000000000    4
+    -0.482924000     1.888868000     0.000000000    1
+     0.182892000     1.103018000     0.000000000    3
+     0.284851000     3.441327000     0.000000000    2
+     1.797711000     3.766407000     0.000000000    4
+    -0.632287000     5.627852000     0.000000000    3
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+%include ../../Defaults.fdf

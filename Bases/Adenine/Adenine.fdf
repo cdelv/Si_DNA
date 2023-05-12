@@ -1,0 +1,38 @@
+# mpirun -np 4 siesta-4.1.5 < Adenine.fdf > Adenine.out
+
+SystemLabel      Adenine
+
+NumberOfAtoms    15
+
+NumberOfSpecies  3
+%block ChemicalSpeciesLabel
+    1    1  H
+    2    7  N
+    3   14  Si
+%endblock ChemicalSpeciesLabel
+
+############################################
+# This overrides Defaults.fdf configuration
+############################################
+MD.TypeOfRun                CG # CG, Verlet
+
+AtomicCoordinatesFormat NotScaledCartesianAng
+%block AtomicCoordinatesAndAtomicSpecies
+    2.45678154   -5.19628603    0.00000000   1       1  H
+    1.53043803   -4.68850309    0.00000000   2       2  N
+   -0.05994288   -5.52124565    0.00000000   3       3  Si
+   -0.00012610   -7.01526228    0.00000000   1       4  H
+   -1.49856740   -4.60156292    0.00000000   2       5  N
+   -0.94448620   -2.88146937    0.00000000   3       6  Si
+   -1.28997922   -0.69291309    0.00000000   3       7  Si
+   -2.82542950    0.15885311    0.00000000   2       8  N
+   -2.86640446    1.21156880    0.00000000   1       9  H
+   -3.75591339   -0.33501627    0.00000000   1      10  H
+    0.09801750    0.34309317    0.00000000   2      11  N
+    1.75090491   -0.12159776    0.00000000   3      12  Si
+    2.70168860    1.03869620    0.00000000   1      13  H
+    2.53038958   -1.67804686    0.00000000   2      14  N
+    1.27127984   -2.87467609    0.00000000   3      15  Si
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+%include ../../Defaults.fdf
