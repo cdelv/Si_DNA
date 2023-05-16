@@ -1,0 +1,45 @@
+# mpirun -np 4 siesta-4.1.5 < Thymine.fdf > Thymine.out
+
+SystemLabel      Thymine
+
+NumberOfAtoms    15
+
+NumberOfSpecies  4
+%block ChemicalSpeciesLabel
+    1    7  N
+    2   14  Si
+    3    1  H
+    4    8  O
+%endblock ChemicalSpeciesLabel
+
+###################################
+# This overrides Defaults.fdf conf
+###################################
+MD.TypeOfRun                CG # CG, Verlet
+# MD.Steps                    500
+
+AtomicCoordinatesFormat NotScaledCartesianAng
+%block AtomicCoordinatesAndAtomicSpecies
+   -0.60069295    4.42346462    0.00000000   1       1  N
+   -2.38995673    4.50962272    0.00000000   2       2  Si
+   -2.73899275    5.97223873    0.00000000   3       3  H
+   -3.56276412    2.66481952    0.00000000   2       4  Si
+   -5.86880074    2.30491776    0.00000000   2       5  Si
+   -6.51446011    3.29802897    0.93616482   3       6  H
+   -5.98694700    0.89128698    0.51116821   3       7  H
+   -6.51330705    2.40724219   -1.36189836   3       8  H
+   -2.06154066    0.94532166    0.00000000   2       9  Si
+   -2.37589062   -0.62130041    0.00000000   4      10  O
+   -0.33131360    1.52339020    0.00000000   1      11  N
+    0.35257855    0.71115666    0.00000000   3      12  H
+    0.54181287    3.06348928    0.00000000   2      13  Si
+    2.11074311    3.29742425    0.00000000   4      14  O
+   -0.08741903    5.34907025    0.00000000   3      15  H
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+%block Geometry.Constraints
+    atom all  0.0 0.0 1.0 # constrain all atoms along z Cartesian vector
+    clear-prev [6, 7, 8]
+%endblock
+
+%include ../../Defaults.fdf
