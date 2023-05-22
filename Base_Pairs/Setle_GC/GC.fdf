@@ -1,3 +1,5 @@
+# mpirun -np 6 siesta-4.1.5 < CG.fdf > GC.out &
+
 SystemLabel      GC
 
 NumberOfAtoms    29
