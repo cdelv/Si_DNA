@@ -47,7 +47,7 @@ AtomicCoordinatesFormat NotScaledCartesianAng
 %endblock AtomicCoordinatesAndAtomicSpecies
 
 %block Geometry.Constraints
-    molecule [1 -- 15]    # fix one of the molecules along z axis
+    molecule [1 -- 15]  0.0 0.0 1.0  # fix one of the molecules along z axis
     molecule [16 -- 30]
 %endblock
 
