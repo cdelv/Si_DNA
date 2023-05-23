@@ -4,10 +4,17 @@ from scipy import interpolate, optimize
 
 # Read the CSV file into a pandas DataFrame
 data = pd.read_csv('GC_Results.csv')
+data = pd.read_csv('AT_Results.csv')
 
 # Extract the Distance and Total Energy columns
 distance = data['Distance'].to_numpy() - data['Distance'].to_numpy()[0] + 0.5
-total_energy = data['Total Energy'].to_numpy()  + 2396.283550 + 1750.398574
+
+# GC
+#total_energy = data['Total Energy'].to_numpy()  + 2396.283550 + 1750.398574
+
+# AT
+total_energy = data['Total Energy'].to_numpy()  + 1959.692534 + 2039.322296
+
 
 # Create an interpolator for the Total Energy data
 interpolator = interpolate.interp1d(distance, total_energy, kind='cubic')
