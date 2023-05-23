@@ -12,8 +12,8 @@ AT_params = ["AT.fdf", 15, 11, 27, "Energy_AT_", "AT"]
 
 def main():
     # User defined Parameters
-    PARAMS = GC_params
-    Nproc = 4
+    PARAMS = AT_params
+    Nproc = 6
 
     # Reference atoms
     File = PARAMS[0]
