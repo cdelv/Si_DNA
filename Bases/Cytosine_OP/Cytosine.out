@@ -12,14 +12,14 @@ METIS ordering support
 Lua support
 
 * Running on 4 nodes in parallel
->> Start of run:  12-MAY-2023  21:56:02
+>> Start of run:   1-JUN-2023  10:37:06
 
                            ***********************       
                            *  WELCOME TO SIESTA  *       
                            ***********************       
 
 reinit: Reading from standard input
-reinit: Dumped input in INPUT_TMP.01566
+reinit: Dumped input in INPUT_TMP.91910
 ************************** Dump of input data file ****************************
 # mpirun -np 4 siesta-4.1.5 < Cytosine.fdf > Cytosine.out
 SystemLabel      Cytosine
@@ -923,7 +923,7 @@ siesta: FreeEng =     -1732.348303
         iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
    scf:    1    -1703.744114    -1732.348033    -1732.348303  0.966441 -4.893051 20.848827
      spin moment: S , {S} =    0.00134   0.00000  -0.00000   0.00134
-timer: Routine,Calls,Time,% = IterSCF        1       5.731  12.77
+timer: Routine,Calls,Time,% = IterSCF        1       5.563  12.49
    scf:    2    -1757.325582    -1747.803964    -1747.803965  0.155969 -4.608404  9.102992
      spin moment: S , {S} =    0.00006   0.00000   0.00000   0.00006
    scf:    3    -1750.387297    -1749.614394    -1749.614394  0.067901 -4.210123  6.733814
@@ -34105,5 +34105,5 @@ WARNING: alloc-realloc-dealloc name mismatch
          Size:               -52. Bytes
          Node:     0
          Subsequent mismatches will not be reported
->> End of run:  12-MAY-2023  23:13:56
+>> End of run:   1-JUN-2023  11:55:48
 Job completed
