@@ -1,20 +1,19 @@
 #############
 # Functional
 #############
-XC.Functional   GGA
-XC.Authors      PBE
+XC.Functional               GGA
+XC.Authors                  PBE
 
 #############
 # Base
 #############
-PAO.BasisSize       DZP
-PAO.BasisType       split
-PAO.SplitNorm       0.28
-PAO.SplitNormH      0.62
-PAO.EnergyShift     0.002 Ry
-Mesh.Cutoff         340 Ry
-Grid.CellSampling   [2 2 2]    # Reduces egg box effect
-Spin                spin-orbit # polarized, non-colinear, spin-orbit
+PAO.BasisSize               DZP
+PAO.BasisType               split
+PAO.SplitNorm               0.28
+PAO.SplitNormH              0.62
+PAO.EnergyShift             0.002 Ry
+Mesh.Cutoff                 340 Ry
+Spin                        spin-orbit # polarized, non-colinear, spin-orbit
 
 ###################
 # Self Consistance
@@ -33,16 +32,16 @@ DM.History.Depth            3
 ################
 # Diagon Solver
 ################
-SolutionMethod      diagon
-Diag.Algorithm      ELPA-1stage
-Diag.UseNewDiagk    T
+SolutionMethod              diagon
+Diag.Algorithm              ELPA-1stage
+Diag.UseNewDiagk            T
 
 ################
 # Metis Support
 ################
-UseDomainDecomposition  T
-UseSpatialDecomposition T
-AllocReportLevel        2 
+UseDomainDecomposition      T
+UseSpatialDecomposition     T
+AllocReportLevel            2 
 
 #############
 # Calculate
@@ -59,21 +58,21 @@ MD.InitialTemperature       100 K
 ##############
 # Output info
 ##############
-UseSaveData         F
-Write.Denchar       T
-WriteCoorInital     T
-WriteCoorStep       T
-WriteMDHistory      F
-WriteForces         T
-WriteKpoints        F
-WriteEigenvalues    T
-WriteKbands         F
-WriteBands          F
-WriteWaveFunctions  F
-WriteMullikenPop    1
-WriteDM             F
-WriteCoorXmol       F
-WriteCoorCerius     F
-WriteMDXmol         F
-CDF.Save            F
-CDF.MPI             F
+UseSaveData                 F
+Write.Denchar               T
+WriteCoorInital             T
+WriteCoorStep               T
+WriteMDHistory              F
+WriteForces                 T
+WriteKpoints                F
+WriteEigenvalues            T
+WriteKbands                 F
+WriteBands                  F
+WriteWaveFunctions          F
+WriteMullikenPop            1
+WriteDM                     F
+WriteCoorXmol               F
+WriteCoorCerius             F
+WriteMDXmol                 F
+CDF.Save                    F
+CDF.MPI                     F

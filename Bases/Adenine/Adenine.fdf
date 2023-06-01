@@ -15,6 +15,7 @@ NumberOfSpecies  3
 # This overrides Defaults.fdf configuration
 ############################################
 MD.TypeOfRun                CG # CG, Verlet
+Grid.CellSampling           [2 2 2]    # Reduces egg box effect
 MD.Steps                    0
 
 AtomicCoordinatesFormat NotScaledCartesianAng

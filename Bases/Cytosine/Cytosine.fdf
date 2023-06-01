@@ -16,6 +16,7 @@ NumberOfSpecies  4
 # This overrides Defaults.fdf conf
 ###################################
 MD.TypeOfRun                CG # CG, Verlet
+Grid.CellSampling           [2 2 2]    # Reduces egg box effect
 MD.Steps                    0
 
 AtomicCoordinatesFormat NotScaledCartesianAng
@@ -34,5 +35,15 @@ AtomicCoordinatesFormat NotScaledCartesianAng
     2.96638692    1.43135303   -0.00000000   4      12  O
     2.71855408   -1.43251806    0.00000000   3      13  H
 %endblock AtomicCoordinatesAndAtomicSpecies
+
+#############
+# Lattice
+#############
+LatticeConstant 1.0 Ang
+%block LatticeVectors
+    14.828907    0.000000    0.000000
+    0.000000   14.495518    0.000000
+    0.000000    0.000000    9.854683
+%endblock LatticeVectors
 
 %include ../../Defaults.fdf

@@ -16,8 +16,7 @@ NumberOfSpecies  4
 # This overrides Defaults.fdf conf
 ###################################
 MD.TypeOfRun                CG # CG, Verlet
-#MD.Steps                    400
-#MD.MaxForceTol              0.0001 eV/Ang
+Grid.CellSampling           [2 2 2]    # Reduces egg box effect
 
 AtomicCoordinatesFormat NotScaledCartesianAng
 %block AtomicCoordinatesAndAtomicSpecies
@@ -38,9 +37,9 @@ AtomicCoordinatesFormat NotScaledCartesianAng
    -0.17692559    5.43415161    0.00000000   3      15  H
 %endblock AtomicCoordinatesAndAtomicSpecies
 
-#%block Geometry.Constraints
-    #atom all 0.0 0.0 1.0 # constrain along z Cartesian vector
-    #clear-prev [6 -- 8]
-#%endblock
+%block Geometry.Constraints
+    atom all 0.0 0.0 1.0 # constrain along z Cartesian vector
+    clear-prev [6 -- 8]
+%endblock
 
 %include ../../Defaults.fdf
