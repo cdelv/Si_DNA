@@ -7,7 +7,7 @@ import subprocess
 import numpy as np
 
 # Index as in SIESTA fdf, ie., starts at 1
-GC_params = ["GC.fdf", 16, 1, 27, "GCEnergy_GC_", "GC"]
+GC_params = ["GC.fdf", 16, 1, 27, "Energy_GC_", "GC"]
 AT_params = ["AT.fdf", 15, 11, 27, "Energy_AT_", "AT"]
 
 def main():

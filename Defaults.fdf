@@ -13,6 +13,7 @@ PAO.SplitNorm       0.28
 PAO.SplitNormH      0.62
 PAO.EnergyShift     0.002 Ry
 Mesh.Cutoff         340 Ry
+Grid.CellSampling   [2 2 2]    # Reduces egg box effect
 Spin                spin-orbit # polarized, non-colinear, spin-orbit
 
 ###################

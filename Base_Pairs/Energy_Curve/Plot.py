@@ -3,17 +3,17 @@ import matplotlib.pyplot as plt
 from scipy import interpolate, optimize
 
 # Read the CSV file into a pandas DataFrame
-data = pd.read_csv('GC_Results.csv')
+#data = pd.read_csv('GC_Results.csv')
 data = pd.read_csv('AT_Results.csv')
 
 # Extract the Distance and Total Energy columns
 distance = data['Distance'].to_numpy() - data['Distance'].to_numpy()[0] + 0.5
 
 # GC
-#total_energy = data['Total Energy'].to_numpy()  + 2396.283550 + 1750.398574
+total_energy = data['Total Energy'].to_numpy()  + 2396.283550 + 1750.398574
 
 # AT
-total_energy = data['Total Energy'].to_numpy()  + 1959.692534 + 2039.322296
+#total_energy = data['Total Energy'].to_numpy()  + 1959.692534 + 2039.322296
 
 
 # Create an interpolator for the Total Energy data
@@ -29,7 +29,7 @@ plt.plot(distance, total_energy, 'o')
 plt.xlabel('Distance')
 plt.ylabel('Total Energy')
 plt.title('Distance vs Total Energy')
-plt.ylim(-2, 2)
+#plt.ylim(-2, 2)
 
 # Add horizontal and vertical lines for the minimum value
 plt.axhline(minimum_total_energy, color='r', linestyle='--')
