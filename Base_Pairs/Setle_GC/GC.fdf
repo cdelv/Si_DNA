@@ -12,6 +12,11 @@ NumberOfSpecies  4
     4    1  H
 %endblock ChemicalSpeciesLabel
 
+###################################
+# This overrides Defaults.fdf conf
+###################################
+MD.TypeOfRun                CG # CG, Verlet
+
 AtomicCoordinatesFormat NotScaledCartesianAng
 %block AtomicCoordinatesAndAtomicSpecies
      0.894993910     3.939627430     0.000000000    1

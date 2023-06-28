@@ -7,13 +7,13 @@ import subprocess
 import numpy as np
 
 # Index as in SIESTA fdf, ie., starts at 1
-GC_params = ["GC.fdf", 16, 1, 27, "Energy_GC_", "GC"]
+GC_params = ["GC.fdf", 16, 12, 21, "Energy_GC_", "GC"]
 AT_params = ["AT.fdf", 15, 11, 27, "Energy_AT_", "AT"]
 
 def main():
     # User defined Parameters
-    PARAMS = AT_params
-    Nproc = 6
+    PARAMS = GC_params
+    Nproc = 4
 
     # Reference atoms
     File = PARAMS[0]
@@ -28,9 +28,9 @@ def main():
     offset_vector /= distance # make it unitary
 
     # Simulation range parameters
-    num_steps = 40
-    start_scaling_factor = -distance + 0.5  # Initial scaling factor: 0.5 ang distance
-    end_scaling_factor = -distance + 6.0    # Final scaling factor:   6.0 ang distance
+    num_steps = 30
+    start_scaling_factor = -distance + 1.5  # Initial scaling factor: 1.5 ang distance
+    end_scaling_factor = -distance + 7.5    # Final scaling factor:   7.5 ang distance
 
     # Get current directory
     current_directory = os.path.abspath(os.path.dirname(__file__))
@@ -40,7 +40,7 @@ def main():
 
     # Run the simulation for each distance
     step = 0
-    for scaling_factor in scaling_factors: #scaling_factors:
+    for scaling_factor in scaling_factors:
         os.chdir(current_directory) # Make sure we are in the correct directory
 
         # Get atomic coordinates from fdf file

@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 from scipy import interpolate, optimize
 
 # Read the CSV file into a pandas DataFrame
-#data = pd.read_csv('GC_Results.csv')
-data = pd.read_csv('AT_Results.csv')
+data = pd.read_csv('GC_Results.csv')
+#data = pd.read_csv('AT_Results.csv')
 
 # Extract the Distance and Total Energy columns
 distance = data['Distance'].to_numpy() - data['Distance'].to_numpy()[0] + 0.5
