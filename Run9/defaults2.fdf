@@ -1,0 +1,105 @@
+#############
+# Functional
+#############
+XC.functional		GGA
+XC.Authors		PBE
+
+#############
+# Base
+#############
+PAO.BasisSize		DZP
+PAO.BasisType		split
+PAO.SplitNorm		0.28
+PAO.SplitNormH		0.62
+PAO.EnergyShift		0.002 Ry
+Mesh.Cutoff 		340 Ry
+SpinPolarized		T
+
+###################
+# Self Consistance
+###################
+MinSCFIterations 	3
+MaxSCFIterations 	200
+SCF.MustConverge 	T
+SCF.DM.Tolerance	0.00008
+SCF.H.Tolerance		0.0001 eV
+
+%block SCF.Mixers
+	init
+	final
+%endblock
+
+%block SCF.Mixer.init
+	method		pulay
+	weight		0.20
+	history		20
+	Restart 	50
+	Restart.Save 	6
+	next final
+	next.p		0.05
+%endblock
+
+%block SCF.Mixer.final
+	method		pulay
+	weight		0.30
+	history		10
+	Restart 	30
+	Restart.Save 	6
+	Linear.After	3
+	Linear.After.Weight 0.1
+%endblock
+
+################
+# Diagon Solver
+################
+SolutionMethod 		diagon
+Diag.Algorithm 		ELPA-1stage
+Diag.UseNewDiagk 	T
+
+################
+# Metis Support
+################
+UseDomainDecomposition 	T
+UseSpatialDecomposition	T
+AllocReportLevel 	2 
+
+#############
+# Calculate
+############
+MD.TypeOfRun 		CG  #CG Broyden FIRE Verlet Lua TDED
+MD.VariableCell 	F
+MD.Steps		5000
+MD.MaxForceTol		0.01 eV/Ang
+ElectronicTemperature	300.00 K
+DM.History.Depth	6
+MD.Broyden.History.Steps 6
+MD.MaxDispl		0.4 Ang
+MD.LengthTimeStep	0.1 fs
+MD.InitialTemperature	0 K
+
+
+##############
+# Output info
+##############
+UseSaveData		F
+Write.Denchar 		T
+WriteCoorInital		T
+WriteCoorStep		T
+WriteMDHistory		T
+WriteForces		T
+WriteKpoints		F
+WriteEigenvalues	T
+WriteKbands		F
+WriteBands		F
+WriteWaveFunctions	F
+WriteMullikenPop	1
+WriteDM			F
+WriteCoorXmol		F
+WriteCoorCerius		F
+WriteMDXmol		F
+CDF.Save 		F
+CDF.MPI 		T
+
+
+
+

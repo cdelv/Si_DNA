@@ -28,9 +28,9 @@ def main():
     offset_vector /= distance # make it unitary
 
     # Simulation range parameters
-    num_steps = 30
+    num_steps = 40
     start_scaling_factor = -distance + 1.5  # Initial scaling factor: 1.5 ang distance
-    end_scaling_factor = -distance + 7.5    # Final scaling factor:   7.5 ang distance
+    end_scaling_factor = -distance + 6.0    # Final scaling factor:   7.5 ang distance
 
     # Get current directory
     current_directory = os.path.abspath(os.path.dirname(__file__))
@@ -85,7 +85,7 @@ def main():
     with open(csv_file, 'w', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(['Distance', 'Total Energy'])
-        writer.writerows(zip(scaling_factors, energies))
+        writer.writerows(zip(scaling_factors + distance, energies))
 
 
 def calculate_vector(coordinates, atom1_index, atom2_index):

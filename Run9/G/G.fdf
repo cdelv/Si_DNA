@@ -1,0 +1,39 @@
+# Created by GDIS version 0.90.0
+#
+
+SystemLabel      G
+
+NumberOfAtoms    16
+
+NumberOfSpecies  4
+%block ChemicalSpeciesLabel
+    1    1  H
+    2    7  N
+    3   14  Si
+    4    8  O
+%endblock ChemicalSpeciesLabel
+
+AtomicCoordinatesFormat NotScaledCartesianAng
+%block AtomicCoordinatesAndAtomicSpecies
+    4.09111767   -6.54843894    0.00000000   1       1  H
+    3.14776748   -6.31655839    0.00000000   2       2  N
+    1.77640042   -7.45251394   -0.00000000   3       3  Si
+    2.10502251   -8.88196200    0.00000000   1       4  H
+    0.33854946   -6.84669038   -0.00000000   2       5  N
+    0.59280334   -5.14191039   -0.00000000   3       6  Si
+   -0.29812022   -3.22852333   -0.00000000   3       7  Si
+   -1.75271636   -3.10299508   -0.00000000   4       8  O
+    0.99753882   -1.84078069   -0.00000000   2       9  N
+    0.52579455   -0.89693226   -0.00000000   1      10  H
+    2.73088369   -1.92564054   -0.00000000   3      11  Si
+    3.53883436   -0.39848908    0.00000000   2      12  N
+    3.07059618    0.53839033    0.00000000   1      13  H
+    4.58258156   -0.36252263    0.00000000   1      14  H
+    3.69017563   -3.33635905   -0.00000000   2      15  N
+    2.58391956   -4.66965570   -0.00000000   3      16  Si
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+%include ../defaults.fdf
+
+
+
