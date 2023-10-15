@@ -1,0 +1,48 @@
+# mpirun -np 4 siesta-4.1.5 < Cytosine.fdf > Cytosine.out
+
+SystemLabel      Cytosine
+
+NumberOfAtoms    13
+
+NumberOfSpecies  4
+%block ChemicalSpeciesLabel
+    1    1  H
+    2    7  N
+    3    14 Si
+    4    8  O
+%endblock ChemicalSpeciesLabel
+
+###################################
+# This overrides Defaults.fdf conf
+###################################
+MD.TypeOfRun                CG # CG, Verlet
+MD.Steps                    300
+
+AtomicCoordinatesFormat NotScaledCartesianAng
+%block AtomicCoordinatesAndAtomicSpecies
+    1.07734600    3.50223892    0.00000000   1       1  H
+    0.31947192    2.76322186    0.00000000   2       2  N
+   -1.36896550    3.24829211    0.00000000   3       3  Si
+   -1.56514225    4.74213492    0.00000000   1       4  H
+   -2.88975231    1.67218581    0.00000000   3       5  Si
+   -4.36828301    1.88013893    0.00000000   1       6  H
+   -1.68253237   -0.22232552    0.00000000   3       7  Si
+   -2.45591714   -1.79122426    0.00000000   2       8  N
+   -1.89470358   -2.68365996    0.00000000   1       9  H
+   -3.49890006   -1.92599771    0.00000000   1      10  H
+    0.00802617   -0.25713341    0.00000000   2      11  N
+    1.06209498    1.09794507    0.00000000   3      12  Si
+    2.63880718    1.16303814    0.00000000   4      13  O
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+#############
+# Unit Cell
+#############
+LatticeConstant 1.0 Ang
+%block LatticeVectors
+    14.828907   0.000000    0.000000
+    0.000000    14.495518   0.000000
+    0.000000    0.000000    9.854683
+%endblock LatticeVectors
+
+%include ../../../../Defaults.fdf

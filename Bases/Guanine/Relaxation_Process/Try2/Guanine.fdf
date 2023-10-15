@@ -1,0 +1,51 @@
+# mpirun -np 4 siesta-4.1.5 < Guanine.fdf > Guanine.out
+
+SystemLabel      Guanine
+
+NumberOfAtoms    16
+
+NumberOfSpecies  4
+%block ChemicalSpeciesLabel
+    1    1  H
+    2    7  N
+    3    14 Si
+    4    8  O
+%endblock ChemicalSpeciesLabel
+
+############################################
+# This overrides Defaults.fdf configuration
+############################################
+MD.TypeOfRun                CG # CG, Verlet
+MD.Steps                    300
+
+AtomicCoordinatesFormat NotScaledCartesianAng
+%block AtomicCoordinatesAndAtomicSpecies
+    4.96951342   -6.82957340    0.00000000   1       1  H
+    4.00901341   -6.40325205    0.00000000   2       2  N
+    2.49751554   -7.42359516    0.00000000   3       3  Si
+    2.72232203   -8.89829940    0.00000000   1       4  H
+    0.96392651   -6.71194524    0.00000000   2       5  N
+    1.31707909   -5.02244331    0.00000000   3       6  Si
+    0.42403706   -3.13035809    0.00000000   3       7  Si
+   -1.14163483   -3.19740443    0.00000000   4       8  O
+    1.56371383   -1.63904545    0.00000000   2       9  N
+    1.13068289   -0.67264207    0.00000000   1      10  H
+    3.32877379   -1.77429730    0.00000000   3      11  Si
+    4.05324763   -0.19064027    0.00000000   2      12  N
+    3.50564223    0.70888541    0.00000000   1      13  H
+    5.09666416   -0.08175574    0.00000000   1      14  H
+    4.35514099   -3.14253443    0.00000000   2      15  N
+    3.42290527   -4.64017762    0.00000000   3      16  Si
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+#############
+# Unit Cell
+#############
+LatticeConstant 1.0 Ang
+%block LatticeVectors
+    16.818328    0.000000    0.000000
+    0.000000   14.230200    0.000000
+    0.000000    0.000000   10.224979
+%endblock LatticeVectors
+
+%include ../../../../Defaults.fdf

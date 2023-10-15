@@ -1,0 +1,49 @@
+# mpirun -np 4 siesta-4.1.5 < Adenine.fdf > Adenine.out
+
+SystemLabel      Adenine
+
+NumberOfAtoms    15
+
+NumberOfSpecies  3
+%block ChemicalSpeciesLabel
+    1    1  H
+    2    7  N
+    3   14  Si
+%endblock ChemicalSpeciesLabel
+
+############################################
+# This overrides Defaults.fdf configuration
+############################################
+MD.TypeOfRun                CG # CG, Verlet
+MD.Steps                    300
+
+AtomicCoordinatesFormat NotScaledCartesianAng
+%block AtomicCoordinatesAndAtomicSpecies
+    2.22639502   -5.20887339    0.00000000   1       1  H
+    1.34210819   -4.63231181    0.00000000   2       2  N
+   -0.31387573   -5.35482501    0.00000000   3       3  Si
+   -0.40851123   -6.84647117    0.00000000   1       4  H
+   -1.68400389   -4.33864336    0.00000000   2       5  N
+   -0.98246232   -2.68585898    0.00000000   3       6  Si
+   -1.31905134   -0.51763396    0.00000000   3       7  Si
+   -2.98827632    0.04452788    0.00000000   2       8  N
+   -3.34641704    1.02970942    0.00000000   1       9  H
+   -3.75793334   -0.68534630    0.00000000   1      10  H
+    0.05599296    0.53662160    0.00000000   2      11  N
+    1.70121583   -0.00312387    0.00000000   3      12  Si
+    2.70257596    1.12129471    0.00000000   1      13  H
+    2.45296479   -1.57796182    0.00000000   2      14  N
+    1.20849214   -2.79563243    0.00000000   3      15  Si
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+#############
+# Unit Cell
+#############
+LatticeConstant 1.0 Ang
+%block LatticeVectors
+    14.779133    0.000000    0.000000
+    0.000000   16.638097    0.000000
+    0.000000    0.000000    9.854683
+%endblock LatticeVectors
+
+%include ../../../../Defaults.fdf
