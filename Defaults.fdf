@@ -64,6 +64,7 @@ Write.Denchar               T
 WriteCoorInital             T
 WriteCoorStep               T
 WriteMDHistory              T
+WriteMDXmol					T
 WriteForces                 T
 WriteKpoints                F
 WriteEigenvalues            T
@@ -71,7 +72,6 @@ WriteKbands                 F
 WriteBands                  F
 WriteWaveFunctions          F
 WriteMullikenPop            0
-WriteCoorXmol               F
 WriteCoorCerius             F
 CDF.Save                    F
 CDF.MPI                     F

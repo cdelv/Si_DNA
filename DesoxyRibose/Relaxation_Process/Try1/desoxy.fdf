@@ -17,6 +17,8 @@ NumberOfSpecies  3
 MD.TypeOfRun                Verlet # CG, Verlet
 MD.Steps                    1000
 MD.Quench                   True
+SCF.H.Tolerance             0.00002 eV
+SCF.DM.Tolerance            0.00008
 
 AtomicCoordinatesFormat NotScaledCartesianAng
 %block AtomicCoordinatesAndAtomicSpecies
