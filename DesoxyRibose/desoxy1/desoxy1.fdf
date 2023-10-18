@@ -1,9 +1,6 @@
-# Created by GDIS version 0.90.0
-#
+SystemLabel      ribosa
 
-SystemLabel      desoxy2
-
-NumberOfAtoms    17
+NumberOfAtoms    18
 
 NumberOfSpecies  3
 %block ChemicalSpeciesLabel
@@ -12,82 +9,45 @@ NumberOfSpecies  3
     3   14  Si
 %endblock ChemicalSpeciesLabel
 
+############################################
+# This overrides Defaults.fdf configuration
+############################################
+MD.TypeOfRun                Verlet # CG, Verlet
+MD.Steps                    600
+MD.Quench                   True
+MD.InitialTemperature       10 K
+
 AtomicCoordinatesFormat NotScaledCartesianAng
 %block AtomicCoordinatesAndAtomicSpecies
-    -1.795536000    -8.822162000    -3.357406000    1
-    -0.954590000    -8.389622000    -2.996400000    2
-     0.251325000    -7.915312000    -4.205418000    3
-    -0.387521000    -7.060479000    -5.295614000    1
-     0.866233000    -9.142884000    -4.876576000    1
-     1.993201000    -6.748859000    -3.021608000    3
-     3.187549000    -6.616782000    -3.961235000    1
-     1.541923000    -5.089900000    -2.552169000    2
-     0.918898000    -4.562535000    -0.967149000    3
-     1.701913000    -3.316395000    -0.584526000    1
-    -0.548906000    -4.194023000    -1.125604000    1
-     2.525853000    -7.864752000    -0.924463000    3
-     2.061438000    -9.311283000    -0.873522000    1
-     1.290527000    -6.393724000     0.553073000    3
-    -0.004578000    -7.066792000     0.986062000    1
-     2.090903000    -5.983108000     1.782008000    1
-     4.291307000    -7.972906000    -0.606498000    1
+   -0.70874451    8.71626483    1.79121898   1       1  H
+   -0.00115591    8.01754401    1.70514593   2       2  O
+    0.83250491    7.73127101    3.21678575   3       3  Si
+   -0.08903545    6.95761847    4.12722085   1       4  H
+    1.15514124    9.07214172    3.85673934   1       5  H
+    2.86934562    6.70590658    2.60751977   3       6  Si
+    3.82183330    6.78187320    3.76816827   1       7  H
+    2.75348308    5.02206910    2.15005908   2       8  O
+    2.28589231    4.52354032    0.52588330   3       9  Si
+    3.28915034    3.52335398    0.00101543   1      10  H
+    0.97532570    3.78759311    0.62834917   1      11  H
+    3.43865634    7.88699958    0.65210818   3      12  Si
+    3.02000676    9.33777727    0.71693917   1      13  H
+    2.19970943    6.49377566   -0.79626550   3      14  Si
+    0.78441968    6.96309115   -0.98678890   1      15  H
+    2.84435510    6.34065937   -2.15322729   1      16  H
+    5.15224344    7.75155493    0.35689047   2      17  O
+    5.41834104    7.93550762   -0.58265379   1      18  H
 %endblock AtomicCoordinatesAndAtomicSpecies
 
-PAO.BasisType    split
-PAO.BasisSize    DZP
-SolutionMethod     diagon
-PAO.SplitNorm    0.150000
-PAO.EnergyShift    0.020000  Ry
-Harris_functional    false
-XC.functional    LDA
-XC.Authors    PZ
-SpinPolarized    false
-MeshCutoff    100.000000 Ry
-kgrid_cutoff    0.000000 Bohr
-ElectronicTemperature    300.000000 K
-MaxSCFIterations    50
-DM.NumberPulay    0
-DM.MixingWeight    0.250000
-MD.TypeOfRun    CG
-MD.VariableCell    false
-MD.NumCGsteps    0
-MD.MaxCGDispl    0.200000 Bohr
-MD.PreconditionVariableCell    5.000000 Ang
-MD.MaxStressTol    1.000000 GPa
+#############
+# Unit Cell
+#############
+LatticeConstant 1.0 Ang
+%block LatticeVectors
+    14.215213    0.000000    0.000000
+    0.000000   14.093032    0.000000
+    0.000000    0.000000   14.526675
+%endblock LatticeVectors
 
-%block MD.TargetStress
--1.000000 -1.000000 -1.000000 0.000000 0.000000 0.000000
-%endblock MD.TargetStress
+%include ../../Defaults.fdf
 
-MD.MaxForceTol    0.040000 eV/Ang
-MD.InitialTimeStep    1
-MD.FinalTimeStep    1
-MD.LengthTimeStep    1 fs
-MD.InitialTemperature    0.000000 K
-MD.Quench    false
-MD.TargetTemperature    0.000000 K
-MD.NoseMass    100.000000 Ry*fs**2
-MD.ParrinelloRahmanMass    100.000000 Ry*fs**2
-MD.AnnealOption    TemperatureandPressure
-MD.TauRelax    100.000000 fs
-MD.BulkModulus    100.000000 Ry/Bohr**3
-MD.TargetPressure    0.000000 GPa
-MD.FCDispl    0.040000 Bohr
-MD.FCfirst    1
-MD.FClast    0
-
-UseSaveData		false
-WriteCoorInital    true
-WriteCoorStep    false
-WriteForces		false
-WriteKpoints		false
-WriteEigenvalues		false
-WriteKbands		false
-WriteBands		false
-WriteWaveFunctions		false
-WriteMullikenPop		0
-WriteDM		true
-WriteCoorXmol		false
-WriteCoorCerius		false
-WriteMDXmol		false
-WriteMDhistory		true

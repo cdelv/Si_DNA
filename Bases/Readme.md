@@ -10,6 +10,8 @@ In this directory, the optimization of single nitrogenated bases.
 
 * .XYZ files inside each directory contains the final relaxed coordinates of each molecule.
 
+* Coordinate_Multiplayer.py: recives an input file with the SIESTA coordinates and multiplies them by a constant factor. It outputs an other file. 
+
 
 ### Comments
 
