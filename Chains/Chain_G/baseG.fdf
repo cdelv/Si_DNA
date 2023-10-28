@@ -11,6 +11,16 @@ NumberOfSpecies  5
     5   15  P
 %endblock ChemicalSpeciesLabel
 
+############################################
+# This overrides Defaults.fdf configuration
+############################################
+MD.TypeOfRun                Verlet # CG, Verlet
+MD.Steps                    1000
+MD.Quench                   True
+SCF.H.Tolerance             0.00006 eV
+SCF.DM.Tolerance            0.00008
+MD.MaxForceTol              0.02 eV/Ang
+
 AtomicCoordinatesFormat NotScaledCartesianAng
 %block AtomicCoordinatesAndAtomicSpecies
     -1.844339950    16.976713490     2.939692630    1
@@ -84,6 +94,4 @@ AtomicCoordinatesFormat NotScaledCartesianAng
      3.012581980    17.398812890    -0.996330490    2
 %endblock AtomicCoordinatesAndAtomicSpecies
 
-%include ../defaults.fdf
-
-
+%include ../../Defaults.fdf
