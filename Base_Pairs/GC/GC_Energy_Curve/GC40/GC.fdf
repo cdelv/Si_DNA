@@ -15,9 +15,10 @@ NumberOfSpecies  4
 ############################################
 # This overrides Defaults.fdf configuration
 ############################################
-MD.TypeOfRun                CG # CG, Verlet
+MD.TypeOfRun                Verlet # CG, Verlet
 MD.Steps                    0
-MaxSCFIterations            600
+MaxSCFIterations            200
+SCF.MustConverge            F
 
 AtomicCoordinatesFormat NotScaledCartesianAng
 %block AtomicCoordinatesAndAtomicSpecies
@@ -51,5 +52,15 @@ AtomicCoordinatesFormat NotScaledCartesianAng
     4.63288658 -4.07521596 -0.0  2  28  N
     3.79410501 -5.58634043 0.0  3  29  Si
 %endblock AtomicCoordinatesAndAtomicSpecies
+
+#############
+# Unit Cell
+#############
+LatticeConstant 1.0 Ang
+%block LatticeVectors
+    30.00000    0.000000    0.000000
+    0.000000    45.00000    0.000000
+    0.000000    0.000000    10.00000
+%endblock LatticeVectors
 
 %include ../../../../Defaults.fdf

@@ -17,7 +17,8 @@ NumberOfSpecies  4
 ############################################
 MD.TypeOfRun                Verlet # CG, Verlet
 MD.Steps                    0
-MaxSCFIterations            300
+MaxSCFIterations            200
+SCF.MustConverge            F
 
 AtomicCoordinatesFormat NotScaledCartesianAng
 %block AtomicCoordinatesAndAtomicSpecies
@@ -52,5 +53,15 @@ AtomicCoordinatesFormat NotScaledCartesianAng
     -0.2167269525579909 9.652740811228453 0.0  3  29  Si
     1.349209977442009 9.385493961228454 0.0  4  30  O
 %endblock AtomicCoordinatesAndAtomicSpecies
+
+#############
+# Unit Cell
+#############
+LatticeConstant 1.0 Ang
+%block LatticeVectors
+    30.00000    0.000000    0.000000
+    0.000000    45.00000    0.000000
+    0.000000    0.000000    10.00000
+%endblock LatticeVectors
 
 %include ../../../../Defaults.fdf

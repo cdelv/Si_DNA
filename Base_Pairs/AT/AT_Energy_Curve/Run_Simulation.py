@@ -12,7 +12,7 @@ import subprocess
 FDF_FILE = "AT.fdf"
 OUT_FILE = "AT.out"
 PATH = os.getcwd()
-NPROC = 4
+NPROC = 8
 
 def Create_Or_Clear_Directory(directory):
     if os.path.exists(directory):
@@ -132,7 +132,7 @@ def main():
     v /= np.linalg.norm(v)
 
     base_distance = min(Meassure_Distance(atomic_coordinates, 8, 25), Meassure_Distance(atomic_coordinates, 10, 27))
-    distances = np.linspace(-base_distance + 0.2, 3*base_distance, 40)
+    distances = np.linspace(-base_distance + 0.3, 3*base_distance, 40)
     
     sim = 1
     for distance in distances:
