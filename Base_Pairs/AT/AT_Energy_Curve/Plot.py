@@ -2,10 +2,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from scipy import interpolate, optimize
 
-df = pd.read_csv('results.csv')
+df = pd.read_csv('AT_Results.csv')
 df = df[df['energy'] != 0]
 distance = df['distance'].to_numpy()
-energy = df['energy'].to_numpy()
+energy = df['energy'].to_numpy() + 3998.540469
 
 
 interpolator = interpolate.interp1d(distance, energy, kind='cubic', fill_value='extrapolate')
@@ -31,6 +31,7 @@ plt.title('Distance vs Energy')
 plt.xlabel('Distance')
 plt.ylabel('Energy')
 plt.grid(True)
+plt.ylim(ymin=-3, ymax=4)
 plt.legend()
 plt.show()
 
