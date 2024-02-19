@@ -1,0 +1,35 @@
+SystemLabel     GC                                                                              
+Denchar.TypeOfRun     3D                                                                              
+Denchar.PlotCharge              T
+Denchar.PlotWaveFunctions              F     # default value
+SystemLabel     GC                                                                              
+Number_of_species              4
+%block Chemical_species_label
+     1    1  H
+     2    7  N
+     3   14  Si
+     4    8  O
+%endblock Chemical_species_label
+DM.FormattedFiles              F     # default value
+DM.FormattedInput              F     # default value
+DM.FormattedOutput              F     # default value
+Denchar.CoorUnits     Ang                                                                             
+Denchar.DensityUnits     Ele/Ang**3                                                                      
+Denchar.NumberPointsX            250
+Denchar.NumberPointsY            250
+Denchar.NumberPointsZ              5
+Denchar.MinX         -24.56644941           Bohr
+# above item originally: Denchar.MinX         -13.00000000     Ang       
+Denchar.MaxX          24.56644941           Bohr
+# above item originally: Denchar.MaxX          13.00000000     Ang       
+Denchar.MinY         -30.23563004           Bohr
+# above item originally: Denchar.MinY         -16.00000000     Ang       
+Denchar.MaxY          30.23563004           Bohr
+# above item originally: Denchar.MaxY          16.00000000     Ang       
+Denchar.MinZ         -3.779453756           Bohr
+# above item originally: Denchar.MinZ         -2.000000000     Ang       
+Denchar.MaxZ          3.779453756           Bohr
+# above item originally: Denchar.MaxZ          2.000000000     Ang       
+Denchar.PlaneGeneration     NormalVector               # default value
+SystemLabel     GC                                                                              
+SystemLabel     GC                                                                              
