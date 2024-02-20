@@ -15,14 +15,14 @@ NumberOfSpecies  5
 # This overrides Defaults.fdf configuration
 ############################################
 MD.TypeOfRun                Verlet # CG, Verlet
-MD.Steps                    1000
+MD.Steps                    1500
 MD.Quench                   True
 SCF.H.Tolerance             0.00005 eV
 SCF.DM.Tolerance            0.00005
 MD.MaxForceTol              0.005 eV/Ang
 
 SCF.MustConverge            F
-MD.LengthTimeStep           1.5 fs
+MD.LengthTimeStep           0.5 fs
 
 %block SCF.Mixers
     init
