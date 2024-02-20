@@ -1,0 +1,50 @@
+SystemLabel      desoxy1
+
+NumberOfAtoms    18
+
+NumberOfSpecies  3
+%block ChemicalSpeciesLabel
+    1    1  H
+    2    8  O
+    3   14  Si
+%endblock ChemicalSpeciesLabel
+
+############################################
+# This overrides Defaults.fdf configuration
+############################################
+MaxSCFIterations            500
+SCF.MustConverge            T
+SCF.Mixer.Method            Pulay
+SCF.Mixer.History           20
+SCF.Mixer.Restart           60
+SCF.Mixer.Restart.Save      5
+SCF.H.Tolerance             0.01 eV
+SCF.DM.Tolerance            0.08
+MD.TypeOfRun                CG # CG, Verlet
+MD.Steps                    0
+%DM.UseSaveDM               F
+
+AtomicCoordinatesFormat NotScaledCartesianAng
+%block AtomicCoordinatesAndAtomicSpecies
+-1.98211995   21.64732847   4.47858485   1       1  H
+-0.00268367   20.15218193   4.26940710   2       2  O
+2.04846755   19.27478740   8.03448655   3       3  Si
+-0.22258383   17.30296317   10.36073982   1       4  H
+2.91125618   22.55793022   9.75371850   1       5  H
+7.17129425   16.69292665   6.49199708   3       6  Si
+9.40496257   16.86307337   9.54712968   1       7  H
+6.93907043   12.48978780   5.27981973   2       8  O
+5.72938540   11.24594765   1.24493152   3       9  Si
+8.28656667   8.76061015   0.00021725   1       10  H
+2.45807470   9.41731550   1.62420855   1       11  H
+8.69745033   19.60060685   1.57039630   3       12  Si
+7.61144540   23.21956473   1.62550345   1       13  H
+5.53474160   16.17697575   -2.07597215   3       14  Si
+2.01561587   17.51998307   -2.43943400   1       15  H
+7.16358342   15.76786070   -5.48385447   1       16  H
+12.98317217   19.27475790   0.81123980   2       17  O
+13.66148182   19.94699040   -1.47661155   1       18  H
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+
+%include ../../Defaults.fdf
