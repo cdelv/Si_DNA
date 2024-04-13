@@ -21,42 +21,13 @@ SCF.H.Tolerance             0.00005 eV
 SCF.DM.Tolerance            0.00005
 MD.MaxForceTol              0.005 eV/Ang
 
-SCF.MustConverge            T
+SCF.MustConverge            F
 MD.LengthTimeStep           0.5 fs
 
-%block SCF.Mixers
-    init
-    mid
-    final
-%endblock
-
-%block SCF.Mixer.init
-    method pulay
-    weight 0.07
-    history 10
-    restart 12
-    restart.save 4
-    next mid
-    iterations 30
-%endblock
-
-%block SCF.Mixer.mid
-    method pulay
-    weight 0.13
-    history 6
-    restart 12
-    restart.save 3
-    next final
-    iterations 24
-%endblock
-
-%block SCF.Mixer.final
-    method pulay
-    weight 0.2
-    history 6
-    restart 20
-    iterations 15
-%endblock
+#weight 0.07
+SCF.Mixer.Restart.Save	    4
+SCF.Mixer.History           10
+SCF.Mixer.Weight	    0.1
 
 AtomicCoordinatesFormat NotScaledCartesianAng
 %block AtomicCoordinatesAndAtomicSpecies
