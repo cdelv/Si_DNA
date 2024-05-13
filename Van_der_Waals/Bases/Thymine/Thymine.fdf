@@ -1,0 +1,62 @@
+# mpirun -np 4 siesta-4.1.5 < Thymine.fdf > Thymine.out
+
+SystemLabel      Thymine
+
+NumberOfAtoms    15
+
+NumberOfSpecies  4
+%block ChemicalSpeciesLabel
+    1    1  H
+    2    7  N
+    3   14  Si
+    4    8  O
+%endblock ChemicalSpeciesLabel
+
+#############
+# Functional
+#############
+XC.Functional               VDW
+XC.Authors                  LMKLL
+
+############################################
+# This overrides Defaults.fdf configuration
+############################################
+MD.TypeOfRun                CG # CG, Verlet
+MD.Steps                    300
+
+AtomicCoordinatesFormat NotScaledCartesianAng
+%block AtomicCoordinatesAndAtomicSpecies
+    1.75272380    6.04724099    0.00000000   1       1  H
+    0.85023162    5.49134968    0.00000000   2       2  N
+   -0.64855363    6.48710289    0.00000000   3       3  Si
+   -0.17775410    7.91656090    0.00000000   1       4  H
+   -2.57705270    5.46721530    0.00000000   3       5  Si
+   -4.88300095    5.79032309    0.00000000   3       6  Si
+   -5.34355541    6.58250522   -1.19339296   1       7  H
+   -5.34379096    4.35773049   -0.08543086   1       8  H
+   -5.34735485    6.41418185    1.28522373   1       9  H
+   -2.10992716    3.24283494    0.00000000   3      10  Si
+   -3.15334887    2.04630673    0.00000000   4      11  O
+   -0.36583553    2.82530237    0.00000000   2      12  N
+   -0.17588440    1.77882327    0.00000000   1      13  H
+    1.13322252    3.73493473    0.00000000   3      14  Si
+    2.54062384    3.02494249    0.00000000   4      15  O
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+#############
+# Unit Cell
+#############
+LatticeConstant 1.0 Ang
+%block LatticeVectors
+    16.818328    0.000000    0.000000
+    0.000000   14.230200    0.000000
+    0.000000    0.000000   10.224979
+%endblock LatticeVectors
+
+%block Geometry.Constraints
+    atom all 0.0 0.0 1.0 # constrain along z Cartesian vector
+    clear-prev [7 -- 9]
+    atom [1]
+%endblock
+
+%include ../../../Defaults.fdf
