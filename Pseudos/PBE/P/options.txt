@@ -1,0 +1,9 @@
+Good options in lines 
+[38]
+
+Score:3.62078e-05
+Edit Data/temporary.inp and Run with: 
+sh /opt/atom/Tutorial/Utils/pg.sh temporary.inp && sh /opt/atom/Tutorial/Utils/pt.sh test.inp temporary.vps 
+ 
+The good options are presented in order as follows
+0.30,0.32,2.27,0.25,0.00,0.00
