@@ -1,0 +1,61 @@
+#
+# All-electron calculations for a series of C configurations
+#
+   ae C Test GS 1s2 2s2 2p2 (C^{0})
+   C    vlr
+       0.0
+    1    3
+    2    0      1.00      1.00
+    2    1      1.00      1.00
+    3    2      0.00      0.00
+   ae C Test GS 1s2 2s2 2p0  (C^{+2})
+   C    vlr
+       0.0
+    1    3
+    2    0      1.00      1.00
+    2    1      0.00      0.00
+    3    2      0.00      0.00
+   ae C Test GS 1s2 2s2 2p6 (C^{-4})
+   C    vlr
+       0.0
+    1    3
+    2    0      1.00      1.00
+    2    1      3.00      3.00
+    3    2      0.00      0.00
+   ae C Test 1s2 2s1 2p3 (C^{0})
+   C    vlr
+       0.0
+    1    3
+    2    0      0.50      0.50
+    2    1      1.50      1.50
+    3    2      0.00      0.00
+# Pseudopotential test calculations
+#
+   pt C Test GS 1s2 2s2 2p2 (C^{0})
+   C    vlr
+       0.0
+    1    3
+    2    0      1.00      1.00
+    2    1      1.00      1.00
+    3    2      0.00      0.00
+   pt C Test GS 1s2 2s2 2p0  (C^{+2})
+   C    vlr
+       0.0
+    1    3
+    2    0      1.00      1.00
+    2    1      0.00      0.00
+    3    2      0.00      0.00
+   pt C Test GS 1s2 2s2 2p6 (C^{-4})
+   C    vlr
+       0.0
+    1    3
+    2    0      1.00      1.00
+    2    1      3.00      3.00
+    3    2      0.00      0.00
+   pt C Test 1s2 2s1 2p3 (C^{0})
+   C    vlr
+       0.0
+    1    3
+    2    0      0.50      0.50
+    2    1      1.50      1.50
+    3    2      0.00      0.00
