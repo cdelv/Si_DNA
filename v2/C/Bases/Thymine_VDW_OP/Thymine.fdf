@@ -1,0 +1,60 @@
+# mpirun -np 8 siesta-5 < Thymine.fdf > Thymine.out
+
+SystemLabel      Thymine
+
+NumberOfAtoms    15
+
+NumberOfSpecies  4
+%block ChemicalSpeciesLabel
+    1    1  H   ../../../Pseudos/VW/H/H.psf
+    2    6  C   ../../../Pseudos/VW/C/C.psf
+    3    7  N   ../../../Pseudos/VW/N/N.psf
+    4    8  O   ../../../Pseudos/VW/O/O.psf
+%endblock ChemicalSpeciesLabel
+
+############################################
+# This overrides Defaults.fdf configuration
+############################################
+XC.Functional               VDW
+XC.Authors                  DRSLL
+
+MD.Steps                1000
+
+%block Geometry.Constraints
+    atom all 0.0 0.0 1.0 # constrain along z Cartesian vector
+    atom [4]
+    clear-prev [13, 14, 15]
+%endblock
+
+AtomicCoordinatesFormat NotScaledCartesianAng
+%block AtomicCoordinatesAndAtomicSpecies
+   -1.54987459    1.91092563    0.00000000   4       1  O
+    2.92523104    0.31921641    0.00000000   4       2  O
+    0.67306595    1.12214136    0.00000000   3       3  N
+    1.11480000   -1.23160000    0.00000000   3       4  N
+   -1.23965168   -0.47943666    0.00000000   2       5  C
+   -0.81051817    0.92652017    0.00000000   2       6  C
+   -0.30357468   -1.46528293    0.00000000   2       7  C
+   -2.69917722   -0.82316223    0.00000000   2       8  C
+    1.72000902    0.10539900    0.00000000   2       9  C
+   -0.56623916   -2.52616431    0.00000000   1      10  H
+    0.99786929    2.11232907    0.00000000   1      11  H
+    1.75804903   -2.04476313    0.00000000   1      12  H
+   -3.20617833   -0.42216488   -0.88890000   1      13  H
+   -3.20718682   -0.42218389    0.88870000   1      14  H
+   -2.85549408   -1.91774032    0.00000000   1      15  H
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+
+#############
+# Unit Cell
+#############
+LatticeConstant 1.0 Ang
+%block LatticeVectors
+    12.649619   0.000000    0.000000
+    0.000000    11.754064   0.000000
+    0.000000    0.000000    8.675604
+%endblock LatticeVectors
+
+
+%include ../../../Defaults.fdf

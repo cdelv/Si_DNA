@@ -1,0 +1,42 @@
+# mpirun -np 8 siesta-5 < Cytosine.fdf > Cytosine.out
+
+SystemLabel      Cytosine
+
+NumberOfAtoms    13
+
+NumberOfSpecies  4
+%block ChemicalSpeciesLabel
+    1    1  H ../../../Pseudos/PBE/H/H.psf
+    2    7  N ../../../Pseudos/PBE/N/N.psf
+    3    14 Si ../../../Pseudos/PBE/Si/Si.psf
+    4    8  O ../../../Pseudos/PBE/O/O.psf
+%endblock ChemicalSpeciesLabel
+
+###################################
+# This overrides Defaults.fdf conf
+###################################
+MD.Steps                    1000
+
+%block Geometry.Constraints
+    atom all 0.0 0.0 1.0 # constrain along z Cartesian vector
+    atom [5]
+%endblock
+
+AtomicCoordinatesFormat NotScaledCartesianAng
+%block AtomicCoordinatesAndAtomicSpecies
+    0.99446407    3.49874632    0.00000000   1       1  H
+    0.25990692    2.73738523    0.00000000   2       2  N
+   -1.43750707    3.23076129    0.00000000   3       3  Si
+   -1.56659198    4.73960210    0.00000000   1       4  H
+   -2.96939626    1.65863702    0.00000000   3       5  Si
+   -4.44968551    1.87970321    0.00000000   1       6  H
+   -1.74033533   -0.22942544    0.00000000   3       7  Si
+   -2.49605866   -1.81159486    0.00000000   2       8  N
+   -1.89727100   -2.68272681    0.00000000   1       9  H
+   -3.53931086   -1.96886349    0.00000000   1      10  H
+   -0.04887461   -0.24279353    0.00000000   2      11  N
+    1.04567892    1.08882330    0.00000000   3      12  Si
+    2.63459195    1.16277696    0.00000000   4      13  O
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+%include ../../../Defaults.fdf

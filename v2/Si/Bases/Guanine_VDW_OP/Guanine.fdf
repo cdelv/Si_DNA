@@ -1,0 +1,58 @@
+# mpirun -np 8 siesta-5 < Guanine.fdf > Guanine.out
+
+SystemLabel      Guanine
+
+NumberOfAtoms    16
+
+NumberOfSpecies  4
+%block ChemicalSpeciesLabel
+    1    1  H ../../../Pseudos/VW/H/H.psf
+    2    7  N ../../../Pseudos/VW/N/N.psf
+    3    14 Si ../../../Pseudos/VW/Si/Si.psf
+    4    8  O ../../../Pseudos/VW/O/O.psf
+%endblock ChemicalSpeciesLabel
+
+############################################
+# This overrides Defaults.fdf configuration
+############################################
+XC.Functional               VDW
+XC.Authors                  DRSLL
+
+MD.Steps                    1000
+
+%block Geometry.Constraints
+    atom all 0.0 0.0 1.0 # constrain along z Cartesian vector
+    atom [6]
+%endblock
+
+AtomicCoordinatesFormat NotScaledCartesianAng
+%block AtomicCoordinatesAndAtomicSpecies
+    5.51499433   -6.73542603    0.00000000   1       1  H
+    4.49668993   -6.49969802    0.00000000   2       2  N
+    3.20696287   -7.73699471    0.00000000   3       3  Si
+    3.70523112   -9.12632560    0.00000000   1       4  H
+    1.58602673   -7.26864074    0.00000000   2       5  N
+    1.60862386   -5.46691202    0.00000000   3       6  Si
+    0.39664659   -3.60445475    0.00000000   3       7  Si
+   -1.13326124   -3.19545819    0.00000000   4       8  O
+    1.63964823   -2.18836936    0.00000000   2       9  N
+    1.07273950   -1.29576183    0.00000000   1      10  H
+    3.39197379   -2.08169151    0.00000000   3      11  Si
+    4.08086968   -0.48706852    0.00000000   2      12  N
+    3.54076212    0.40505808    0.00000000   1      13  H
+    5.12537589   -0.39066969    0.00000000   1      14  H
+    4.51824581   -3.33711575    0.00000000   2      15  N
+    3.70506191   -4.86141287    0.00000000   3      16  Si
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+#############
+# Unit Cell
+#############
+LatticeConstant 1.0 Ang
+%block LatticeVectors
+       13.438530    0.000000    0.000000
+        0.000000   17.285978    0.000000
+        0.000000    0.000000    8.754136
+%endblock LatticeVectors
+
+%include ../../../Defaults.fdf

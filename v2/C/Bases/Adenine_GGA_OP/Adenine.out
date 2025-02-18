@@ -1,0 +1,3818 @@
+Executable      : siesta-5
+Version         : 5.1-MaX-41-g6ad11e234
+Architecture    : x86_64
+Compiler version: GNU-11.4.0
+Compiler flags  : -DSIESTA__METIS -fallow-argument-mismatch -O3 -march=native
+Parallelisations: MPI, OpenMP
+* OpenMP version: 201511
+NetCDF support
+NetCDF-4 support
+NetCDF-4 MPI-IO support
+METIS ordering support
+Lua support
+Native ELPA support
+DFT-D3 support
+Wannier90 wrapper support
+
+Runtime information:
+* Directory : /home/wind/Documents/Si_DNA2/C/Bases/Adenine_GGA_OP
+* Running on 8 nodes in parallel.
+* Running 1 OpenMP threads.
+* Running 8 processes.
+* OpenMP NOT bound (please bind threads!)
+* OpenMP runtime schedule DYNAMIC, chunks 1
+** Changing chunk size:
+** OpenMP runtime schedule DYNAMIC, chunks 32
+** OpenMP (trying to FORCE nesting)
+* OpenMP allows 255 nested levels.
+>> Start of run:   1-SEP-2024  22:54:53
+
+                           *********************** 
+                           *  WELCOME TO SIESTA  * 
+                           *********************** 
+
+ NOTE: Siesta V5 introduces some new defaults for basis-set generation
+ NOTE: which might lead to slightly different numerical results.
+ NOTE: Please see the manual for full details and compatibility measures.
+
+
+reinit: Reading from standard input
+reinit: Dumping input in INPUT_TMP.52351
+************************** Dump of input data file ****************************
+# mpirun -np 8 siesta-5 < Adenine.fdf > Adenine.out
+SystemLabel      Adenine
+NumberOfAtoms    15
+NumberOfSpecies  3
+%block ChemicalSpeciesLabel
+    1    1  H   ../../../Pseudos/PBE/H/H.psml
+    2    6  C   ../../../Pseudos/PBE/C/C.psml
+    3    7  N   ../../../Pseudos/PBE/N/N.psml
+%endblock ChemicalSpeciesLabel
+############################################
+# This overrides Defaults.fdf configuration
+############################################
+MD.Steps                1000
+%block Geometry.Constraints
+    atom all 0.0 0.0 1.0 # constrain along z Cartesian vector
+    atom [6]
+%endblock
+AtomicCoordinatesFormat NotScaledCartesianAng
+%block AtomicCoordinatesAndAtomicSpecies
+   -1.1990   -1.3997    0.0000 3
+   -2.0752    0.6499    0.0000 3
+    0.0337    1.8594    0.0000 3
+    1.9998    0.4150    0.0000 3
+    1.8241   -1.9760    0.0000 3
+   -0.1359   -0.5421    0.0000 2
+   -0.7056    0.7241    0.0000 2
+    1.2359   -0.7004    0.0000 2
+   -2.3386   -0.6394    0.0000 2
+    1.3607    1.6092    0.0000 2
+   -1.1566   -2.4103    0.0000 1
+   -3.3225   -1.0864    0.0000 1
+    2.0034    2.4831    0.0000 1
+    2.8322   -2.0528    0.0000 1
+    1.2503   -2.8082    0.0000 1
+%endblock AtomicCoordinatesAndAtomicSpecies
+#############
+# Unit Cell
+#############
+LatticeConstant 1.0 Ang
+%block LatticeVectors
+    13.490414   0.000000    0.000000
+    0.000000    12.540674   0.000000
+    0.000000    0.000000    6.994977
+%endblock LatticeVectors
+%include ../../../Defaults.fdf
+************************** End of input data file *****************************
+
+reinit: -----------------------------------------------------------------------
+reinit: System Name: 
+reinit: -----------------------------------------------------------------------
+reinit: System Label: Adenine
+reinit: -----------------------------------------------------------------------
+
+NOTE on units for spin output: 
+{S} is the spin magnetic moment, in units of the Bohr magneton,
+assuming a g-factor for the electron spin of exactly 2.
+The spin magnetic moment is then numerically equal to the charge inbalance,
+in units of electrons, between the spin-up and -down channels.
+
+
+initatom: Reading input for the pseudopotentials and atomic orbitals ----------
+Species number:   1 Atomic number:    1 Label: H
+Species number:   2 Atomic number:    6 Label: C
+Species number:   3 Atomic number:    7 Label: N
+
+Ground state valence configuration (from tables):   1s01  2p00  3d00  4f00
+Ground state valence configuration (from tables):   2s02  2p02  3d00  4f00
+Ground state valence configuration (from tables):   2s02  2p03  3d00  4f00
+
+---- Processing specs for species: H
+Reading pseudopotential information in PSML from:
+  ../../../Pseudos/PBE/H/H.psml
+PSML file version: 1.1
+Using libxc ids:  101 130
+GGA--PBE XC_GGA_X_PBE--XC_GGA_C_PBE pb
+PSML uuid: d073b020-3e16-11ef-6770-6689b1f74d2d
+
+---- Processing specs for species: C
+Reading pseudopotential information in PSML from:
+  ../../../Pseudos/PBE/C/C.psml
+PSML file version: 1.1
+Using libxc ids:  101 130
+GGA--PBE XC_GGA_X_PBE--XC_GGA_C_PBE pb
+PSML uuid: b2c727b0-3e65-11ef-7b18-4b3656dbbbdf
+
+---- Processing specs for species: N
+Reading pseudopotential information in PSML from:
+  ../../../Pseudos/PBE/N/N.psml
+PSML file version: 1.1
+Using libxc ids:  101 130
+GGA--PBE XC_GGA_X_PBE--XC_GGA_C_PBE pb
+PSML uuid: c22083e0-3e3e-11ef-7253-eaffe77f5605
+
+---- Pseudopotential check for H 
+
+Pseudopotential generated from a fully relativistic atomic calculation
+There are spin-orbit semi-local pseudopotentials available
+
+Pseudized shells:
+1s( 1.00) rc: 0.05
+Valence configuration for ps generation: 1s: Total charge:   1.000000
+
+---- Pseudopotential check for C 
+
+Pseudopotential generated from a fully relativistic atomic calculation
+There are spin-orbit semi-local pseudopotentials available
+
+Pseudized shells:
+2s( 2.00) rc: 1.10
+2p( 2.00) rc: 1.00
+3d( 0.00) rc: 0.96
+Valence configuration for ps generation: 2s:2p: Total charge:   4.000000
+
+---- Pseudopotential check for N 
+
+Pseudopotential generated from a fully relativistic atomic calculation
+There are spin-orbit semi-local pseudopotentials available
+
+Pseudized shells:
+2s( 2.00) rc: 1.02
+2p( 3.00) rc: 1.36
+3d( 0.00) rc: 3.29
+Valence configuration for ps generation: 2s:2p: Total charge:   5.000000
+For H, standard SIESTA heuristics set lmxkb to 2
+ (one more than the basis l, including polarization orbitals).
+Use PS.lmax or PS.KBprojectors blocks to override.
+For C, standard SIESTA heuristics set lmxkb to 3
+ (one more than the basis l, including polarization orbitals).
+Use PS.lmax or PS.KBprojectors blocks to override.
+For N, standard SIESTA heuristics set lmxkb to 3
+ (one more than the basis l, including polarization orbitals).
+Use PS.lmax or PS.KBprojectors blocks to override.
+../../../Pseudos/PBE/H/H.psml pseudopotential only contains V_ls up to l=0 -- lmxkb reset.
+../../../Pseudos/PBE/C/C.psml pseudopotential only contains V_ls up to l=2 -- lmxkb reset.
+../../../Pseudos/PBE/N/N.psml pseudopotential only contains V_ls up to l=2 -- lmxkb reset.
+
+<basis_specs>
+===============================================================================
+H                    Z=   1    Mass=  1.0080        Charge= 0.17977+309
+Lmxo=1 Lmxkb= 0    BasisType=split      Semic=F
+L=0  Nsemic=0  Cnfigmx=1
+          i=1  nzeta=2  polorb=1  (1s)  (to be polarized perturbatively)
+            splnorm:   0.62000    
+               vcte:    40.000    
+               rinn:  -0.90000    
+               qcoe:    0.0000    
+               qyuk:    0.0000    
+               qwid:   0.10000E-01
+                rcs:    0.0000      0.0000    
+            lambdas:    1.0000      1.0000    
+L=1  Nsemic=0  Cnfigmx=2
+          i=1  nzeta=0  polorb=0  (2p)  (perturbative polarization orbital) (from 1s)
+===============================================================================
+</basis_specs>
+
+Filter: Requested cutoff:  290.000000 Ry
+Using PAO.SplitTailNorm
+atom: Called for H                     (Z =   1)
+NOTE: H pseudopotential has channels up to l= 0
+NOTE: PAOs with higher l will be generated with V_local
+Maximum radius (at nrval) set to   50.00000 8518
+
+read_vps: Pseudopotential generation method:
+read_vps: ATM4.2.7  Troullier-Martins                       
+Valence charge in pseudo generation:    1.00000
+
+xc_check: Exchange-correlation functional:
+xc_check: GGA Perdew, Burke & Ernzerhof 1996
+V l=0 = -2*Zval/r beyond r=  0.0665
+All V_l potentials equal beyond r=  0.0665
+This should be close to max(r_c) in ps generation
+All pots = -2*Zval/r beyond r=  0.0665
+Using small-core scheme (local charge) for Vlocal
+
+VLOCAL_FROM_CHLOCAL: 99.0% of the norm of Vloc inside   9809.099 Ry
+VLOCAL_FROM_CHLOCAL: 99.9% of the norm of Vloc inside  22355.118 Ry
+atom: Maximum radius for chlocal:    0.08171
+atom: Maximum radius for r*vlocal+2*Zval:    0.07045
+
+KBgen: Kleinman-Bylander projectors: 
+GHOST: No ghost state for L =  0
+KBproj: WARNING: Rc(0)=      0.2584
+KBproj: WARNING: Cut off radius for the KB projector too small
+   l= 0   rc=  0.258429   el= -0.477182   Ekb=-40.187490   kbcos= -0.006063
+
+KBgen: Total number of Kleinman-Bylander projectors:   1
+atom: -------------------------------------------------------------------------
+
+atom: SANKEY-TYPE ORBITALS:
+atom: Selected multiple-zeta basis: split     
+
+SPLIT: Orbitals with angular momentum L= 0
+
+SPLIT: Basis orbitals for state 1s
+
+SPLIT: PAO cut-off radius determined from an
+SPLIT: energy shift=  0.005000 Ry
+Split based on tail norm
+
+   izeta = 1
+                 lambda =    1.000000
+                     rc =    5.772464
+                 energy =   -0.471503
+                kinetic =    0.941611
+    potential(screened) =   -1.413114
+       potential(ionic) =   -1.936122
+PAO Filter: Cutoff used:  142.10 Ry
+PAO Filter: diagnostic kin energy tol:    0.003000 Ry
+PAO Filter: Nominal cutoff (before filtering):  107.24 Ry
+Filter:    Number of eigenfunctions  of the
+           filtering kernel (total, used)= 55 20
+
+   izeta = 2
+                 rmatch =    1.661681
+              splitnorm =    0.620000
+                 energy =    1.741021
+                kinetic =    5.838313
+    potential(screened) =   -4.097292
+       potential(ionic) =   -4.634502
+PAO Filter: Cutoff used:  142.10 Ry
+PAO Filter: diagnostic kin energy tol:    0.003000 Ry
+PAO Filter: Nominal cutoff (before filtering):  829.51 Ry
+Filter:    Number of eigenfunctions  of the
+           filtering kernel (total, used)= 23  5
+*Note: V_local used for l= 1
+
+** Using vlocal for PAOs with L= 1
+
+POLgen: Perturbative polarization orbital with L=  1
+
+POLgen: Polarization orbital for state 1s
+*Note: V_local used for lpol= 1
+
+** Using vlocal for PAOs with L= 1
+Split based on tail norm
+
+   izeta = 1
+                     rc =    5.772464
+                 energy =    0.606793
+                kinetic =    1.227790
+    potential(screened) =   -0.620997
+       potential(ionic) =   -1.099517
+PAO Filter: diagnostic kin energy tol:    0.003000 Ry
+PAO Filter: Nominal cutoff (before filtering):   49.50 Ry
+Filter:    Number of eigenfunctions  of the
+           filtering kernel (total, used)= 55 20
+atom: Total number of Sankey-type orbitals:  5
+
+atm_pop: Valence configuration (for local Pseudopot. screening):
+ 1s( 1.00)                                                            
+ 2p( 0.00)                                                            
+Vna: chval, zval:    1.00000   1.00000
+
+Vna:  Cut-off radius for the neutral-atom potential:   5.772464
+VNA Filter: diagnostic kinetic energy tol:    0.003000 Ry
+VNA Filter: Nominal cutoff (before filtering):22953.69 Ry
+VNA Filter: Cutoff used:   290.00 Ry
+Filter:    Number of eigenfunctions  of the
+           filtering kernel (total, used)= 74 30
+
+atom: _________________________________________________________________________
+
+<basis_specs>
+===============================================================================
+C                    Z=   6    Mass=  12.011        Charge= 0.17977+309
+Lmxo=2 Lmxkb= 2    BasisType=split      Semic=F
+L=0  Nsemic=0  Cnfigmx=2
+          i=1  nzeta=2  polorb=0  (2s)
+            splnorm:   0.28000    
+               vcte:    40.000    
+               rinn:  -0.90000    
+               qcoe:    0.0000    
+               qyuk:    0.0000    
+               qwid:   0.10000E-01
+                rcs:    0.0000      0.0000    
+            lambdas:    1.0000      1.0000    
+L=1  Nsemic=0  Cnfigmx=2
+          i=1  nzeta=2  polorb=1  (2p)  (to be polarized perturbatively)
+            splnorm:   0.28000    
+               vcte:    40.000    
+               rinn:  -0.90000    
+               qcoe:    0.0000    
+               qyuk:    0.0000    
+               qwid:   0.10000E-01
+                rcs:    0.0000      0.0000    
+            lambdas:    1.0000      1.0000    
+L=2  Nsemic=0  Cnfigmx=3
+          i=1  nzeta=0  polorb=0  (3d)  (perturbative polarization orbital) (from 2p)
+-------------------------------------------------------------------------------
+L=0  Nkbl=1  erefs: 0.17977+309
+L=1  Nkbl=1  erefs: 0.17977+309
+L=2  Nkbl=1  erefs: 0.17977+309
+===============================================================================
+</basis_specs>
+
+Filter: Requested cutoff:  290.000000 Ry
+Using PAO.SplitTailNorm
+atom: Called for C                     (Z =   6)
+Maximum radius (at nrval) set to   50.00000 8518
+
+read_vps: Pseudopotential generation method:
+read_vps: ATM4.2.7  Troullier-Martins                       
+Valence charge in pseudo generation:    4.00000
+
+xc_check: Exchange-correlation functional:
+xc_check: GGA Perdew, Burke & Ernzerhof 1996
+V l=0 = -2*Zval/r beyond r=  1.5440
+V l=1 = -2*Zval/r beyond r=  1.5440
+V l=2 = -2*Zval/r beyond r=  1.5440
+All V_l potentials equal beyond r=  1.0917
+This should be close to max(r_c) in ps generation
+All pots = -2*Zval/r beyond r=  1.5440
+Using large-core scheme (fit) for Vlocal
+
+atom: Estimated core radius    1.54400
+
+atom: Including non-local core corrections could be a good idea
+Fit of Vlocal with continuous 2nd derivative
+Fitting vlocal at       1.0950
+Choosing vlocal chloc cutoff:  5160  1.729904
+qtot up to nchloc:    3.99992261
+atom: Maximum radius for chlocal:    1.72990
+atom: Maximum radius for r*vlocal+2*Zval:    1.72990
+
+KBgen: Kleinman-Bylander projectors: 
+GHOST: No ghost state for L =  0
+   l= 0   rc=  1.092775   el= -1.010231   Ekb=  9.458959   kbcos=  0.268546
+GHOST: No ghost state for L =  1
+j- l= 1   rc=  1.124089   el= -0.388958   Ekb= -6.558040   kbcos= -0.208835
+GHOST: No ghost state for L =  1
+j+ l= 1   rc=  1.124089   el= -0.388361   Ekb= -6.536878   kbcos= -0.208625
+GHOST: No ghost state for L =  2
+j- l= 2   rc=  1.141229   el=  0.012917   Ekb= -2.945149   kbcos= -0.002285
+GHOST: No ghost state for L =  2
+j+ l= 2   rc=  1.141229   el=  0.012917   Ekb= -2.779662   kbcos= -0.002340
+
+KBgen: Total number of Kleinman-Bylander projectors:  17
+atom: -------------------------------------------------------------------------
+
+atom: SANKEY-TYPE ORBITALS:
+atom: Selected multiple-zeta basis: split     
+
+SPLIT: Orbitals with angular momentum L= 0
+
+SPLIT: Basis orbitals for state 2s
+
+SPLIT: PAO cut-off radius determined from an
+SPLIT: energy shift=  0.005000 Ry
+Split based on tail norm
+
+   izeta = 1
+                 lambda =    1.000000
+                     rc =    4.858714
+                 energy =   -1.004485
+                kinetic =    0.905437
+    potential(screened) =   -1.909922
+       potential(ionic) =   -5.480972
+PAO Filter: Cutoff used:  142.10 Ry
+PAO Filter: diagnostic kin energy tol:    0.003000 Ry
+PAO Filter: Nominal cutoff (before filtering):   37.27 Ry
+Filter:    Number of eigenfunctions  of the
+           filtering kernel (total, used)= 48 17
+
+   izeta = 2
+                 rmatch =    2.567525
+              splitnorm =    0.280000
+                 energy =   -0.342998
+                kinetic =    2.329205
+    potential(screened) =   -2.672203
+       potential(ionic) =   -6.653639
+PAO Filter: Cutoff used:  142.10 Ry
+PAO Filter: diagnostic kin energy tol:    0.003000 Ry
+PAO Filter: Nominal cutoff (before filtering):   92.37 Ry
+Filter:    Number of eigenfunctions  of the
+           filtering kernel (total, used)= 30  8
+
+SPLIT: Orbitals with angular momentum L= 1
+
+SPLIT: Basis orbitals for state 2p
+
+SPLIT: PAO cut-off radius determined from an
+SPLIT: energy shift=  0.005000 Ry
+Split based on tail norm
+
+   izeta = 1
+                 lambda =    1.000000
+                     rc =    6.008450
+                 energy =   -0.382852
+                kinetic =    2.496059
+    potential(screened) =   -2.878912
+       potential(ionic) =   -6.319668
+PAO Filter: Cutoff used:  142.10 Ry
+PAO Filter: diagnostic kin energy tol:    0.003000 Ry
+PAO Filter: Nominal cutoff (before filtering):   75.63 Ry
+Filter:    Number of eigenfunctions  of the
+           filtering kernel (total, used)= 57 21
+
+   izeta = 2
+                 rmatch =    3.113112
+              splitnorm =    0.280000
+                 energy =   -0.102258
+                kinetic =    4.484352
+    potential(screened) =   -4.586610
+       potential(ionic) =   -8.555446
+PAO Filter: Cutoff used:  142.10 Ry
+PAO Filter: diagnostic kin energy tol:    0.003000 Ry
+PAO Filter: Nominal cutoff (before filtering):   84.16 Ry
+Filter:    Number of eigenfunctions  of the
+           filtering kernel (total, used)= 34 10
+
+POLgen: Perturbative polarization orbital with L=  2
+
+POLgen: Polarization orbital for state 2p
+Split based on tail norm
+
+   izeta = 1
+                     rc =    6.008450
+                 energy =    1.072034
+                kinetic =    2.197141
+    potential(screened) =   -1.125106
+       potential(ionic) =   -3.913062
+PAO Filter: diagnostic kin energy tol:    0.003000 Ry
+PAO Filter: Nominal cutoff (before filtering):   65.81 Ry
+Filter:    Number of eigenfunctions  of the
+           filtering kernel (total, used)= 57 20
+atom: Total number of Sankey-type orbitals: 13
+
+atm_pop: Valence configuration (for local Pseudopot. screening):
+ 2s( 2.00)                                                            
+ 2p( 2.00)                                                            
+ 3d( 0.00)                                                            
+Vna: chval, zval:    4.00000   4.00000
+
+Vna:  Cut-off radius for the neutral-atom potential:   6.008450
+VNA Filter: diagnostic kinetic energy tol:    0.003000 Ry
+VNA Filter: Nominal cutoff (before filtering):   48.87 Ry
+VNA Filter: Cutoff used:   290.00 Ry
+Filter:    Number of eigenfunctions  of the
+           filtering kernel (total, used)= 77 31
+
+atom: _________________________________________________________________________
+
+<basis_specs>
+===============================================================================
+N                    Z=   7    Mass=  14.007        Charge= 0.17977+309
+Lmxo=2 Lmxkb= 2    BasisType=split      Semic=F
+L=0  Nsemic=0  Cnfigmx=2
+          i=1  nzeta=2  polorb=0  (2s)
+            splnorm:   0.28000    
+               vcte:    40.000    
+               rinn:  -0.90000    
+               qcoe:    0.0000    
+               qyuk:    0.0000    
+               qwid:   0.10000E-01
+                rcs:    0.0000      0.0000    
+            lambdas:    1.0000      1.0000    
+L=1  Nsemic=0  Cnfigmx=2
+          i=1  nzeta=2  polorb=1  (2p)  (to be polarized perturbatively)
+            splnorm:   0.28000    
+               vcte:    40.000    
+               rinn:  -0.90000    
+               qcoe:    0.0000    
+               qyuk:    0.0000    
+               qwid:   0.10000E-01
+                rcs:    0.0000      0.0000    
+            lambdas:    1.0000      1.0000    
+L=2  Nsemic=0  Cnfigmx=3
+          i=1  nzeta=0  polorb=0  (3d)  (perturbative polarization orbital) (from 2p)
+-------------------------------------------------------------------------------
+L=0  Nkbl=1  erefs: 0.17977+309
+L=1  Nkbl=1  erefs: 0.17977+309
+L=2  Nkbl=1  erefs: 0.17977+309
+===============================================================================
+</basis_specs>
+
+Filter: Requested cutoff:  290.000000 Ry
+Using PAO.SplitTailNorm
+atom: Called for N                     (Z =   7)
+Maximum radius (at nrval) set to   50.00000 8518
+
+read_vps: Pseudopotential generation method:
+read_vps: ATM4.2.7  Troullier-Martins                       
+Valence charge in pseudo generation:    5.00000
+
+xc_check: Exchange-correlation functional:
+xc_check: GGA Perdew, Burke & Ernzerhof 1996
+V l=0 = -2*Zval/r beyond r=  1.3505
+V l=1 = -2*Zval/r beyond r=  1.3655
+V l=2 = -2*Zval/r beyond r=  3.2536
+All V_l potentials equal beyond r=  3.2406
+This should be close to max(r_c) in ps generation
+All pots = -2*Zval/r beyond r=  3.2536
+Using small-core scheme (local charge) for Vlocal
+
+VLOCAL_FROM_CHLOCAL: 99.0% of the norm of Vloc inside      4.134 Ry
+VLOCAL_FROM_CHLOCAL: 99.9% of the norm of Vloc inside      9.420 Ry
+atom: Maximum radius for chlocal:    3.83522
+atom: Maximum radius for r*vlocal+2*Zval:    3.56452
+
+KBgen: Kleinman-Bylander projectors: 
+GHOST: No ghost state for L =  0
+   l= 0   rc=  3.286396   el= -1.364990   Ekb= -4.084395   kbcos= -0.707149
+GHOST: No ghost state for L =  1
+j- l= 1   rc=  3.273237   el= -0.522099   Ekb= -9.337483   kbcos= -0.603568
+GHOST: No ghost state for L =  1
+j+ l= 1   rc=  3.273237   el= -0.520710   Ekb= -9.322891   kbcos= -0.603256
+GHOST: No ghost state for L =  2
+j- l= 2   rc=  3.699250   el=  0.012944   Ekb= -0.680922   kbcos= -0.059812
+GHOST: No ghost state for L =  2
+j+ l= 2   rc=  3.699250   el=  0.012944   Ekb= -0.679799   kbcos= -0.059842
+
+KBgen: Total number of Kleinman-Bylander projectors:  17
+atom: -------------------------------------------------------------------------
+
+atom: SANKEY-TYPE ORBITALS:
+atom: Selected multiple-zeta basis: split     
+
+SPLIT: Orbitals with angular momentum L= 0
+
+SPLIT: Basis orbitals for state 2s
+
+SPLIT: PAO cut-off radius determined from an
+SPLIT: energy shift=  0.005000 Ry
+Split based on tail norm
+
+   izeta = 1
+                 lambda =    1.000000
+                     rc =    4.256654
+                 energy =   -1.359295
+                kinetic =    1.255415
+    potential(screened) =   -2.614710
+       potential(ionic) =   -8.142669
+PAO Filter: Cutoff used:  142.10 Ry
+PAO Filter: diagnostic kin energy tol:    0.003000 Ry
+PAO Filter: Nominal cutoff (before filtering):   67.41 Ry
+Filter:    Number of eigenfunctions  of the
+           filtering kernel (total, used)= 43 14
+
+   izeta = 2
+                 rmatch =    2.177654
+              splitnorm =    0.280000
+                 energy =   -0.492898
+                kinetic =    3.145026
+    potential(screened) =   -3.637923
+       potential(ionic) =   -9.831650
+PAO Filter: Cutoff used:  142.10 Ry
+PAO Filter: diagnostic kin energy tol:    0.003000 Ry
+PAO Filter: Nominal cutoff (before filtering):  127.34 Ry
+Filter:    Number of eigenfunctions  of the
+           filtering kernel (total, used)= 27  7
+
+SPLIT: Orbitals with angular momentum L= 1
+
+SPLIT: Basis orbitals for state 2p
+
+SPLIT: PAO cut-off radius determined from an
+SPLIT: energy shift=  0.005000 Ry
+Split based on tail norm
+
+   izeta = 1
+                 lambda =    1.000000
+                     rc =    5.274774
+                 energy =   -0.515520
+                kinetic =    3.486851
+    potential(screened) =   -4.002371
+       potential(ionic) =   -9.345231
+PAO Filter: Cutoff used:  142.10 Ry
+PAO Filter: diagnostic kin energy tol:    0.003000 Ry
+PAO Filter: Nominal cutoff (before filtering):   56.62 Ry
+Filter:    Number of eigenfunctions  of the
+           filtering kernel (total, used)= 51 18
+
+   izeta = 2
+                 rmatch =    2.619595
+              splitnorm =    0.280000
+                 energy =   -0.135315
+                kinetic =    6.112412
+    potential(screened) =   -6.247726
+       potential(ionic) =  -12.409759
+PAO Filter: Cutoff used:  142.10 Ry
+PAO Filter: diagnostic kin energy tol:    0.003000 Ry
+PAO Filter: Nominal cutoff (before filtering):   63.34 Ry
+Filter:    Number of eigenfunctions  of the
+           filtering kernel (total, used)= 30  8
+
+POLgen: Perturbative polarization orbital with L=  2
+
+POLgen: Polarization orbital for state 2p
+Split based on tail norm
+
+   izeta = 1
+                     rc =    5.274774
+                 energy =    1.560155
+                kinetic =    2.548459
+    potential(screened) =   -0.988304
+       potential(ionic) =   -5.056663
+PAO Filter: diagnostic kin energy tol:    0.003000 Ry
+PAO Filter: Nominal cutoff (before filtering):   61.33 Ry
+Filter:    Number of eigenfunctions  of the
+           filtering kernel (total, used)= 51 17
+atom: Total number of Sankey-type orbitals: 13
+
+atm_pop: Valence configuration (for local Pseudopot. screening):
+ 2s( 2.00)                                                            
+ 2p( 3.00)                                                            
+ 3d( 0.00)                                                            
+Vna: chval, zval:    5.00000   5.00000
+
+Vna:  Cut-off radius for the neutral-atom potential:   5.274774
+VNA Filter: diagnostic kinetic energy tol:    0.003000 Ry
+VNA Filter: Nominal cutoff (before filtering):   50.50 Ry
+VNA Filter: Cutoff used:   290.00 Ry
+Filter:    Number of eigenfunctions  of the
+           filtering kernel (total, used)= 68 27
+
+atom: _________________________________________________________________________
+
+prinput: Basis input 
+
+PAO.BasisType split     
+
+%block ChemicalSpeciesLabel
+    1    1 H                       # Species index, atomic number, species label
+    2    6 C                       # Species index, atomic number, species label
+    3    7 N                       # Species index, atomic number, species label
+%endblock ChemicalSpeciesLabel
+
+%block PAO.Basis                 # Define Basis set
+# WARNING: This information might be incomplete!
+H                     1                    # Species label, number of l-shells
+ n=1   0   2 P   1                   # n, l, Nzeta, Polarization, NzetaPol
+   5.772      1.662   
+   1.000      1.000   
+C                     2                    # Species label, number of l-shells
+ n=2   0   2                         # n, l, Nzeta 
+   4.859      2.568   
+   1.000      1.000   
+ n=2   1   2 P   1                   # n, l, Nzeta, Polarization, NzetaPol
+   6.008      3.113   
+   1.000      1.000   
+N                     2                    # Species label, number of l-shells
+ n=2   0   2                         # n, l, Nzeta 
+   4.257      2.178   
+   1.000      1.000   
+ n=2   1   2 P   1                   # n, l, Nzeta, Polarization, NzetaPol
+   5.275      2.620   
+   1.000      1.000   
+%endblock PAO.Basis
+
+prinput: ----------------------------------------------------------------------
+
+Dumping basis to NetCDF file H.ion.nc
+Dumping basis to NetCDF file C.ion.nc
+Dumping basis to NetCDF file N.ion.nc
+coor:   Atomic-coordinates input format  =     Cartesian coordinates
+coor:                                          (in Angstroms)
+
+siesta: Atomic coordinates (Bohr) and species
+siesta:     -2.26578  -2.64505   0.00000  3        1
+siesta:     -3.92156   1.22813   0.00000  3        2
+siesta:      0.06368   3.51376   0.00000  3        3
+siesta:      3.77907   0.78424   0.00000  3        4
+siesta:      3.44705  -3.73410   0.00000  3        5
+siesta:     -0.25681  -1.02442   0.00000  2        6
+siesta:     -1.33339   1.36835   0.00000  2        7
+siesta:      2.33551  -1.32356   0.00000  2        8
+siesta:     -4.41931  -1.20829   0.00000  2        9
+siesta:      2.57135   3.04095   0.00000  2       10
+siesta:     -2.18566  -4.55481   0.00000  1       11
+siesta:     -6.27862  -2.05300   0.00000  1       12
+siesta:      3.78588   4.69238   0.00000  1       13
+siesta:      5.35208  -3.87923   0.00000  1       14
+siesta:      2.36272  -5.30673   0.00000  1       15
+
+siesta: System type = molecule  
+
+initatomlists: Number of atoms, orbitals, and projectors:     15   155   175
+
+siesta: ******************** Simulation parameters ****************************
+siesta:
+siesta: The following are some of the parameters of the simulation.
+siesta: A complete list of the parameters used, including default values,
+siesta: can be found in file out.fdf
+siesta:
+redata: Spin configuration                          = spin-orbit+offsite
+redata: Number of spin components                   = 8
+redata: Time-Reversal Symmetry                      = F
+redata: Spin spiral                                 = F
+redata: Long output                                 =   F
+redata: Number of Atomic Species                    =        3
+redata: Charge density info will appear in .RHO file
+redata: Write Mulliken Pop.                         = NO
+redata: Matel table size (NRTAB)                    =     1024
+redata: Mesh Cutoff                                 =   300.0000 Ry
+redata: Net charge of the system                    =     0.0000 |e|
+redata: Min. number of SCF Iter                     =        1
+redata: Max. number of SCF Iter                     =      200
+redata: SCF convergence failure will abort job
+redata: SCF mix quantity                            = Hamiltonian
+redata: Mix DM or H after convergence               =   F
+redata: Recompute H after scf cycle                 =   F
+redata: Mix DM in first SCF step                    =   T
+redata: Write Pulay info on disk                    =   F
+redata: New DM Occupancy tolerance                  = 0.000000000001
+redata: No kicks to SCF
+redata: DM Mixing Weight for Kicks                  =     0.5000
+redata: Require Harris convergence for SCF          =   F
+redata: Harris energy tolerance for SCF             =     0.000100 eV
+redata: Require DM convergence for SCF              =   T
+redata: DM tolerance for SCF                        =     0.000008
+redata: Require EDM convergence for SCF             =   F
+redata: EDM tolerance for SCF                       =     0.001000 eV
+redata: Require H convergence for SCF               =   T
+redata: Hamiltonian tolerance for SCF               =     0.000001 eV
+redata: Require (free) Energy convergence for SCF   =   F
+redata: (free) Energy tolerance for SCF             =     0.000100 eV
+redata: Using DFT-D3 dispersion                     =   F
+redata: Using Saved Data (generic)                  =   F
+redata: Use continuation files for DM               =   T
+redata: Neglect nonoverlap interactions             =   F
+redata: Method of Calculation                       = Diagonalization
+redata: Electronic Temperature                      =     0.0000 K
+redata: Fix the spin of the system                  =   F
+redata: Split SR and SO contributions               =   F
+redata: Max. number of TDED Iter                    =        1
+redata: Number of TDED substeps                     =        3
+redata: Dynamics option                             = Broyden coord. optimization
+redata: Variable cell                               =   F
+redata: Maximum number of optimization moves        =     1000
+redata: Force tolerance                             =     0.0080 eV/Ang
+mix.SCF: Pulay mixing                            = Pulay
+mix.SCF:    Variant                              = stable
+mix.SCF:    History steps                        = 6
+mix.SCF:    Linear mixing weight                 =     0.250000
+mix.SCF:    Mixing weight                        =     0.250000
+mix.SCF:    SVD condition                        = 0.1000E-07
+mix.SCF:    Restart steps                        = 24
+mix.SCF:    Restart save steps                   = 3
+mix.SCF: Spin-component mixing                   all
+redata: Save all siesta data in one NC              =   F
+redata: ***********************************************************************
+
+%block SCF.Mixers
+  Pulay
+%endblock SCF.Mixers
+
+%block SCF.Mixer.Pulay
+  # Mixing method
+  method pulay
+  variant stable
+
+  # Mixing options
+  weight 0.2500
+  weight.linear 0.2500
+  history 6
+  restart 24
+  restart.save 3
+%endblock SCF.Mixer.Pulay
+
+DM_history_depth set to one: no extrapolation allowed by default for geometry relaxation
+Size of DM history Fstack: 1
+Total number of electrons:    50.000000
+Total ionic charge:    50.000000
+
+* ProcessorY, Blocksize:    4  20
+
+
+* Orbital distribution balance (max,min):    20    15
+
+
+siesta: k-grid: Number of k-points = 1
+siesta: k-point is Gamma-only
+
+diag: Algorithm                                     = ELPA-2stage
+diag: ELPA GPU string key                           = nvidia-gpu
+diag: Parallel over k                               =   F
+diag: Use parallel 2D distribution                  =   T
+diag: Parallel block-size                           = 20
+diag: Parallel distribution                         =     2 x     4
+diag: Used triangular part                          = Lower
+diag: Absolute tolerance                            =  0.100E-15
+diag: Orthogonalization factor                      =  0.100E-05
+diag: Memory factor                                 =  1.0000
+
+siesta: Constraints applied in the following order:
+siesta: Constraint v=[  0.00000,  0.00000,  1.00000] (15): pos-dir
+  [ 1 -- 15 ]
+siesta: Constraint (1): pos
+  [ 6 ]
+
+
+ts: **************************************************************
+ts: Save H and S matrices                           =    F
+ts: Save DM and EDM matrices                        =    F
+ts: Only save the overlap matrix S                  =    F
+ts: **************************************************************
+
+************************ Begin: TS CHECKS AND WARNINGS ************************
+************************ End: TS CHECKS AND WARNINGS **************************
+
+
+                     ====================================
+                        Begin Broyden opt. move =      0
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 0
+  <sparsity:sparsity for geom step 0
+    nrows_g=155 nrows=20 sparsity=.1286 nnzs=3089, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3089, refcount: 1>
+refcount: 1>
+new_DM -- step:     1
+Initializing Density Matrix...
+
+Attempting to read DM from file... Failed...
+DM filled with atomic data:
+<dSpData2D:DM initialized from atoms
+  <sparsity:sparsity for geom step 0
+    nrows_g=155 nrows=20 sparsity=.1286 nnzs=3089, refcount: 9>
+  <dData2D:DM n=3089 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {    0.00000    0.00000   30.00000 }    30.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+stepf: Fermi-Dirac step function
+
+siesta: Program's energy decomposition (eV):
+siesta: Ebs     =      -522.946841
+siesta: Eions   =      4637.773199
+siesta: Ena     =      1524.305357
+siesta: Ekin    =      1757.152161
+siesta: Enl(+so)=     -1324.800895
+siesta: Eso(nil)=         0.000000
+siesta: Edftu   =         0.000000
+siesta: DEna    =        10.142173
+siesta: DUscf   =        18.295236
+siesta: DUext   =         0.000000
+siesta: Ex      =      -600.008529
+siesta: Ec      =       -52.811312
+siesta: Exc     =      -652.819840
+siesta: EbV     =         0.000000
+siesta: eta*DQ  =         0.000000
+siesta: Emadel  =         0.000000
+siesta: Emeta   =         0.000000
+siesta: Emolmec =         0.000000
+siesta: Ekinion =         0.000000
+siesta: Eharris =     -3287.011417
+siesta: Etot    =     -3305.499007
+siesta: FreeEng =     -3305.499007
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3287.011417    -3305.499007    -3305.499007  0.928413 -5.022437 43.890646
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    2.00002 }     2.00002
+timer: Routine,Calls,Time,% = IterSCF        1       0.536  12.65
+   scf:    2    -3321.118131    -3313.978552    -3313.978552  0.375030 -4.075259 32.082459
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00002 }     0.00002
+   scf:    3    -3317.675267    -3316.393337    -3316.393337  0.073529 -3.877295 18.258705
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00001 }     0.00001
+   scf:    4    -3317.094772    -3316.774100    -3316.774100  0.059053 -3.288722  9.730324
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    5    -3317.322106    -3317.099221    -3317.099221  0.092486 -3.328935  2.154765
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    6    -3317.216264    -3317.166129    -3317.166129  0.038774 -3.352850  0.268093
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    7    -3317.174887    -3317.171346    -3317.171346  0.004785 -3.421890  0.156652
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    8    -3317.174878    -3317.173381    -3317.173381  0.002407 -3.392409  0.081331
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    9    -3317.175743    -3317.174532    -3317.174532  0.001680 -3.404904  0.045703
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:   10    -3317.175852    -3317.175142    -3317.175142  0.001623 -3.403190  0.022271
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+   scf:   11    -3317.175650    -3317.175369    -3317.175369  0.001300 -3.404023  0.012812
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+   scf:   12    -3317.175530    -3317.175439    -3317.175439  0.000904 -3.404303  0.006799
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+   scf:   13    -3317.175473    -3317.175454    -3317.175454  0.000402 -3.403948  0.004155
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+   scf:   14    -3317.175473    -3317.175462    -3317.175462  0.000382 -3.403469  0.001740
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+   scf:   15    -3317.175465    -3317.175463    -3317.175463  0.000143 -3.403308  0.001009
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+   scf:   16    -3317.175464    -3317.175464    -3317.175464  0.000096 -3.403360  0.000416
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+   scf:   17    -3317.175464    -3317.175464    -3317.175464  0.000019 -3.403396  0.000282
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:   18    -3317.175464    -3317.175464    -3317.175464  0.000009 -3.403419  0.000099
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:   19    -3317.175464    -3317.175464    -3317.175464  0.000003 -3.403423  0.000059
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+   scf:   20    -3317.175464    -3317.175464    -3317.175464  0.000002 -3.403420  0.000041
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:   21    -3317.175464    -3317.175464    -3317.175464  0.000001 -3.403419  0.000025
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:   22    -3317.175464    -3317.175464    -3317.175464  0.000001 -3.403419  0.000017
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:   23    -3317.175464    -3317.175464    -3317.175464  0.000001 -3.403419  0.000012
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:   24    -3317.175464    -3317.175464    -3317.175464  0.000001 -3.403420  0.000008
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+mix: Pulay -- resetting history
+   scf:   25    -3317.175464    -3317.175464    -3317.175464  0.000001 -3.403420  0.000004
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:   26    -3317.175464    -3317.175464    -3317.175464  0.000000 -3.403420  0.000002
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:   27    -3317.175464    -3317.175464    -3317.175464  0.000000 -3.403420  0.000001
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:   28    -3317.175464    -3317.175464    -3317.175464  0.000000 -3.403419  0.000000
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000787
+max |H_out - H_in|      (eV) :     0.0000004835
+SCF cycle converged after 28 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3317.1755
+
+siesta: E_KS - E_eggbox =     -3317.1755
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1    0.020320   -4.355777   -0.000000
+     2   -3.591847    4.590474   -0.000000
+     3   -1.070413    3.631418    0.000000
+     4    3.816598   -0.732373   -0.000000
+     5    0.264894   -0.210696    0.000000
+     6    1.965182    0.852470   -0.000000
+     7    1.643059   -0.558057    0.000000
+     8   -1.114969   -0.922462    0.000000
+     9   -3.475734   -1.900026    0.000000
+    10    0.872398    2.069988   -0.000000
+    11    3.639374   -2.784022   -0.000000
+    12   -1.931325    0.924393    0.000000
+    13    0.328526    0.258276    0.000000
+    14    3.072236    0.910550    0.000000
+    15   -4.396833   -1.780814   -0.000000
+----------------------------------------
+   Tot    0.041465   -0.006657    0.000000
+----------------------------------------
+   Max    4.590474
+   Res    1.951945    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    4.590474    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):      -37.93      -39.96       -0.10        0.00        0.00       -1.90
+(Free)E + p*V (eV/cell)    -3297.9752
+Target enthalpy (eV/cell)    -3317.1755
+
+Broyden_optim: max_history for broyden:   5
+Broyden_optim: cycle on maxit: T
+Broyden_optim: initial inverse jacobian:   1.0000
+
+Broyden_optim: No of elements:     45
+
+                     ====================================
+                        Begin Broyden opt. move =      1
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 1
+  <sparsity:sparsity for geom step 1
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:     2
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 1
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+Note: For starting DM, Qtot, Tr[D*S] =         50.00000000         49.57831613
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3318.348594    -3316.741279    -3316.741279  0.127571 -3.415397  3.598428
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    2    -3299.855886    -3312.052086    -3312.052086  0.178857 -4.302533 10.723291
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    3    -3318.993427    -3317.519989    -3317.519989  0.132331 -3.445586  0.557175
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    4    -3317.532919    -3317.527384    -3317.527384  0.002678 -3.427107  0.292944
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    5    -3317.533182    -3317.530664    -3317.530664  0.001640 -3.418150  0.069821
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    6    -3317.531196    -3317.530979    -3317.530979  0.000670 -3.421609  0.013249
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    7    -3317.531011    -3317.530998    -3317.530998  0.000210 -3.421466  0.005866
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    8    -3317.531007    -3317.531003    -3317.531003  0.000131 -3.421354  0.002312
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    9    -3317.531004    -3317.531003    -3317.531003  0.000061 -3.420943  0.000954
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:   10    -3317.531004    -3317.531003    -3317.531003  0.000021 -3.420570  0.000426
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:   11    -3317.531004    -3317.531003    -3317.531003  0.000004 -3.420504  0.000206
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:   12    -3317.531003    -3317.531003    -3317.531003  0.000002 -3.420477  0.000095
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:   13    -3317.531003    -3317.531003    -3317.531003  0.000002 -3.420464  0.000029
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:   14    -3317.531003    -3317.531003    -3317.531003  0.000001 -3.420462  0.000014
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:   15    -3317.531003    -3317.531003    -3317.531003  0.000000 -3.420461  0.000004
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:   16    -3317.531003    -3317.531003    -3317.531003  0.000000 -3.420461  0.000002
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:   17    -3317.531003    -3317.531003    -3317.531003  0.000000 -3.420461  0.000001
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000471
+max |H_out - H_in|      (eV) :     0.0000009820
+SCF cycle converged after 17 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3317.5310
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1   -1.623493    2.164640    0.000000
+     2   -0.130859   -2.752396   -0.000000
+     3    0.670975    0.347839    0.000000
+     4   -0.043804    0.587588   -0.000000
+     5   -0.091918   -2.620830    0.000000
+     6   -0.317775   -0.764857   -0.000000
+     7   -2.268324    2.082088    0.000000
+     8    2.067209    0.853060    0.000000
+     9    2.310265    2.471921    0.000000
+    10   -0.073532   -1.142856   -0.000000
+    11   -0.102226   -2.639115    0.000000
+    12   -2.009617   -0.927975    0.000000
+    13    1.100228    1.213612    0.000000
+    14    1.319410    1.170411   -0.000000
+    15   -0.762353   -0.049013   -0.000000
+----------------------------------------
+   Tot    0.044186   -0.005885    0.000000
+----------------------------------------
+   Max    2.752396
+   Res    1.237284    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    2.752396    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):      -16.81       -8.92       -0.10        0.00        0.00       -5.10
+(Free)E + p*V (eV/cell)    -3311.1708
+Target enthalpy (eV/cell)    -3317.5310
+
+                     ====================================
+                        Begin Broyden opt. move =      2
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 2
+  <sparsity:sparsity for geom step 2
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:     3
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 2
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3316.775087    -3317.603413    -3317.603413  0.063936 -3.672566  2.859383
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    2    -3309.450534    -3315.304538    -3315.304538  0.110785 -4.214762  7.325257
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    3    -3318.557220    -3317.949762    -3317.949762  0.084761 -3.804766  0.261384
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:    4    -3317.955461    -3317.953620    -3317.953620  0.002658 -3.855865  0.114027
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+   scf:    5    -3317.954219    -3317.953964    -3317.953964  0.000492 -3.857622  0.053133
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    6    -3317.954124    -3317.954050    -3317.954050  0.000331 -3.859521  0.021929
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    7    -3317.954079    -3317.954067    -3317.954067  0.000252 -3.859168  0.002853
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    8    -3317.954068    -3317.954067    -3317.954067  0.000043 -3.859166  0.001705
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    9    -3317.954068    -3317.954067    -3317.954067  0.000038 -3.859325  0.000715
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:   10    -3317.954067    -3317.954067    -3317.954067  0.000018 -3.859438  0.000222
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+   scf:   11    -3317.954067    -3317.954067    -3317.954067  0.000004 -3.859467  0.000095
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+   scf:   12    -3317.954067    -3317.954067    -3317.954067  0.000003 -3.859482  0.000015
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+   scf:   13    -3317.954067    -3317.954067    -3317.954067  0.000001 -3.859485  0.000011
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:   14    -3317.954067    -3317.954067    -3317.954067  0.000000 -3.859486  0.000005
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:   15    -3317.954067    -3317.954067    -3317.954067  0.000000 -3.859486  0.000002
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:   16    -3317.954067    -3317.954067    -3317.954067  0.000000 -3.859486  0.000001
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:   17    -3317.954067    -3317.954067    -3317.954067  0.000000 -3.859486  0.000000
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000391
+max |H_out - H_in|      (eV) :     0.0000002637
+SCF cycle converged after 17 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3317.9541
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1    0.537270   -1.901344    0.000000
+     2   -0.291261    0.572489   -0.000000
+     3    0.032247    0.500608    0.000000
+     4    0.620552    0.117471   -0.000000
+     5    0.597649   -0.327095    0.000000
+     6    0.366476    0.750676   -0.000000
+     7   -0.198495    0.170265    0.000000
+     8    0.069595   -0.630806    0.000000
+     9   -2.301741   -0.751159   -0.000000
+    10    0.688682    0.676589   -0.000000
+    11    2.380187   -0.797840   -0.000000
+    12   -1.460510    1.213577    0.000000
+    13    0.321117    0.145874    0.000000
+    14    0.000876    0.350687   -0.000000
+    15   -1.337476   -0.074497   -0.000000
+----------------------------------------
+   Tot    0.025167    0.015494   -0.000000
+----------------------------------------
+   Max    2.380187
+   Res    0.750463    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    2.380187    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):      -14.20       -9.48       -0.09        0.00        0.00       -0.73
+(Free)E + p*V (eV/cell)    -3312.1002
+Target enthalpy (eV/cell)    -3317.9541
+
+                     ====================================
+                        Begin Broyden opt. move =      3
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 3
+  <sparsity:sparsity for geom step 3
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:     4
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 3
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+Note: For starting DM, Qtot, Tr[D*S] =         50.00000000         49.92528574
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3318.738544    -3318.136012    -3318.136012  0.026321 -3.999459  1.149175
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    2    -3316.207638    -3317.581951    -3317.581951  0.070264 -3.631481  3.495918
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    3    -3318.351183    -3318.201902    -3318.201902  0.053445 -3.876125  0.133593
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    4    -3318.202553    -3318.202261    -3318.202261  0.000599 -3.870351  0.065189
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    5    -3318.202464    -3318.202372    -3318.202372  0.000594 -3.866812  0.023310
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    6    -3318.202399    -3318.202388    -3318.202388  0.000312 -3.866301  0.003331
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+   scf:    7    -3318.202389    -3318.202388    -3318.202388  0.000095 -3.866618  0.001062
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+   scf:    8    -3318.202389    -3318.202389    -3318.202389  0.000026 -3.866595  0.000513
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    9    -3318.202389    -3318.202389    -3318.202389  0.000021 -3.866535  0.000191
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:   10    -3318.202389    -3318.202389    -3318.202389  0.000013 -3.866492  0.000053
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:   11    -3318.202389    -3318.202389    -3318.202389  0.000004 -3.866479  0.000035
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:   12    -3318.202389    -3318.202389    -3318.202389  0.000001 -3.866474  0.000017
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+   scf:   13    -3318.202389    -3318.202389    -3318.202389  0.000001 -3.866470  0.000007
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:   14    -3318.202389    -3318.202389    -3318.202389  0.000000 -3.866469  0.000002
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:   15    -3318.202389    -3318.202389    -3318.202389  0.000000 -3.866469  0.000001
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000467
+max |H_out - H_in|      (eV) :     0.0000005664
+SCF cycle converged after 15 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3318.2024
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1   -0.096945   -0.645614    0.000000
+     2   -0.596632    0.041909   -0.000000
+     3    0.092358    0.255842    0.000000
+     4    0.371444   -0.175980   -0.000000
+     5   -0.147509    0.078001    0.000000
+     6    0.131415    0.628979   -0.000000
+     7    0.459957   -0.402477    0.000000
+     8   -0.141256   -0.207686    0.000000
+     9   -0.528126   -0.617146   -0.000000
+    10    0.189609    0.356677   -0.000000
+    11   -1.708265    1.458282   -0.000000
+    12    1.890785   -1.168897    0.000000
+    13    0.373132    0.226693    0.000000
+    14   -2.215450   -1.116164   -0.000000
+    15    1.930563    1.275714   -0.000000
+----------------------------------------
+   Tot    0.005079   -0.011867    0.000000
+----------------------------------------
+   Max    2.215450
+   Res    0.736546    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    2.215450    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):        7.28        2.35       -0.09       -0.00        0.00       -4.83
+(Free)E + p*V (eV/cell)    -3320.5510
+Target enthalpy (eV/cell)    -3318.2024
+
+                     ====================================
+                        Begin Broyden opt. move =      4
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 4
+  <sparsity:sparsity for geom step 4
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:     5
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 4
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3317.883135    -3318.124583    -3318.124583  0.017404 -3.914791  0.868220
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    2    -3317.000491    -3317.800497    -3317.800497  0.048040 -3.864040  2.485881
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    3    -3318.243180    -3318.162984    -3318.162984  0.037386 -3.864055  0.067513
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    4    -3318.163587    -3318.163359    -3318.163359  0.000943 -3.846676  0.014573
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    5    -3318.163390    -3318.163377    -3318.163377  0.000195 -3.845206  0.007587
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    6    -3318.163385    -3318.163381    -3318.163381  0.000190 -3.845252  0.002162
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:    7    -3318.163382    -3318.163382    -3318.163382  0.000084 -3.845348  0.000468
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    8    -3318.163382    -3318.163382    -3318.163382  0.000029 -3.845308  0.000241
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    9    -3318.163382    -3318.163382    -3318.163382  0.000017 -3.845257  0.000064
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:   10    -3318.163382    -3318.163382    -3318.163382  0.000005 -3.845247  0.000029
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:   11    -3318.163382    -3318.163382    -3318.163382  0.000002 -3.845243  0.000017
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+   scf:   12    -3318.163382    -3318.163382    -3318.163382  0.000001 -3.845241  0.000008
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:   13    -3318.163382    -3318.163382    -3318.163382  0.000000 -3.845240  0.000004
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:   14    -3318.163382    -3318.163382    -3318.163382  0.000000 -3.845240  0.000001
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000481
+max |H_out - H_in|      (eV) :     0.0000008074
+SCF cycle converged after 14 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3318.1634
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1   -0.173898    0.113748    0.000000
+     2   -0.328700   -0.156075   -0.000000
+     3    0.081619    0.154658    0.000000
+     4    0.269158   -0.024501   -0.000000
+     5   -0.064574    0.195533    0.000000
+     6    0.077160    0.425226   -0.000000
+     7   -0.017675   -0.096142    0.000000
+     8    0.042241   -0.116368    0.000000
+     9   -0.055352   -0.248772   -0.000000
+    10    0.294918    0.238636   -0.000000
+    11    3.308141   -1.556960   -0.000000
+    12   -1.883122    0.713956    0.000000
+    13    0.373339    0.185788    0.000000
+    14    1.496720    0.581981   -0.000000
+    15   -3.419611   -0.420056   -0.000000
+----------------------------------------
+   Tot    0.000361   -0.009349    0.000000
+----------------------------------------
+   Max    3.419611
+   Res    0.853605    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    3.419611    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):       -8.13       -4.54       -0.09        0.00        0.00       -2.94
+(Free)E + p*V (eV/cell)    -3315.0210
+Target enthalpy (eV/cell)    -3318.1634
+
+                     ====================================
+                        Begin Broyden opt. move =      5
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 5
+  <sparsity:sparsity for geom step 5
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:     6
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 5
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3318.457147    -3318.284171    -3318.284171  0.007246 -3.851441  0.208373
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    2    -3318.251904    -3318.275882    -3318.275882  0.008987 -3.892671  0.455254
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    3    -3318.289551    -3318.286749    -3318.286749  0.006442 -3.872240  0.035598
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    4    -3318.286827    -3318.286797    -3318.286797  0.000266 -3.876896  0.008289
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:    5    -3318.286801    -3318.286799    -3318.286799  0.000043 -3.876786  0.004448
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    6    -3318.286801    -3318.286800    -3318.286800  0.000041 -3.876502  0.001107
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    7    -3318.286800    -3318.286800    -3318.286800  0.000016 -3.876417  0.000220
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    8    -3318.286800    -3318.286800    -3318.286800  0.000006 -3.876421  0.000084
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    9    -3318.286800    -3318.286800    -3318.286800  0.000003 -3.876421  0.000042
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:   10    -3318.286800    -3318.286800    -3318.286800  0.000001 -3.876421  0.000031
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:   11    -3318.286800    -3318.286800    -3318.286800  0.000001 -3.876420  0.000010
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:   12    -3318.286800    -3318.286800    -3318.286800  0.000000 -3.876420  0.000003
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:   13    -3318.286800    -3318.286800    -3318.286800  0.000000 -3.876420  0.000002
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+   scf:   14    -3318.286800    -3318.286800    -3318.286800  0.000000 -3.876420  0.000001
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000337
+max |H_out - H_in|      (eV) :     0.0000005167
+SCF cycle converged after 14 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3318.2868
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1    0.069067   -0.084566    0.000000
+     2   -0.123230   -0.097916   -0.000000
+     3    0.065432    0.020309    0.000000
+     4    0.160987   -0.004144   -0.000000
+     5   -0.153389    0.095628    0.000000
+     6    0.028707    0.442960   -0.000000
+     7   -0.028092   -0.020649    0.000000
+     8   -0.000385    0.042646    0.000000
+     9   -0.225445   -0.300569   -0.000000
+    10    0.249079    0.160788   -0.000000
+    11    0.019803   -0.081921   -0.000000
+    12    0.070826   -0.364986    0.000000
+    13    0.339356    0.131856    0.000000
+    14    0.466727    0.055218   -0.000000
+    15   -0.938225   -0.000486   -0.000000
+----------------------------------------
+   Tot    0.001217   -0.005831   -0.000000
+----------------------------------------
+   Max    0.938225
+   Res    0.205921    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.938225    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):       -2.50       -0.90       -0.09       -0.00        0.00       -4.39
+(Free)E + p*V (eV/cell)    -3317.4280
+Target enthalpy (eV/cell)    -3318.2868
+
+                     ====================================
+                        Begin Broyden opt. move =      6
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 6
+  <sparsity:sparsity for geom step 6
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:     7
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 6
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3318.376161    -3318.290838    -3318.290838  0.003878 -3.862730  0.089885
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    2    -3318.285610    -3318.289446    -3318.289446  0.004398 -3.889817  0.200326
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    3    -3318.291595    -3318.291196    -3318.291196  0.002895 -3.873966  0.026274
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    4    -3318.291220    -3318.291210    -3318.291210  0.000288 -3.875854  0.009033
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    5    -3318.291213    -3318.291211    -3318.291211  0.000102 -3.876041  0.001998
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    6    -3318.291211    -3318.291211    -3318.291211  0.000034 -3.875985  0.000399
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    7    -3318.291211    -3318.291211    -3318.291211  0.000010 -3.875961  0.000125
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    8    -3318.291211    -3318.291211    -3318.291211  0.000007 -3.875973  0.000051
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    9    -3318.291211    -3318.291211    -3318.291211  0.000002 -3.875971  0.000032
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:   10    -3318.291211    -3318.291211    -3318.291211  0.000001 -3.875970  0.000016
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:   11    -3318.291211    -3318.291211    -3318.291211  0.000001 -3.875969  0.000003
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:   12    -3318.291211    -3318.291211    -3318.291211  0.000000 -3.875968  0.000002
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:   13    -3318.291211    -3318.291211    -3318.291211  0.000000 -3.875968  0.000001
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000589
+max |H_out - H_in|      (eV) :     0.0000007132
+SCF cycle converged after 13 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3318.2912
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1   -0.033357    0.017708    0.000000
+     2   -0.189260   -0.163342   -0.000000
+     3    0.117997    0.020668    0.000000
+     4    0.138263    0.002596   -0.000000
+     5   -0.085931    0.063053    0.000000
+     6    0.005524    0.470529   -0.000000
+     7    0.042874   -0.103826    0.000000
+     8   -0.030071    0.062834    0.000000
+     9    0.098204   -0.176664   -0.000000
+    10    0.146293    0.112304   -0.000000
+    11   -0.184766   -0.233437   -0.000000
+    12   -0.377134   -0.204044    0.000000
+    13    0.304306    0.108939    0.000000
+    14   -1.018331   -0.557618   -0.000000
+    15    1.051003    0.554189   -0.000000
+----------------------------------------
+   Tot   -0.014385   -0.026109   -0.000000
+----------------------------------------
+   Max    1.051003
+   Res    0.281234    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    1.051003    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):       -1.00       -0.13       -0.09       -0.00        0.00       -1.74
+(Free)E + p*V (eV/cell)    -3317.9905
+Target enthalpy (eV/cell)    -3318.2912
+
+                     ====================================
+                        Begin Broyden opt. move =      7
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 7
+  <sparsity:sparsity for geom step 7
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:     8
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 7
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3318.343971    -3318.302573    -3318.302573  0.003615 -3.879946  0.161976
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    2    -3318.260490    -3318.290350    -3318.290350  0.007904 -3.901447  0.439987
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    3    -3318.306907    -3318.303875    -3318.303875  0.006180 -3.884647  0.018981
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    4    -3318.303891    -3318.303884    -3318.303884  0.000218 -3.884887  0.007298
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    5    -3318.303886    -3318.303885    -3318.303885  0.000111 -3.884952  0.001930
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:    6    -3318.303885    -3318.303885    -3318.303885  0.000038 -3.884874  0.000600
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    7    -3318.303885    -3318.303885    -3318.303885  0.000016 -3.884811  0.000110
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    8    -3318.303885    -3318.303885    -3318.303885  0.000005 -3.884806  0.000045
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    9    -3318.303885    -3318.303885    -3318.303885  0.000002 -3.884807  0.000027
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:   10    -3318.303885    -3318.303885    -3318.303885  0.000001 -3.884807  0.000014
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+   scf:   11    -3318.303885    -3318.303885    -3318.303885  0.000001 -3.884806  0.000004
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:   12    -3318.303885    -3318.303885    -3318.303885  0.000000 -3.884806  0.000001
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:   13    -3318.303885    -3318.303885    -3318.303885  0.000000 -3.884806  0.000001
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000385
+max |H_out - H_in|      (eV) :     0.0000007367
+SCF cycle converged after 13 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3318.3039
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1    0.017512   -0.221692    0.000000
+     2   -0.115482   -0.173816   -0.000000
+     3    0.137043   -0.016213    0.000000
+     4    0.086983    0.027887   -0.000000
+     5   -0.049063    0.051512    0.000000
+     6   -0.007708    0.483719   -0.000000
+     7    0.018999   -0.030971    0.000000
+     8    0.010285    0.106968    0.000000
+     9   -0.023010   -0.143385   -0.000000
+    10    0.101647    0.051817   -0.000000
+    11   -0.857844    0.209950   -0.000000
+    12    0.147469   -0.397266    0.000000
+    13    0.257886    0.072290    0.000000
+    14   -0.300269   -0.229979   -0.000000
+    15    0.568460    0.174267   -0.000000
+----------------------------------------
+   Tot   -0.007092   -0.034912    0.000000
+----------------------------------------
+   Max    0.857844
+   Res    0.207327    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.857844    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):       -1.55        0.38       -0.09       -0.00        0.00       -2.86
+(Free)E + p*V (eV/cell)    -3317.9947
+Target enthalpy (eV/cell)    -3318.3039
+
+                     ====================================
+                        Begin Broyden opt. move =      8
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 8
+  <sparsity:sparsity for geom step 8
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:     9
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 8
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3318.340573    -3318.311366    -3318.311366  0.003070 -3.882816  0.094678
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:    2    -3318.293852    -3318.306341    -3318.306341  0.004541 -3.875607  0.294972
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    3    -3318.313272    -3318.311993    -3318.311993  0.003606 -3.879814  0.023224
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    4    -3318.312006    -3318.312000    -3318.312000  0.000090 -3.879757  0.010843
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    5    -3318.312003    -3318.312002    -3318.312002  0.000081 -3.880162  0.000690
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:    6    -3318.312002    -3318.312002    -3318.312002  0.000007 -3.880227  0.000476
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    7    -3318.312002    -3318.312002    -3318.312002  0.000004 -3.880254  0.000197
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+   scf:    8    -3318.312002    -3318.312002    -3318.312002  0.000002 -3.880252  0.000073
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    9    -3318.312002    -3318.312002    -3318.312002  0.000001 -3.880250  0.000018
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:   10    -3318.312002    -3318.312002    -3318.312002  0.000000 -3.880250  0.000009
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:   11    -3318.312002    -3318.312002    -3318.312002  0.000000 -3.880250  0.000002
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:   12    -3318.312002    -3318.312002    -3318.312002  0.000000 -3.880250  0.000001
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:   13    -3318.312002    -3318.312002    -3318.312002  0.000000 -3.880250  0.000000
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000438
+max |H_out - H_in|      (eV) :     0.0000003278
+SCF cycle converged after 13 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3318.3120
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1    0.006106    0.030773    0.000000
+     2   -0.031478   -0.124005   -0.000000
+     3    0.065555   -0.037102    0.000000
+     4    0.064493    0.033804   -0.000000
+     5   -0.013683    0.009156    0.000000
+     6   -0.041943    0.413942   -0.000000
+     7   -0.026676   -0.007785    0.000000
+     8    0.036686    0.084796    0.000000
+     9   -0.133364   -0.220506   -0.000000
+    10    0.151846    0.051849   -0.000000
+    11    0.170564   -0.194989   -0.000000
+    12   -0.010722   -0.173831    0.000000
+    13    0.208983    0.031166    0.000000
+    14   -0.025301   -0.060997   -0.000000
+    15   -0.422715    0.118568   -0.000000
+----------------------------------------
+   Tot   -0.001649   -0.045163    0.000000
+----------------------------------------
+   Max    0.422715
+   Res    0.119477    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.422715    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):       -0.62       -0.05       -0.09       -0.00        0.00       -2.41
+(Free)E + p*V (eV/cell)    -3318.1254
+Target enthalpy (eV/cell)    -3318.3120
+
+                     ====================================
+                        Begin Broyden opt. move =      9
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 9
+  <sparsity:sparsity for geom step 9
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:    10
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 9
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3318.411690    -3318.322932    -3318.322932  0.002809 -3.895287  0.150188
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:    2    -3318.288950    -3318.313084    -3318.313084  0.007770 -3.882463  0.451706
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    3    -3318.326499    -3318.324005    -3318.324005  0.006029 -3.892519  0.012369
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    4    -3318.324016    -3318.324011    -3318.324011  0.000134 -3.893416  0.005340
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    5    -3318.324014    -3318.324013    -3318.324013  0.000097 -3.893891  0.001599
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    6    -3318.324013    -3318.324013    -3318.324013  0.000027 -3.893903  0.000597
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    7    -3318.324013    -3318.324013    -3318.324013  0.000016 -3.893905  0.000151
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    8    -3318.324013    -3318.324013    -3318.324013  0.000002 -3.893910  0.000048
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    9    -3318.324013    -3318.324013    -3318.324013  0.000001 -3.893915  0.000016
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:   10    -3318.324013    -3318.324013    -3318.324013  0.000000 -3.893915  0.000009
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:   11    -3318.324013    -3318.324013    -3318.324013  0.000000 -3.893914  0.000003
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:   12    -3318.324013    -3318.324013    -3318.324013  0.000000 -3.893913  0.000001
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:   13    -3318.324013    -3318.324013    -3318.324013  0.000000 -3.893913  0.000000
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000202
+max |H_out - H_in|      (eV) :     0.0000004148
+SCF cycle converged after 13 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3318.3240
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1    0.011495   -0.018326    0.000000
+     2    0.002925   -0.034812   -0.000000
+     3   -0.003622   -0.032035    0.000000
+     4    0.058417    0.020924   -0.000000
+     5   -0.050090    0.053623    0.000000
+     6   -0.071907    0.399082   -0.000000
+     7    0.004046   -0.067924    0.000000
+     8    0.024133   -0.038700    0.000000
+     9   -0.012757   -0.124861   -0.000000
+    10    0.081877    0.046042   -0.000000
+    11    0.238784   -0.176010   -0.000000
+    12   -0.114699   -0.062067    0.000000
+    13    0.112074   -0.031633    0.000000
+    14    0.063713   -0.006939   -0.000000
+    15   -0.340829    0.043322   -0.000000
+----------------------------------------
+   Tot    0.003559   -0.030314    0.000000
+----------------------------------------
+   Max    0.399082
+   Res    0.099822    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.340829    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):       -0.44        0.20       -0.09       -0.00        0.00       -1.20
+(Free)E + p*V (eV/cell)    -3318.2423
+Target enthalpy (eV/cell)    -3318.3240
+
+                     ====================================
+                        Begin Broyden opt. move =     10
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 10
+  <sparsity:sparsity for geom step 10
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:    11
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 10
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3318.406593    -3318.328107    -3318.328107  0.003177 -3.893777  0.127384
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    2    -3318.302253    -3318.320586    -3318.320586  0.008028 -3.903359  0.367282
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    3    -3318.330739    -3318.328896    -3318.328896  0.006203 -3.896693  0.014528
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    4    -3318.328908    -3318.328903    -3318.328903  0.000130 -3.897885  0.005354
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    5    -3318.328904    -3318.328904    -3318.328904  0.000064 -3.898319  0.001474
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    6    -3318.328904    -3318.328904    -3318.328904  0.000020 -3.898301  0.000401
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:    7    -3318.328904    -3318.328904    -3318.328904  0.000011 -3.898276  0.000060
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:    8    -3318.328904    -3318.328904    -3318.328904  0.000003 -3.898274  0.000020
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    9    -3318.328904    -3318.328904    -3318.328904  0.000001 -3.898273  0.000021
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:   10    -3318.328904    -3318.328904    -3318.328904  0.000000 -3.898272  0.000009
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:   11    -3318.328904    -3318.328904    -3318.328904  0.000000 -3.898271  0.000002
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:   12    -3318.328904    -3318.328904    -3318.328904  0.000000 -3.898271  0.000000
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000301
+max |H_out - H_in|      (eV) :     0.0000003841
+SCF cycle converged after 12 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3318.3289
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1    0.020485   -0.020779    0.000000
+     2    0.022317   -0.050475   -0.000000
+     3   -0.025154   -0.041430    0.000000
+     4    0.015706   -0.019272   -0.000000
+     5   -0.004486   -0.022718    0.000000
+     6   -0.057108    0.326299   -0.000000
+     7    0.023477   -0.033597    0.000000
+     8   -0.013233    0.035161    0.000000
+     9    0.009406   -0.046146   -0.000000
+    10   -0.009610   -0.020032   -0.000000
+    11   -0.059898   -0.051829   -0.000000
+    12    0.009145   -0.023860    0.000000
+    13    0.069749   -0.043666    0.000000
+    14   -0.022620   -0.020203   -0.000000
+    15    0.063120    0.020476   -0.000000
+----------------------------------------
+   Tot    0.041295   -0.012071   -0.000000
+----------------------------------------
+   Max    0.326299
+   Res    0.056166    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.069749    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):       -0.08        0.67       -0.09       -0.00        0.00       -0.20
+(Free)E + p*V (eV/cell)    -3318.4499
+Target enthalpy (eV/cell)    -3318.3289
+
+                     ====================================
+                        Begin Broyden opt. move =     11
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 11
+  <sparsity:sparsity for geom step 11
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:    12
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 11
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3318.339019    -3318.329462    -3318.329462  0.000611 -3.897410  0.028887
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    2    -3318.328870    -3318.329304    -3318.329304  0.000778 -3.906907  0.065517
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    3    -3318.329554    -3318.329497    -3318.329497  0.000567 -3.900293  0.001773
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    4    -3318.329498    -3318.329498    -3318.329498  0.000015 -3.900426  0.000868
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    5    -3318.329498    -3318.329498    -3318.329498  0.000009 -3.900476  0.000278
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    6    -3318.329498    -3318.329498    -3318.329498  0.000002 -3.900475  0.000096
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    7    -3318.329498    -3318.329498    -3318.329498  0.000001 -3.900473  0.000030
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    8    -3318.329498    -3318.329498    -3318.329498  0.000001 -3.900475  0.000009
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:    9    -3318.329498    -3318.329498    -3318.329498  0.000000 -3.900476  0.000003
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:   10    -3318.329498    -3318.329498    -3318.329498  0.000000 -3.900476  0.000002
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:   11    -3318.329498    -3318.329498    -3318.329498  0.000000 -3.900476  0.000001
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000364
+max |H_out - H_in|      (eV) :     0.0000009804
+SCF cycle converged after 11 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3318.3295
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1    0.016506   -0.053552    0.000000
+     2    0.018347   -0.037731   -0.000000
+     3   -0.003306   -0.025695    0.000000
+     4    0.003576   -0.009737   -0.000000
+     5   -0.003410    0.005206    0.000000
+     6   -0.049854    0.295054   -0.000000
+     7   -0.004401   -0.026415    0.000000
+     8    0.005586   -0.019905    0.000000
+     9    0.019646   -0.026732   -0.000000
+    10   -0.007506   -0.016024   -0.000000
+    11   -0.006632   -0.016127   -0.000000
+    12    0.023581   -0.017165    0.000000
+    13    0.041792   -0.056069    0.000000
+    14   -0.017554   -0.011705   -0.000000
+    15    0.010739    0.007481   -0.000000
+----------------------------------------
+   Tot    0.047110   -0.009117   -0.000000
+----------------------------------------
+   Max    0.295054
+   Res    0.048185    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.056069    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):        0.15        0.67       -0.09       -0.00        0.00       -0.09
+(Free)E + p*V (eV/cell)    -3318.5099
+Target enthalpy (eV/cell)    -3318.3295
+
+                     ====================================
+                        Begin Broyden opt. move =     12
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 12
+  <sparsity:sparsity for geom step 12
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:    13
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 12
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3318.328117    -3318.329930    -3318.329930  0.000434 -3.898818  0.018775
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    2    -3318.329431    -3318.329791    -3318.329791  0.000917 -3.897045  0.049970
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    3    -3318.329995    -3318.329954    -3318.329954  0.000685 -3.898037  0.003057
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:    4    -3318.329954    -3318.329954    -3318.329954  0.000015 -3.897841  0.001551
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    5    -3318.329954    -3318.329954    -3318.329954  0.000009 -3.897794  0.000585
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:    6    -3318.329954    -3318.329954    -3318.329954  0.000005 -3.897807  0.000139
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    7    -3318.329954    -3318.329954    -3318.329954  0.000002 -3.897814  0.000017
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    8    -3318.329954    -3318.329954    -3318.329954  0.000000 -3.897814  0.000011
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    9    -3318.329954    -3318.329954    -3318.329954  0.000001 -3.897813  0.000004
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:   10    -3318.329954    -3318.329954    -3318.329954  0.000000 -3.897813  0.000002
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:   11    -3318.329954    -3318.329954    -3318.329954  0.000000 -3.897812  0.000001
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:   12    -3318.329954    -3318.329954    -3318.329954  0.000000 -3.897812  0.000000
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000155
+max |H_out - H_in|      (eV) :     0.0000002478
+SCF cycle converged after 12 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3318.3300
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1    0.008382    0.003103    0.000000
+     2    0.001578   -0.028693   -0.000000
+     3    0.007817   -0.009128    0.000000
+     4   -0.006211   -0.014053   -0.000000
+     5    0.001981   -0.009578    0.000000
+     6   -0.033236    0.237700   -0.000000
+     7   -0.005059   -0.013453    0.000000
+     8    0.000187   -0.009266    0.000000
+     9    0.026036   -0.031153   -0.000000
+    10   -0.003695   -0.022852   -0.000000
+    11    0.007097   -0.041868   -0.000000
+    12    0.010674   -0.004814    0.000000
+    13    0.026024   -0.051337    0.000000
+    14    0.017764    0.005402   -0.000000
+    15   -0.005071   -0.013499   -0.000000
+----------------------------------------
+   Tot    0.054268   -0.003491   -0.000000
+----------------------------------------
+   Max    0.237700
+   Res    0.038664    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.051337    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):        0.02        0.55       -0.09       -0.00        0.00        0.04
+(Free)E + p*V (eV/cell)    -3318.4481
+Target enthalpy (eV/cell)    -3318.3300
+
+                     ====================================
+                        Begin Broyden opt. move =     13
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 13
+  <sparsity:sparsity for geom step 13
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:    14
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 13
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3318.323454    -3318.330161    -3318.330161  0.000401 -3.896778  0.007248
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    2    -3318.330096    -3318.330143    -3318.330143  0.000364 -3.901291  0.017363
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    3    -3318.330170    -3318.330165    -3318.330165  0.000274 -3.898343  0.001498
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    4    -3318.330165    -3318.330165    -3318.330165  0.000006 -3.898509  0.000714
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    5    -3318.330165    -3318.330165    -3318.330165  0.000003 -3.898528  0.000260
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:    6    -3318.330165    -3318.330165    -3318.330165  0.000002 -3.898515  0.000038
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    7    -3318.330165    -3318.330165    -3318.330165  0.000000 -3.898514  0.000018
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    8    -3318.330165    -3318.330165    -3318.330165  0.000000 -3.898515  0.000007
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    9    -3318.330165    -3318.330165    -3318.330165  0.000000 -3.898515  0.000002
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:   10    -3318.330165    -3318.330165    -3318.330165  0.000000 -3.898516  0.000001
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000337
+max |H_out - H_in|      (eV) :     0.0000007520
+SCF cycle converged after 10 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3318.3302
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1    0.017612   -0.035156    0.000000
+     2    0.000219   -0.017055   -0.000000
+     3   -0.000202   -0.010361    0.000000
+     4   -0.001648   -0.022503   -0.000000
+     5    0.005167   -0.012418    0.000000
+     6   -0.021065    0.221347   -0.000000
+     7    0.001551   -0.000271    0.000000
+     8   -0.004871   -0.006066    0.000000
+     9    0.003513   -0.028996   -0.000000
+    10    0.002485   -0.019749   -0.000000
+    11    0.010086   -0.010976   -0.000000
+    12    0.015083   -0.008199    0.000000
+    13    0.021511   -0.045356    0.000000
+    14    0.001159   -0.001147   -0.000000
+    15    0.003764   -0.009455   -0.000000
+----------------------------------------
+   Tot    0.054366   -0.006361   -0.000000
+----------------------------------------
+   Max    0.221347
+   Res    0.035443    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.045356    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):        0.04        0.51       -0.09       -0.00        0.00        0.07
+(Free)E + p*V (eV/cell)    -3318.4427
+Target enthalpy (eV/cell)    -3318.3302
+
+                     ====================================
+                        Begin Broyden opt. move =     14
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 14
+  <sparsity:sparsity for geom step 14
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:    15
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 14
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3318.327722    -3318.330408    -3318.330408  0.000412 -3.898120  0.009650
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    2    -3318.330330    -3318.330388    -3318.330388  0.000240 -3.895345  0.019662
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    3    -3318.330422    -3318.330414    -3318.330414  0.000169 -3.897031  0.001666
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+   scf:    4    -3318.330414    -3318.330414    -3318.330414  0.000009 -3.896837  0.000517
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    5    -3318.330414    -3318.330414    -3318.330414  0.000003 -3.896847  0.000214
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    6    -3318.330414    -3318.330414    -3318.330414  0.000002 -3.896852  0.000061
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    7    -3318.330414    -3318.330414    -3318.330414  0.000001 -3.896854  0.000015
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:    8    -3318.330414    -3318.330414    -3318.330414  0.000000 -3.896854  0.000006
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:    9    -3318.330414    -3318.330414    -3318.330414  0.000000 -3.896854  0.000002
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:   10    -3318.330414    -3318.330414    -3318.330414  0.000000 -3.896854  0.000001
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000350
+max |H_out - H_in|      (eV) :     0.0000008959
+SCF cycle converged after 10 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3318.3304
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1    0.012319   -0.003174    0.000000
+     2   -0.004241   -0.019708   -0.000000
+     3    0.008661   -0.001515    0.000000
+     4    0.000725   -0.017043   -0.000000
+     5    0.001401   -0.007410    0.000000
+     6   -0.013561    0.191443   -0.000000
+     7   -0.005644   -0.004175    0.000000
+     8   -0.001878   -0.018212    0.000000
+     9    0.013637   -0.015060   -0.000000
+    10    0.004333   -0.022826   -0.000000
+    11    0.016252   -0.024906   -0.000000
+    12   -0.000170   -0.011051    0.000000
+    13    0.016648   -0.032146    0.000000
+    14   -0.014271   -0.009122   -0.000000
+    15    0.026047   -0.007250   -0.000000
+----------------------------------------
+   Tot    0.060259   -0.002156   -0.000000
+----------------------------------------
+   Max    0.191443
+   Res    0.030732    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.032146    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):        0.00        0.44       -0.09        0.00        0.00        0.11
+(Free)E + p*V (eV/cell)    -3318.4184
+Target enthalpy (eV/cell)    -3318.3304
+
+                     ====================================
+                        Begin Broyden opt. move =     15
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 15
+  <sparsity:sparsity for geom step 15
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:    16
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 15
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3318.328555    -3318.330560    -3318.330560  0.000254 -3.896670  0.009199
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    2    -3318.330443    -3318.330526    -3318.330526  0.000646 -3.896383  0.031026
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    3    -3318.330572    -3318.330563    -3318.330563  0.000493 -3.896528  0.001089
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:    4    -3318.330564    -3318.330564    -3318.330564  0.000016 -3.896487  0.000373
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    5    -3318.330564    -3318.330564    -3318.330564  0.000009 -3.896468  0.000071
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    6    -3318.330564    -3318.330564    -3318.330564  0.000002 -3.896466  0.000024
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    7    -3318.330564    -3318.330564    -3318.330564  0.000001 -3.896465  0.000006
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    8    -3318.330564    -3318.330564    -3318.330564  0.000000 -3.896464  0.000002
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    9    -3318.330564    -3318.330564    -3318.330564  0.000000 -3.896464  0.000001
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000001388
+max |H_out - H_in|      (eV) :     0.0000005382
+SCF cycle converged after 9 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3318.3306
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1    0.008821   -0.014564    0.000000
+     2   -0.004820   -0.012709   -0.000000
+     3    0.006717   -0.001833    0.000000
+     4   -0.000995   -0.020585   -0.000000
+     5   -0.000695   -0.010039    0.000000
+     6   -0.005558    0.175305   -0.000000
+     7   -0.002831   -0.000587    0.000000
+     8   -0.001469   -0.015587    0.000000
+     9    0.006784   -0.014593   -0.000000
+    10    0.005027   -0.020160   -0.000000
+    11   -0.021402    0.007864   -0.000000
+    12    0.029611   -0.028831    0.000000
+    13    0.012168   -0.025319    0.000000
+    14    0.032110    0.007588   -0.000000
+    15   -0.005815   -0.027936   -0.000000
+----------------------------------------
+   Tot    0.057654   -0.001987   -0.000000
+----------------------------------------
+   Max    0.175305
+   Res    0.028935    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.032110    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):       -0.05        0.42       -0.09        0.00        0.00        0.03
+(Free)E + p*V (eV/cell)    -3318.4007
+Target enthalpy (eV/cell)    -3318.3306
+
+                     ====================================
+                        Begin Broyden opt. move =     16
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 16
+  <sparsity:sparsity for geom step 16
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:    17
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 16
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3318.324697    -3318.330722    -3318.330722  0.000196 -3.894673  0.006015
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    2    -3318.330674    -3318.330708    -3318.330708  0.000302 -3.896088  0.017633
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    3    -3318.330728    -3318.330724    -3318.330724  0.000232 -3.895004  0.001317
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    4    -3318.330724    -3318.330724    -3318.330724  0.000007 -3.894988  0.000436
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    5    -3318.330724    -3318.330724    -3318.330724  0.000003 -3.894983  0.000097
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    6    -3318.330724    -3318.330724    -3318.330724  0.000001 -3.894986  0.000049
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    7    -3318.330724    -3318.330724    -3318.330724  0.000001 -3.894987  0.000011
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    8    -3318.330724    -3318.330724    -3318.330724  0.000000 -3.894986  0.000004
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    9    -3318.330724    -3318.330724    -3318.330724  0.000000 -3.894986  0.000002
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:   10    -3318.330724    -3318.330724    -3318.330724  0.000000 -3.894986  0.000001
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000311
+max |H_out - H_in|      (eV) :     0.0000007151
+SCF cycle converged after 10 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3318.3307
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1    0.002109   -0.005001    0.000000
+     2   -0.004747   -0.008935   -0.000000
+     3    0.006835   -0.003913    0.000000
+     4    0.002005   -0.023518   -0.000000
+     5    0.001333   -0.014414    0.000000
+     6    0.003415    0.157158   -0.000000
+     7   -0.002489    0.003918    0.000000
+     8   -0.002491   -0.009694    0.000000
+     9    0.002888   -0.013817   -0.000000
+    10    0.008294   -0.015732   -0.000000
+    11    0.025751   -0.012526   -0.000000
+    12   -0.005098   -0.017944    0.000000
+    13    0.006294   -0.022754    0.000000
+    14    0.004601   -0.004690   -0.000000
+    15   -0.001089   -0.016377   -0.000000
+----------------------------------------
+   Tot    0.047614   -0.008240   -0.000000
+----------------------------------------
+   Max    0.157158
+   Res    0.025098    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.025751    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):       -0.07        0.33       -0.09        0.00        0.00        0.08
+(Free)E + p*V (eV/cell)    -3318.3733
+Target enthalpy (eV/cell)    -3318.3307
+
+                     ====================================
+                        Begin Broyden opt. move =     17
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 17
+  <sparsity:sparsity for geom step 17
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:    18
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 17
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3318.329271    -3318.330858    -3318.330858  0.000216 -3.894576  0.005911
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    2    -3318.330793    -3318.330839    -3318.330839  0.000322 -3.894433  0.017909
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    3    -3318.330865    -3318.330861    -3318.330861  0.000239 -3.894507  0.000628
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    4    -3318.330861    -3318.330861    -3318.330861  0.000005 -3.894496  0.000268
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    5    -3318.330861    -3318.330861    -3318.330861  0.000003 -3.894493  0.000041
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    6    -3318.330861    -3318.330861    -3318.330861  0.000001 -3.894494  0.000020
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    7    -3318.330861    -3318.330861    -3318.330861  0.000001 -3.894494  0.000007
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:    8    -3318.330861    -3318.330861    -3318.330861  0.000000 -3.894494  0.000001
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    9    -3318.330861    -3318.330861    -3318.330861  0.000000 -3.894494  0.000001
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:   10    -3318.330861    -3318.330861    -3318.330861  0.000000 -3.894494  0.000000
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000283
+max |H_out - H_in|      (eV) :     0.0000003906
+SCF cycle converged after 10 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3318.3309
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1    0.002195   -0.003250    0.000000
+     2   -0.003427   -0.007681   -0.000000
+     3    0.007150   -0.005412    0.000000
+     4    0.004036   -0.014463   -0.000000
+     5   -0.000373   -0.013607    0.000000
+     6    0.005199    0.147679   -0.000000
+     7   -0.000328   -0.003388    0.000000
+     8   -0.002104   -0.012800    0.000000
+     9   -0.005513   -0.013534   -0.000000
+    10    0.006842   -0.016314   -0.000000
+    11    0.006894   -0.004980   -0.000000
+    12    0.001556   -0.021465    0.000000
+    13    0.008755   -0.015023    0.000000
+    14    0.000957   -0.009238   -0.000000
+    15    0.012754   -0.016614   -0.000000
+----------------------------------------
+   Tot    0.044594   -0.010090   -0.000000
+----------------------------------------
+   Max    0.147679
+   Res    0.023325    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.021465    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):       -0.10        0.32       -0.09        0.00        0.00        0.04
+(Free)E + p*V (eV/cell)    -3318.3624
+Target enthalpy (eV/cell)    -3318.3309
+
+                     ====================================
+                        Begin Broyden opt. move =     18
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 18
+  <sparsity:sparsity for geom step 18
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:    19
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 18
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3318.330253    -3318.330981    -3318.330981  0.000196 -3.893637  0.008054
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    2    -3318.330869    -3318.330948    -3318.330948  0.000456 -3.894205  0.025271
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+   scf:    3    -3318.330992    -3318.330984    -3318.330984  0.000350 -3.893711  0.000931
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    4    -3318.330984    -3318.330984    -3318.330984  0.000004 -3.893676  0.000368
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    5    -3318.330984    -3318.330984    -3318.330984  0.000002 -3.893662  0.000082
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    6    -3318.330984    -3318.330984    -3318.330984  0.000001 -3.893663  0.000034
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    7    -3318.330984    -3318.330984    -3318.330984  0.000000 -3.893662  0.000004
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    8    -3318.330984    -3318.330984    -3318.330984  0.000000 -3.893661  0.000003
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    9    -3318.330984    -3318.330984    -3318.330984  0.000000 -3.893661  0.000001
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:   10    -3318.330984    -3318.330984    -3318.330984  0.000000 -3.893661  0.000000
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000197
+max |H_out - H_in|      (eV) :     0.0000002670
+SCF cycle converged after 10 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3318.3310
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1   -0.000132   -0.007390    0.000000
+     2   -0.003902   -0.009102   -0.000000
+     3    0.007049   -0.008362    0.000000
+     4    0.006799   -0.015776   -0.000000
+     5   -0.000637   -0.010881    0.000000
+     6    0.007690    0.133638   -0.000000
+     7   -0.000920   -0.003669    0.000000
+     8    0.000647   -0.010856    0.000000
+     9   -0.000679   -0.005676   -0.000000
+    10    0.006556   -0.011403   -0.000000
+    11    0.012969   -0.003729   -0.000000
+    12   -0.006211   -0.019817    0.000000
+    13    0.009387   -0.009868    0.000000
+    14    0.004287   -0.009295   -0.000000
+    15    0.001892   -0.017110   -0.000000
+----------------------------------------
+   Tot    0.044796   -0.009297   -0.000000
+----------------------------------------
+   Max    0.133638
+   Res    0.021157    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.019817    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):       -0.12        0.29       -0.09       -0.00        0.00        0.03
+(Free)E + p*V (eV/cell)    -3318.3504
+Target enthalpy (eV/cell)    -3318.3310
+
+                     ====================================
+                        Begin Broyden opt. move =     19
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 19
+  <sparsity:sparsity for geom step 19
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:    20
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 19
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3318.332021    -3318.331102    -3318.331102  0.000186 -3.892535  0.004610
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    2    -3318.331078    -3318.331095    -3318.331095  0.000194 -3.893865  0.011216
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    3    -3318.331105    -3318.331103    -3318.331103  0.000142 -3.892947  0.000778
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    4    -3318.331103    -3318.331103    -3318.331103  0.000004 -3.893011  0.000258
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    5    -3318.331103    -3318.331103    -3318.331103  0.000002 -3.893028  0.000064
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    6    -3318.331103    -3318.331103    -3318.331103  0.000001 -3.893025  0.000024
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:    7    -3318.331103    -3318.331103    -3318.331103  0.000000 -3.893022  0.000005
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    8    -3318.331103    -3318.331103    -3318.331103  0.000000 -3.893022  0.000002
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:    9    -3318.331103    -3318.331103    -3318.331103  0.000000 -3.893022  0.000001
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:   10    -3318.331103    -3318.331103    -3318.331103  0.000000 -3.893022  0.000001
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000226
+max |H_out - H_in|      (eV) :     0.0000007129
+SCF cycle converged after 10 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3318.3311
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1    0.001841   -0.001491    0.000000
+     2   -0.001264   -0.004132   -0.000000
+     3    0.004446   -0.009453    0.000000
+     4    0.006257   -0.010283   -0.000000
+     5    0.000878   -0.011058    0.000000
+     6    0.009331    0.117457   -0.000000
+     7    0.000064   -0.004411    0.000000
+     8    0.001295   -0.005821    0.000000
+     9   -0.006620   -0.012173   -0.000000
+    10    0.008840   -0.008429   -0.000000
+    11    0.002630   -0.003763   -0.000000
+    12    0.000909   -0.017997    0.000000
+    13    0.009970   -0.007079    0.000000
+    14   -0.001241   -0.012175   -0.000000
+    15    0.008086   -0.014260   -0.000000
+----------------------------------------
+   Tot    0.045423   -0.005067   -0.000000
+----------------------------------------
+   Max    0.117457
+   Res    0.018616    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.017997    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):       -0.11        0.27       -0.09       -0.00        0.00        0.01
+(Free)E + p*V (eV/cell)    -3318.3478
+Target enthalpy (eV/cell)    -3318.3311
+
+                     ====================================
+                        Begin Broyden opt. move =     20
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 20
+  <sparsity:sparsity for geom step 20
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:    21
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 20
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3318.335070    -3318.331287    -3318.331287  0.000405 -3.891800  0.010406
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+   scf:    2    -3318.331134    -3318.331244    -3318.331244  0.000505 -3.895305  0.026505
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    3    -3318.331305    -3318.331293    -3318.331293  0.000381 -3.892786  0.001136
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    4    -3318.331293    -3318.331293    -3318.331293  0.000009 -3.892859  0.000544
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    5    -3318.331293    -3318.331293    -3318.331293  0.000005 -3.892889  0.000140
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    6    -3318.331293    -3318.331293    -3318.331293  0.000001 -3.892886  0.000056
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    7    -3318.331293    -3318.331293    -3318.331293  0.000001 -3.892880  0.000012
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    8    -3318.331293    -3318.331293    -3318.331293  0.000000 -3.892879  0.000003
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    9    -3318.331293    -3318.331293    -3318.331293  0.000000 -3.892879  0.000002
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:   10    -3318.331293    -3318.331293    -3318.331293  0.000000 -3.892879  0.000001
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:   11    -3318.331293    -3318.331293    -3318.331293  0.000000 -3.892879  0.000001
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000211
+max |H_out - H_in|      (eV) :     0.0000005002
+SCF cycle converged after 11 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3318.3313
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1    0.004512   -0.009925    0.000000
+     2   -0.002061   -0.008074   -0.000000
+     3    0.007999   -0.004359    0.000000
+     4    0.002892   -0.003118   -0.000000
+     5    0.001871   -0.012725    0.000000
+     6    0.016793    0.086673   -0.000000
+     7   -0.000403   -0.003184    0.000000
+     8   -0.000606   -0.004404    0.000000
+     9   -0.000792   -0.004960   -0.000000
+    10    0.004488   -0.005636   -0.000000
+    11    0.003128   -0.001488   -0.000000
+    12   -0.007575   -0.015317    0.000000
+    13    0.004743   -0.012944    0.000000
+    14   -0.001019   -0.012449   -0.000000
+    15    0.002257   -0.008849   -0.000000
+----------------------------------------
+   Tot    0.036227   -0.020758   -0.000000
+----------------------------------------
+   Max    0.086673
+   Res    0.014212    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.015317    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):       -0.09        0.26       -0.09       -0.00        0.00        0.00
+(Free)E + p*V (eV/cell)    -3318.3506
+Target enthalpy (eV/cell)    -3318.3313
+
+                     ====================================
+                        Begin Broyden opt. move =     21
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 21
+  <sparsity:sparsity for geom step 21
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:    22
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 21
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3318.334635    -3318.331412    -3318.331412  0.000304 -3.893061  0.004997
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    2    -3318.331382    -3318.331404    -3318.331404  0.000199 -3.893088  0.012284
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    3    -3318.331417    -3318.331414    -3318.331414  0.000145 -3.893046  0.001182
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    4    -3318.331414    -3318.331414    -3318.331414  0.000006 -3.893044  0.000474
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+   scf:    5    -3318.331414    -3318.331414    -3318.331414  0.000003 -3.893047  0.000070
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    6    -3318.331414    -3318.331414    -3318.331414  0.000002 -3.893051  0.000031
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+   scf:    7    -3318.331414    -3318.331414    -3318.331414  0.000001 -3.893051  0.000011
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    8    -3318.331414    -3318.331414    -3318.331414  0.000000 -3.893050  0.000004
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    9    -3318.331414    -3318.331414    -3318.331414  0.000000 -3.893049  0.000002
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:   10    -3318.331414    -3318.331414    -3318.331414  0.000000 -3.893049  0.000001
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000407
+max |H_out - H_in|      (eV) :     0.0000007090
+SCF cycle converged after 10 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3318.3314
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1    0.000212    0.002898    0.000000
+     2   -0.000612   -0.005301   -0.000000
+     3    0.005088   -0.004630    0.000000
+     4    0.003918   -0.001867   -0.000000
+     5   -0.001369   -0.002819    0.000000
+     6    0.021835    0.058258   -0.000000
+     7    0.000710   -0.003091    0.000000
+     8    0.004588   -0.004998    0.000000
+     9    0.000249   -0.007459   -0.000000
+    10    0.001236   -0.003950   -0.000000
+    11    0.002381   -0.009881   -0.000000
+    12   -0.005730   -0.006768    0.000000
+    13    0.008007   -0.005910    0.000000
+    14    0.001286   -0.012364   -0.000000
+    15   -0.003117   -0.006467   -0.000000
+----------------------------------------
+   Tot    0.038682   -0.014349   -0.000000
+----------------------------------------
+   Max    0.058258
+   Res    0.010110    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.012364    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):       -0.08        0.24       -0.09       -0.00        0.00       -0.02
+(Free)E + p*V (eV/cell)    -3318.3474
+Target enthalpy (eV/cell)    -3318.3314
+
+                     ====================================
+                        Begin Broyden opt. move =     22
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 22
+  <sparsity:sparsity for geom step 22
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:    23
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 22
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3318.333931    -3318.331475    -3318.331475  0.000268 -3.892135  0.007052
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    2    -3318.331433    -3318.331464    -3318.331464  0.000326 -3.894728  0.015608
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    3    -3318.331481    -3318.331477    -3318.331477  0.000244 -3.892996  0.000705
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    4    -3318.331478    -3318.331477    -3318.331477  0.000006 -3.893107  0.000326
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    5    -3318.331477    -3318.331477    -3318.331477  0.000002 -3.893135  0.000139
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    6    -3318.331477    -3318.331477    -3318.331477  0.000001 -3.893130  0.000052
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    7    -3318.331477    -3318.331477    -3318.331477  0.000001 -3.893125  0.000009
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    8    -3318.331477    -3318.331477    -3318.331477  0.000000 -3.893125  0.000003
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    9    -3318.331477    -3318.331477    -3318.331477  0.000000 -3.893125  0.000002
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:   10    -3318.331477    -3318.331477    -3318.331477  0.000000 -3.893125  0.000001
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000210
+max |H_out - H_in|      (eV) :     0.0000009661
+SCF cycle converged after 10 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3318.3315
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1    0.002526   -0.008692    0.000000
+     2   -0.000243   -0.004352   -0.000000
+     3    0.003686   -0.002570    0.000000
+     4    0.003029   -0.001647   -0.000000
+     5    0.000537   -0.004718    0.000000
+     6    0.030649    0.035485   -0.000000
+     7    0.000499   -0.001086    0.000000
+     8    0.001592    0.000862    0.000000
+     9   -0.001471   -0.004812   -0.000000
+    10    0.001653   -0.000073   -0.000000
+    11   -0.008604    0.001824   -0.000000
+    12    0.003384   -0.003527    0.000000
+    13    0.007321   -0.002610    0.000000
+    14   -0.005013   -0.013728   -0.000000
+    15    0.003904   -0.000956   -0.000000
+----------------------------------------
+   Tot    0.043447   -0.010601   -0.000000
+----------------------------------------
+   Max    0.035485
+   Res    0.007857    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.013728    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):       -0.05        0.24       -0.09       -0.00        0.00       -0.02
+(Free)E + p*V (eV/cell)    -3318.3564
+Target enthalpy (eV/cell)    -3318.3315
+
+                     ====================================
+                        Begin Broyden opt. move =     23
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 23
+  <sparsity:sparsity for geom step 23
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:    24
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 23
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3318.333722    -3318.331499    -3318.331499  0.000106 -3.893649  0.003554
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    2    -3318.331491    -3318.331497    -3318.331497  0.000176 -3.893323  0.010033
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    3    -3318.331500    -3318.331499    -3318.331499  0.000134 -3.893548  0.000396
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    4    -3318.331499    -3318.331499    -3318.331499  0.000002 -3.893547  0.000222
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+   scf:    5    -3318.331499    -3318.331499    -3318.331499  0.000002 -3.893555  0.000030
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    6    -3318.331499    -3318.331499    -3318.331499  0.000000 -3.893556  0.000008
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    7    -3318.331499    -3318.331499    -3318.331499  0.000000 -3.893556  0.000003
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    8    -3318.331499    -3318.331499    -3318.331499  0.000000 -3.893556  0.000001
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:    9    -3318.331499    -3318.331499    -3318.331499  0.000000 -3.893556  0.000000
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000394
+max |H_out - H_in|      (eV) :     0.0000004659
+SCF cycle converged after 9 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3318.3315
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1    0.000133   -0.002795    0.000000
+     2   -0.001185   -0.004934   -0.000000
+     3    0.001332   -0.000710    0.000000
+     4   -0.000643   -0.000661   -0.000000
+     5   -0.001536   -0.002475    0.000000
+     6    0.034423    0.024810   -0.000000
+     7   -0.000098   -0.002387    0.000000
+     8    0.000770   -0.000332    0.000000
+     9    0.001241   -0.004336   -0.000000
+    10    0.003971   -0.000837   -0.000000
+    11   -0.000954   -0.005333   -0.000000
+    12   -0.001711   -0.001257    0.000000
+    13    0.005790   -0.003464    0.000000
+    14    0.004644   -0.008441   -0.000000
+    15   -0.009862   -0.002571   -0.000000
+----------------------------------------
+   Tot    0.036315   -0.015724   -0.000000
+----------------------------------------
+   Max    0.034423
+   Res    0.006936    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.009862    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):       -0.06        0.24       -0.09       -0.00        0.00       -0.02
+(Free)E + p*V (eV/cell)    -3318.3559
+Target enthalpy (eV/cell)    -3318.3315
+
+                     ====================================
+                        Begin Broyden opt. move =     24
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 24
+  <sparsity:sparsity for geom step 24
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:    25
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 24
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3318.332910    -3318.331511    -3318.331511  0.000070 -3.893556  0.002828
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    2    -3318.331505    -3318.331509    -3318.331509  0.000119 -3.894089  0.007369
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    3    -3318.331512    -3318.331511    -3318.331511  0.000089 -3.893767  0.000293
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:    4    -3318.331511    -3318.331511    -3318.331511  0.000004 -3.893814  0.000113
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    5    -3318.331511    -3318.331511    -3318.331511  0.000002 -3.893822  0.000047
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    6    -3318.331511    -3318.331511    -3318.331511  0.000001 -3.893822  0.000009
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    7    -3318.331511    -3318.331511    -3318.331511  0.000000 -3.893822  0.000002
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    8    -3318.331511    -3318.331511    -3318.331511  0.000000 -3.893822  0.000001
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    9    -3318.331511    -3318.331511    -3318.331511  0.000000 -3.893822  0.000000
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000001125
+max |H_out - H_in|      (eV) :     0.0000003669
+SCF cycle converged after 9 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3318.3315
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1    0.000113   -0.003138    0.000000
+     2   -0.000782   -0.006493   -0.000000
+     3    0.000487   -0.000525    0.000000
+     4    0.000512   -0.001447   -0.000000
+     5   -0.000904   -0.004197    0.000000
+     6    0.036650    0.017745   -0.000000
+     7   -0.000174   -0.001019    0.000000
+     8    0.000259   -0.001246    0.000000
+     9    0.002062   -0.003666   -0.000000
+    10    0.001870   -0.000070   -0.000000
+    11    0.000632   -0.007011   -0.000000
+    12   -0.006128    0.001609    0.000000
+    13    0.005371   -0.003531    0.000000
+    14   -0.005443   -0.011506   -0.000000
+    15    0.001917    0.001291   -0.000000
+----------------------------------------
+   Tot    0.036442   -0.023205   -0.000000
+----------------------------------------
+   Max    0.036650
+   Res    0.006757    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.011506    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):       -0.04        0.25       -0.09       -0.00        0.00        0.01
+(Free)E + p*V (eV/cell)    -3318.3597
+Target enthalpy (eV/cell)    -3318.3315
+
+                     ====================================
+                        Begin Broyden opt. move =     25
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 25
+  <sparsity:sparsity for geom step 25
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:    26
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 25
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3318.332467    -3318.331523    -3318.331523  0.000054 -3.894043  0.001307
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    2    -3318.331521    -3318.331522    -3318.331522  0.000058 -3.894238  0.003244
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    3    -3318.331523    -3318.331523    -3318.331523  0.000043 -3.894112  0.000172
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    4    -3318.331523    -3318.331523    -3318.331523  0.000002 -3.894128  0.000078
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    5    -3318.331523    -3318.331523    -3318.331523  0.000001 -3.894131  0.000026
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    6    -3318.331523    -3318.331523    -3318.331523  0.000000 -3.894130  0.000008
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:    7    -3318.331523    -3318.331523    -3318.331523  0.000000 -3.894129  0.000001
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    8    -3318.331523    -3318.331523    -3318.331523  0.000000 -3.894129  0.000001
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000397
+max |H_out - H_in|      (eV) :     0.0000006762
+SCF cycle converged after 8 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3318.3315
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1    0.001136   -0.002905    0.000000
+     2    0.000109   -0.003887   -0.000000
+     3    0.000740    0.000127    0.000000
+     4    0.001006    0.000490   -0.000000
+     5   -0.001770   -0.002825    0.000000
+     6    0.038406    0.011407   -0.000000
+     7   -0.000165   -0.001547    0.000000
+     8   -0.000163   -0.002213    0.000000
+     9    0.000514   -0.003869   -0.000000
+    10    0.000711   -0.000457   -0.000000
+    11   -0.007288   -0.001731   -0.000000
+    12    0.000278   -0.000446    0.000000
+    13    0.004722   -0.003152    0.000000
+    14    0.000171   -0.008303   -0.000000
+    15   -0.002035   -0.001325   -0.000000
+----------------------------------------
+   Tot    0.036372   -0.020637   -0.000000
+----------------------------------------
+   Max    0.038406
+   Res    0.006376    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.008303    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):       -0.04        0.26       -0.09       -0.00        0.00       -0.01
+(Free)E + p*V (eV/cell)    -3318.3632
+Target enthalpy (eV/cell)    -3318.3315
+
+                     ====================================
+                        Begin Broyden opt. move =     26
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 26
+  <sparsity:sparsity for geom step 26
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:    27
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 26
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3318.334484    -3318.331542    -3318.331542  0.000100 -3.894529  0.002283
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    2    -3318.331535    -3318.331540    -3318.331540  0.000159 -3.895880  0.005452
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    3    -3318.331543    -3318.331542    -3318.331542  0.000120 -3.894983  0.000308
+     spin moment: {S} , |S| = {    0.00000    0.00000   -0.00000 }     0.00000
+   scf:    4    -3318.331542    -3318.331542    -3318.331542  0.000004 -3.895047  0.000141
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    5    -3318.331542    -3318.331542    -3318.331542  0.000002 -3.895058  0.000058
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    6    -3318.331542    -3318.331542    -3318.331542  0.000001 -3.895058  0.000013
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    7    -3318.331542    -3318.331542    -3318.331542  0.000000 -3.895058  0.000004
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:    8    -3318.331542    -3318.331542    -3318.331542  0.000000 -3.895058  0.000001
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    9    -3318.331542    -3318.331542    -3318.331542  0.000000 -3.895058  0.000001
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000836
+max |H_out - H_in|      (eV) :     0.0000006690
+SCF cycle converged after 9 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3318.3315
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1    0.001031   -0.001014    0.000000
+     2    0.000323   -0.000500   -0.000000
+     3    0.005909    0.000195    0.000000
+     4   -0.000248   -0.001135   -0.000000
+     5   -0.001067   -0.001346    0.000000
+     6    0.043256   -0.002291   -0.000000
+     7   -0.000212    0.000670    0.000000
+     8   -0.000990   -0.000945    0.000000
+     9    0.000659   -0.002542   -0.000000
+    10   -0.001261   -0.000862   -0.000000
+    11    0.003856   -0.004304   -0.000000
+    12   -0.011172   -0.000865    0.000000
+    13    0.002112   -0.003361    0.000000
+    14   -0.000991   -0.004964   -0.000000
+    15   -0.008788   -0.000241   -0.000000
+----------------------------------------
+   Tot    0.032418   -0.023505   -0.000000
+----------------------------------------
+   Max    0.043256
+   Res    0.007004    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.011172    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):       -0.00        0.26       -0.09       -0.00        0.00        0.01
+(Free)E + p*V (eV/cell)    -3318.3734
+Target enthalpy (eV/cell)    -3318.3315
+
+                     ====================================
+                        Begin Broyden opt. move =     27
+                     ====================================
+
+outcell: Unit cell vectors (Ang):
+       13.490414    0.000000    0.000000
+        0.000000   12.540674    0.000000
+        0.000000    0.000000    6.994977
+
+outcell: Cell vector modules (Ang)   :   13.490414   12.540674    6.994977
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :   1183.4024
+<dSpData1D:S at geom step 27
+  <sparsity:sparsity for geom step 27
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 8>
+  <dData1D:(new from dSpData1D) n=3076, refcount: 1>
+refcount: 1>
+new_DM -- step:    28
+Re-using DM from previous geometries...
+Number of DMs in history: 1
+ DM extrapolation coefficients: 
+1   1.00000
+New DM after history re-use:
+<dSpData2D:SpM extrapolated using coords
+  <sparsity:sparsity for geom step 27
+    nrows_g=155 nrows=20 sparsity=.1280 nnzs=3076, refcount: 10>
+  <dData2D:(temp array for extrapolation) n=3076 m=8, refcount: 1>
+refcount: 1>
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+
+InitMesh: MESH = 144 x 144 x 80 = 1658880
+InitMesh: Mesh cutoff (required, used) =   300.000   314.903 Ry
+New grid distribution [1]: sub = 2
+New grid distribution [2]: sub = 2
+New grid distribution [3]: sub = 2
+Setting up quadratic distribution...
+
+        iscf     Eharris(eV)        E_KS(eV)     FreeEng(eV)     dDmax    Ef(eV) dHmax(eV)
+   scf:    1    -3318.333102    -3318.331549    -3318.331549  0.000113 -3.894866  0.002856
+     spin moment: {S} , |S| = {   -0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    2    -3318.331541    -3318.331547    -3318.331547  0.000113 -3.895407  0.006924
+     spin moment: {S} , |S| = {   -0.00000   -0.00000    0.00000 }     0.00000
+   scf:    3    -3318.331551    -3318.331550    -3318.331550  0.000080 -3.895060  0.000251
+     spin moment: {S} , |S| = {    0.00000   -0.00000   -0.00000 }     0.00000
+   scf:    4    -3318.331550    -3318.331550    -3318.331550  0.000002 -3.895094  0.000111
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    5    -3318.331550    -3318.331550    -3318.331550  0.000002 -3.895112  0.000031
+     spin moment: {S} , |S| = {   -0.00000    0.00000   -0.00000 }     0.00000
+   scf:    6    -3318.331550    -3318.331550    -3318.331550  0.000000 -3.895111  0.000015
+     spin moment: {S} , |S| = {   -0.00000    0.00000    0.00000 }     0.00000
+   scf:    7    -3318.331550    -3318.331550    -3318.331550  0.000000 -3.895110  0.000003
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+   scf:    8    -3318.331550    -3318.331550    -3318.331550  0.000000 -3.895110  0.000001
+     spin moment: {S} , |S| = {    0.00000    0.00000    0.00000 }     0.00000
+   scf:    9    -3318.331550    -3318.331550    -3318.331550  0.000000 -3.895110  0.000001
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+
+SCF Convergence by DM+H criterion
+max |DM_out - DM_in|         :     0.0000000524
+max |H_out - H_in|      (eV) :     0.0000005033
+SCF cycle converged after 9 iterations
+
+Using DM_out to compute the final energy and forces
+
+siesta: E_KS(eV) =            -3318.3315
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+
+siesta: Atomic forces (eV/Ang):
+     1   -0.000628    0.002370    0.000000
+     2    0.000366   -0.000063   -0.000000
+     3    0.001141    0.000423    0.000000
+     4   -0.000984   -0.003708   -0.000000
+     5   -0.001700   -0.000448    0.000000
+     6    0.045875   -0.013642   -0.000000
+     7    0.000630    0.000764    0.000000
+     8    0.000393    0.000736    0.000000
+     9   -0.000443   -0.001453   -0.000000
+    10    0.001205    0.000268   -0.000000
+    11   -0.003752   -0.002349   -0.000000
+    12   -0.004299    0.000219    0.000000
+    13    0.001660   -0.001654    0.000000
+    14   -0.002518   -0.005399   -0.000000
+    15   -0.003991    0.001236   -0.000000
+----------------------------------------
+   Tot    0.032955   -0.022701   -0.000000
+----------------------------------------
+   Max    0.045875
+   Res    0.007330    sqrt( Sum f_i^2 / 3N )
+----------------------------------------
+   Max    0.005399    constrained
+
+Stress tensor Voigt[x,y,z,yz,xz,xy] (kbar):        0.01        0.27       -0.09       -0.00        0.00        0.01
+(Free)E + p*V (eV/cell)    -3318.3784
+Target enthalpy (eV/cell)    -3318.3315
+
+outcoor: Relaxed atomic coordinates (Ang):                  
+   -1.21399173   -1.51432755    0.00000000   3       1  N
+   -2.18240067    0.66803741    0.00000000   3       2  N
+    0.04569600    1.94460336    0.00000000   3       3  N
+    2.11514465    0.40222973    0.00000000   3       4  N
+    1.82642201   -2.03210229    0.00000000   3       5  N
+   -0.13590000   -0.54210000    0.00000000   2       6  C
+   -0.71370574    0.73811845    0.00000000   2       7  C
+    1.25371456   -0.71552580    0.00000000   2       8  C
+   -2.42339392   -0.70008799    0.00000000   2       9  C
+    1.42249086    1.64981658    0.00000000   2      10  C
+   -1.05520426   -2.55158490    0.00000000   1      11  H
+   -3.42962890   -1.12435560    0.00000000   1      12  H
+    2.09976870    2.50897882    0.00000000   1      13  H
+    2.89832953   -2.04070454    0.00000000   1      14  H
+    1.10446838   -2.82612591    0.00000000   1      15  H
+
+siesta: Program's energy decomposition (eV):
+siesta: Ebs     =      -653.091049
+siesta: Eions   =      4637.773199
+siesta: Ena     =      1510.584904
+siesta: Ekin    =      1600.642303
+siesta: Enl(+so)=     -1165.931704
+siesta: Eso(nil)=         0.000000
+siesta: Edftu   =         0.000000
+siesta: DEna    =        -9.850675
+siesta: DUscf   =         5.252643
+siesta: DUext   =         0.000000
+siesta: Ex      =      -569.411637
+siesta: Ec      =       -51.844185
+siesta: Exc     =      -621.255822
+siesta: EbV     =         0.000000
+siesta: eta*DQ  =         0.000000
+siesta: Emadel  =         0.000000
+siesta: Emeta   =         0.000000
+siesta: Emolmec =         0.000000
+siesta: Ekinion =         0.000000
+siesta: Eharris =     -3318.331550
+siesta: Etot    =     -3318.331550
+siesta: FreeEng =     -3318.331550
+
+siesta: Final energy (eV):
+siesta:  Band Struct. =    -653.091049
+siesta:       Kinetic =    1600.642303
+siesta:       Hartree =    4216.274646
+siesta:         Edftu =       0.000000
+siesta:      Eso(nil) =       0.000000
+siesta:    Ext. field =       0.000000
+siesta:         Exch. =    -569.411637
+siesta:         Corr. =     -51.844185
+siesta:     Bulk bias =       0.000000
+siesta:   Exch.-corr. =    -621.255822
+siesta:  Ion-electron =   -9879.222770
+siesta:       Ion-ion =    1365.230093
+siesta:       Ekinion =       0.000000
+siesta: D3 dispersion =       0.000000
+siesta:         Total =   -3318.331550
+siesta:         Fermi =      -3.895110
+
+siesta: Atomic forces (eV/Ang):
+siesta:      1   -0.000628    0.002370    0.000000
+siesta:      2    0.000366   -0.000063   -0.000000
+siesta:      3    0.001141    0.000423    0.000000
+siesta:      4   -0.000984   -0.003708   -0.000000
+siesta:      5   -0.001700   -0.000448    0.000000
+siesta:      6    0.045875   -0.013642   -0.000000
+siesta:      7    0.000630    0.000764    0.000000
+siesta:      8    0.000393    0.000736    0.000000
+siesta:      9   -0.000443   -0.001453   -0.000000
+siesta:     10    0.001205    0.000268   -0.000000
+siesta:     11   -0.003752   -0.002349   -0.000000
+siesta:     12   -0.004299    0.000219    0.000000
+siesta:     13    0.001660   -0.001654    0.000000
+siesta:     14   -0.002518   -0.005399   -0.000000
+siesta:     15   -0.003991    0.001236   -0.000000
+siesta: ----------------------------------------
+siesta:    Tot    0.032955   -0.022701   -0.000000
+
+siesta: Stress tensor (static) (eV/Ang**3):
+siesta:     0.000006    0.000006   -0.000000
+siesta:     0.000006    0.000171   -0.000000
+siesta:     0.000000   -0.000000   -0.000057
+
+siesta: Cell volume =       1183.402403 Ang**3
+
+siesta: Pressure (static):
+siesta:                Solid            Molecule  Units
+siesta:          -0.00000043         -0.00000044  Ry/Bohr**3
+siesta:          -0.00003957         -0.00004061  eV/Ang**3
+siesta:          -0.06339491         -0.06507120  kBar
+(Free)E+ p_basis*V_orbitals  =       -3312.970215
+(Free)Eharris+ p_basis*V_orbitals  =       -3312.970215
+     spin moment: {S} , |S| = {    0.00000   -0.00000    0.00000 }     0.00000
+
+siesta: Electric dipole (a.u.)  =    0.137130   -2.637336    0.000000
+siesta: Electric dipole (Debye) =    0.348549   -6.703439    0.000000
+
+cite: Please see "Adenine.bib" for an exhaustive BiBTeX file.
+cite: Please clearly indicate Siesta version in published work: 5.1-MaX-41-g6ad11e234
+cite: This calculation has made use of the following articles
+cite: which are encouraged to be cited in a published work.
+        Primary SIESTA paper
+          DOI: www.doi.org/10.1088/0953-8984/14/11/302
+        Spin-orbit coupling (off-site approximation)
+          DOI: www.doi.org/10.1088/0953-8984/24/8/086005
+        ELPA library
+          DOI: www.doi.org/10.1088/0953-8984/26/21/213201
+
+
+>> End of run:   1-SEP-2024  22:59:05
+Job completed

@@ -1,0 +1,55 @@
+# mpirun -np 8 siesta-5 < Cytosine.fdf > Cytosine.out
+
+SystemLabel      Cytosine
+
+NumberOfAtoms    13
+
+NumberOfSpecies  4
+%block ChemicalSpeciesLabel
+    1    1  H   ../../../Pseudos/VW/H/H.psf
+    2    6  C   ../../../Pseudos/VW/C/C.psf
+    3    7  N   ../../../Pseudos/VW/N/N.psf
+    4    8  O   ../../../Pseudos/VW/O/O.psf
+%endblock ChemicalSpeciesLabel
+
+############################################
+# This overrides Defaults.fdf configuration
+############################################
+XC.Functional               VDW
+XC.Authors                  DRSLL
+
+MD.Steps                1000
+
+%block Geometry.Constraints
+    atom all 0.0 0.0 1.0 # constrain along z Cartesian vector
+    atom [5]
+%endblock
+
+AtomicCoordinatesFormat NotScaledCartesianAng
+%block AtomicCoordinatesAndAtomicSpecies
+    2.31136821    1.19107586    0.00000000   4       1  O
+   -0.04286568    1.02993544    0.00000000   3       2  N
+   -2.47023105    0.99985655    0.00000000   3       3  N
+    1.40593889   -1.02778066    0.00000000   3       4  N
+   -1.24060000    0.26760000    0.00000000   2       5  C
+   -1.12743026   -1.11952595    0.00000000   2       6  C
+    1.35327370    0.42904199    0.00000000   2       7  C
+    0.16909436   -1.68361770    0.00000000   2       8  C
+   -0.11648925    2.06390777    0.00000000   1       9  H
+   -2.05097240   -1.70976259    0.00000000   1      10  H
+    0.28361657   -2.78174148    0.00000000   1      11  H
+   -3.37191888    0.50008342    0.00000000   1      12  H
+   -2.48804998    2.04062191    0.00000000   1      13  H
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+#############
+# Unit Cell
+#############
+LatticeConstant 1.0 Ang
+%block LatticeVectors
+    12.190149   0.000000    0.000000
+    0.000000    11.937874   0.000000
+    0.000000    0.000000    6.994977
+%endblock LatticeVectors
+
+%include ../../../Defaults.fdf

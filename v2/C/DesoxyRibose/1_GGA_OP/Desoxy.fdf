@@ -1,0 +1,54 @@
+# mpirun -np 8 siesta-5 < Desoxy.fdf > Desoxy.out
+
+SystemLabel      Desoxy
+
+NumberOfAtoms    17
+
+NumberOfSpecies  3
+%block ChemicalSpeciesLabel
+    1    1  H ../../../Pseudos/PBE/H/H.psml
+    2    8  O ../../../Pseudos/PBE/O/O.psml
+    3    6  C ../../../Pseudos/PBE/C/C.psml
+%endblock ChemicalSpeciesLabel
+
+############################################
+# This overrides Defaults.fdf configuration
+############################################
+MD.Steps                    1000
+
+%block Geometry.Constraints
+    atom [6]
+%endblock
+
+AtomicCoordinatesFormat NotScaledCartesianAng
+%block AtomicCoordinatesAndAtomicSpecies
+     3.558000000    -8.101000000     3.380000000    1
+     4.337000000    -7.542000000     3.330000000    2
+     5.627000000    -8.157000000     3.190000000    3
+     5.654000000    -8.750000000     2.276000000    1
+     5.805000000    -8.805000000     4.048000000    1
+     6.713000000    -7.099000000     3.130000000    3
+     7.693000000    -7.576000000     3.118000000    1
+     6.632000000    -6.405000000     1.860000000    2
+     6.958000000    -5.037000000     2.040000000    3
+     7.745000000    -4.701000000     1.365000000    1
+     5.785000000    -4.219000000     1.620000000    1
+     6.601000000    -5.985000000     4.170000000    3
+     5.567000000    -5.684000000     4.339000000    1
+     7.355000000    -4.850000000     3.500000000    3
+     7.493000000    -4.036000000     4.211000000    1
+     8.328000000    -5.208000000     3.164000000    1
+     7.183000000    -6.339000000     5.430000000    1
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+#############
+# Unit Cell
+#############
+LatticeConstant 1.0 Ang
+%block LatticeVectors
+    11.967244    0.000000    0.000000
+    0.000000   11.966144    0.000000
+    0.000000    0.000000   11.191744
+%endblock LatticeVectors
+
+%include ../../../Defaults.fdf

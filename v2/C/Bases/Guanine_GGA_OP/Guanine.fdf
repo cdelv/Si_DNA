@@ -1,0 +1,56 @@
+# mpirun -np 8 siesta-5 < Guanine.fdf > Guanine.out
+
+SystemLabel      Guanine
+
+NumberOfAtoms    16
+
+NumberOfSpecies  4
+%block ChemicalSpeciesLabel
+    1    1  H   ../../../Pseudos/PBE/H/H.psf
+    2    6  C   ../../../Pseudos/PBE/C/C.psf
+    3    7  N   ../../../Pseudos/PBE/N/N.psf
+    4    8  O   ../../../Pseudos/PBE/O/O.psf
+%endblock ChemicalSpeciesLabel
+
+############################################
+# This overrides Defaults.fdf configuration
+############################################
+MD.Steps                1000
+
+%block Geometry.Constraints
+    atom all 0.0 0.0 1.0 # constrain along z Cartesian vector
+    atom [7]
+%endblock
+
+AtomicCoordinatesFormat NotScaledCartesianAng
+%block AtomicCoordinatesAndAtomicSpecies
+    0.15760543    2.72969888   -0.00040000   4       1  O
+   -2.15305943    0.68264062    0.00060000   3       2  N
+    1.63586012    0.81817333    0.00010000   3       3  N
+    0.77930769   -1.55495870   -0.00030000   3       4  N
+   -1.76220687   -1.65674839   -0.00060000   3       5  N
+    3.16917979   -1.05641897    0.00050000   3       6  N
+   -0.71800000    0.48850000   -0.00010000   2       7  C
+   -0.51000735   -0.90144995   -0.00040000   2       8  C
+    0.29066814    1.50446440   -0.00010000   2       9  C
+    1.79665921   -0.62002038    0.00000000   2      10  C
+   -2.71055361   -0.62914717    0.00050000   2      11  C
+   -2.67203616    1.57904721    0.00120000   1      12  H
+    2.50210675    1.40074991    0.00030000   1      13  H
+   -3.78858114   -0.74135093    0.00100000   1      14  H
+    3.27167198   -2.12317199    0.00060000   1      15  H
+    3.89584289   -0.26884768    0.00080000   1      16  H
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+#############
+# Unit Cell
+#############
+LatticeConstant 1.0 Ang
+%block LatticeVectors
+    14.996424    0.000000    0.000000
+     0.000000   11.244259    0.000000
+     0.000000    0.000000    6.995967
+%endblock LatticeVectors
+
+
+%include ../../../Defaults.fdf

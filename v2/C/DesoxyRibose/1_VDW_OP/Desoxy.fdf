@@ -1,0 +1,57 @@
+# mpirun -np 8 siesta-5 < Desoxy.fdf > Desoxy.out
+
+SystemLabel      Desoxy
+
+NumberOfAtoms    17
+
+NumberOfSpecies  3
+%block ChemicalSpeciesLabel
+    1    1  H ../../../Pseudos/VW/H/H.psf
+    2    8  O ../../../Pseudos/VW/O/O.psf
+    3    6  C ../../../Pseudos/VW/C/C.psf
+%endblock ChemicalSpeciesLabel
+
+############################################
+# This overrides Defaults.fdf configuration
+############################################
+XC.Functional               VDW
+XC.Authors                  DRSLL
+
+MD.Steps                    1000
+
+%block Geometry.Constraints
+    atom [6]
+%endblock
+
+AtomicCoordinatesFormat NotScaledCartesianAng
+%block AtomicCoordinatesAndAtomicSpecies
+    3.68694437   -8.23006530    3.46012804   1       1  H
+    4.37435466   -7.54425362    3.42916773   2       2  O
+    5.63521741   -8.16385252    3.14594895   3       3  C
+    5.61508901   -8.67698888    2.15866830   1       4  H
+    5.91266772   -8.92730503    3.89282109   1       5  H
+    6.71300000   -7.09900000    3.13000000   3       6  C
+    7.70882557   -7.56865022    3.15047918   1       7  H
+    6.59861199   -6.40547788    1.86769838   2       8  O
+    6.92554454   -4.99922893    2.00685878   3       9  C
+    7.76477632   -4.74681974    1.29058978   1      10  H
+    6.03885547   -4.48517894    1.60184115   1      11  H
+    6.65543236   -6.03781694    4.24050338   3      12  C
+    5.57484462   -5.75893250    4.26485902   1      13  H
+    7.39194100   -4.91153523    3.50049592   3      14  C
+    7.48253718   -4.02829560    4.17829239   1      15  H
+    8.38171209   -5.29164259    3.30496151   1      16  H
+    7.13313752   -6.31215356    5.30231666   1      17  H
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+#############
+# Unit Cell
+#############
+LatticeConstant 1.0 Ang
+%block LatticeVectors
+    11.967244    0.000000    0.000000
+    0.000000   11.966144    0.000000
+    0.000000    0.000000   11.191744
+%endblock LatticeVectors
+
+%include ../../../Defaults.fdf

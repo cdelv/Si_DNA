@@ -1,0 +1,61 @@
+# mpirun -np 8 siesta-5 < Adenine.fdf > Adenine.out
+# GGA           10 s/iteer    -3318.3  
+# DRSLL (VW)    78 s/iter     -4535.4  23
+# KBM   (VK)    70 s/iter     -2215.7  74
+# LMKLL (VL)    77 s/iter     -2218.8  138*
+
+SystemLabel      Adenine
+
+NumberOfAtoms    15
+
+NumberOfSpecies  3
+%block ChemicalSpeciesLabel
+    1    1  H   ../../../Pseudos/VW/H/H.psf
+    2    6  C   ../../../Pseudos/VW/C/C.psf
+    3    7  N   ../../../Pseudos/VW/N/N.psf
+%endblock ChemicalSpeciesLabel
+
+############################################
+# This overrides Defaults.fdf configuration
+############################################
+XC.Functional               VDW
+XC.Authors                  DRSLL
+
+MD.Steps                    1000
+
+%block Geometry.Constraints
+    atom all 0.0 0.0 1.0 # constrain along z Cartesian vector
+    atom [6]
+%endblock
+
+AtomicCoordinatesFormat NotScaledCartesianAng
+%block AtomicCoordinatesAndAtomicSpecies
+   -1.21399173   -1.51432755    0.00000000   3       1  N
+   -2.18240067    0.66803741    0.00000000   3       2  N
+    0.04569600    1.94460336    0.00000000   3       3  N
+    2.11514465    0.40222973    0.00000000   3       4  N
+    1.82642201   -2.03210229    0.00000000   3       5  N
+   -0.13590000   -0.54210000    0.00000000   2       6  C
+   -0.71370574    0.73811845    0.00000000   2       7  C
+    1.25371456   -0.71552580    0.00000000   2       8  C
+   -2.42339392   -0.70008799    0.00000000   2       9  C
+    1.42249086    1.64981658    0.00000000   2      10  C
+   -1.05520426   -2.55158490    0.00000000   1      11  H
+   -3.42962890   -1.12435560    0.00000000   1      12  H
+    2.09976870    2.50897882    0.00000000   1      13  H
+    2.89832953   -2.04070454    0.00000000   1      14  H
+    1.10446838   -2.82612591    0.00000000   1      15  H
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+#############
+# Unit Cell
+#############
+LatticeConstant 1.0 Ang
+%block LatticeVectors
+    13.490414   0.000000    0.000000
+    0.000000    12.540674   0.000000
+    0.000000    0.000000    6.994977
+%endblock LatticeVectors
+
+
+%include ../../../Defaults.fdf

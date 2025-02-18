@@ -1,0 +1,56 @@
+# mpirun -np 8 siesta-5 < Adenine.fdf > Adenine.out
+
+SystemLabel      Adenine
+
+NumberOfAtoms    15
+
+NumberOfSpecies  3
+%block ChemicalSpeciesLabel
+    1    1  H  ../../../Pseudos/VW/H/H.psf
+    2    7  N  ../../../Pseudos/VW/N/N.psf
+    3   14  Si ../../../Pseudos/VW/Si/Si.psf
+%endblock ChemicalSpeciesLabel
+
+############################################
+# This overrides Defaults.fdf configuration
+############################################
+XC.Functional               VDW
+XC.Authors                  DRSLL
+
+MD.Steps                    1000
+
+%block Geometry.Constraints
+    atom all 0.0 0.0 1.0 # constrain along z Cartesian vector
+    atom [6]
+%endblock
+
+AtomicCoordinatesFormat NotScaledCartesianAng
+%block AtomicCoordinatesAndAtomicSpecies
+    2.17791394   -5.14500016    0.00000000   1       1  H
+    1.27855989   -4.61207848    0.00000000   2       2  N
+   -0.31932463   -5.40075897    0.00000000   3       3  Si
+   -0.26963524   -6.87694072    0.00000000   1       4  H
+   -1.73360909   -4.47523714    0.00000000   2       5  N
+   -1.16006198   -2.76542566    0.00000000   3       6  Si
+   -1.48201456   -0.58553738    0.00000000   3       7  Si
+   -3.00465487    0.27035479    0.00000000   2       8  N
+   -3.05354158    1.31396559    0.00000000   1       9  H
+   -3.91957809   -0.23295887    0.00000000   1      10  H
+   -0.08480167    0.41373221    0.00000000   2      11  N
+    1.54233415   -0.07413147    0.00000000   3      12  Si
+    2.50225889    1.05075017    0.00000000   1      13  H
+    2.29956063   -1.61876891    0.00000000   2      14  N
+    1.04347983   -2.79818444    0.00000000   3      15  Si
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+#############
+# Unit Cell
+#############
+LatticeConstant 1.0 Ang
+%block LatticeVectors
+       13.852571    0.000000    0.000000
+        0.000000   15.841361    0.000000
+        0.000000    0.000000    8.754136
+%endblock LatticeVectors
+
+%include ../../../Defaults.fdf

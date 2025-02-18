@@ -1,0 +1,75 @@
+#############
+# Functional
+#############
+XC.Functional               GGA
+XC.Authors                  PBE
+
+#############
+# The real-space grid
+#############
+Spin                        spin-orbit
+Mesh.Cutoff                 300 Ry
+PAO.Filter                  T
+VNA.Filter                  T
+FilterCutoff                290 Ry
+
+#############
+# Base
+#############
+PAO.BasisSize               DZP
+PAO.BasisType               split
+PAO.SplitNorm               0.28
+PAO.SplitNormH              0.62
+PAO.EnergyShift             0.005 Ry
+
+###################
+# Self Consistance
+###################
+MinSCFIterations            1
+MaxSCFIterations            200
+SCF.MustConverge            T
+SCF.Mixer.Method            Pulay
+SCF.Mixer.History           6
+SCF.Mixer.Restart           24
+SCF.Mixer.Restart.Save      3
+SCF.H.Tolerance             0.000001 eV
+SCF.DM.Tolerance            0.000008
+DM.History.Depth            3
+DM.UseSaveDM                T
+
+################
+# Diagon Solver
+################
+SolutionMethod              diagon
+Diag.Algorithm              ELPA
+Diag.ELPA.GPU               F
+
+#############
+# Calculate
+############
+MD.TypeOfRun                Broyden
+MD.VariableCell             F
+MD.Steps                    0
+MD.MaxForceTol              0.008 eV/Ang
+ElectronicTemperature       1.00 K
+MD.LengthTimeStep           0.4 fs
+MD.InitialTemperature       0 K
+DFTD3                       F
+
+##############
+# Output info
+##############
+UseSaveData                 F
+Write.Denchar               F
+WriteCoorInital             T
+WriteCoorStep               T
+WriteMDHistory              T
+WriteMDXmol                 T
+WriteForces                 T
+WriteKpoints                F
+WriteEigenvalues            F
+WriteKbands                 F
+WriteBands                  F
+WriteWaveFunctions          F
+WriteMullikenPop            0
+WriteCoorCerius             F
