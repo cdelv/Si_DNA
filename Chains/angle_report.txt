@@ -1,7 +1,0 @@
-DNA strand angles
-angle = 40.124636784812836
-error = 1.9820001412033934
-
-Base pairs tilt angle
-angle = 9.338828363467274
-error = 4.707809866941243
