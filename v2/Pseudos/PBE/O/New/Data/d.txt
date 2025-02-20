@@ -1,0 +1,8 @@
+ ATM4.2.7   1-SEP-24      O Test -- GS 2s2 2p4                           &v&d
+ ATM4.2.7   1-SEP-24      O Test -- GS 2s2 2p4                           &v&d
+ ATM4.2.7   1-SEP-24      O Test -- GS 2s1 2p5                           &v&d
+*----- End of series ----* spdfg &d&v
+ ATM4.2.7   1-SEP-24      O Test -- GS 2s2 2p4                           &v&d
+ ATM4.2.7   1-SEP-24      O Test -- GS 2s2 2p4                           &v&d
+ ATM4.2.7   1-SEP-24      O Test -- GS 2s1 2p5                           &v&d
+*----- End of series ----* spdfg &d&v

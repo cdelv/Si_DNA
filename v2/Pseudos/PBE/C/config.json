@@ -1,0 +1,245 @@
+{
+    "input_psuedo": "/home/cdelv/Pseudos2/PBE/C/C.tm2.inp",
+    "input_test": "/home/cdelv/Pseudos2/PBE/C/C.test",
+    "pg": "/opt/Atom/atom-4.2.7-100/Tutorial/Utils/pg.sh",
+    "pt": "/opt/Atom/atom-4.2.7-100/Tutorial/Utils/pt.sh",
+    "script_dir": "/home/cdelv/Pseudos2/PBE/C",
+    "out_dir": "/home/cdelv/Pseudos2/PBE/C/Out",
+    "data_dir": "/home/cdelv/Pseudos2/PBE/C/Data",
+    "data_pfile": "/home/cdelv/Pseudos2/PBE/C/Data/temporary.inp",
+    "data_tfile": "/home/cdelv/Pseudos2/PBE/C/Data/test.inp",
+    "opvars": [
+        "rs",
+        "rp",
+        "rd"
+    ],
+    "maxiter": 1700,
+    "bounds": [
+        [
+            0.0,
+            2.5
+        ],
+        [
+            0.0,
+            3.0
+        ],
+        [
+            0.0,
+            3.5
+        ],
+        [
+            0.0,
+            4.0
+        ],
+        [
+            0.0,
+            3.0
+        ]
+    ],
+    "a": 0.45,
+    "b": 1.0,
+    "q0": 25.2,
+    "pseudo_config": {
+        "run_type": "pg",
+        "title": " C",
+        "PS_flavor": "tm2",
+        "logder_r": 2.0,
+        "chemical_symbol": "C",
+        "XC_flavor": "pb",
+        "XC_id": "00000000",
+        "spin_relativistic": "r",
+        "fractional_atomic_number": 0.0,
+        "norbs_core": 1,
+        "norbs_valence": 3,
+        "rs": 2.4016672636498697,
+        "rp": 1.449756563711162,
+        "rd": 1.9916450344303627,
+        "rf": 0.0,
+        "r_core_flag": 1.0,
+        "rcore": 0.0,
+        "orbital_block": [
+            [
+                2,
+                0,
+                1.0,
+                1.0
+            ],
+            [
+                2,
+                1,
+                1.0,
+                1.0
+            ],
+            [
+                3,
+                2,
+                0.0,
+                0.0
+            ]
+        ]
+    },
+    "tests": [
+        {
+            "XC_id": "00000000",
+            "spin_relativistic": "r",
+            "run_type": "ae",
+            "title": " C Test GS 2s2 2p2",
+            "chemical_symbol": "C",
+            "XC_flavor": "pb",
+            "fractional_atomic_number": 0.0,
+            "norbs_core": 1,
+            "norbs_valence": 2,
+            "orbital_block": [
+                [
+                    2,
+                    0,
+                    1.0,
+                    1.0
+                ],
+                [
+                    2,
+                    1,
+                    1.0,
+                    1.0
+                ]
+            ]
+        },
+        {
+            "XC_id": "00000000",
+            "spin_relativistic": "r",
+            "run_type": "ae",
+            "title": " C Test GS 2s2 2p2",
+            "chemical_symbol": "C",
+            "XC_flavor": "pb",
+            "fractional_atomic_number": 0.0,
+            "norbs_core": 1,
+            "norbs_valence": 2,
+            "orbital_block": [
+                [
+                    2,
+                    0,
+                    1.0,
+                    1.0
+                ],
+                [
+                    2,
+                    1,
+                    2.0,
+                    0.0
+                ]
+            ]
+        },
+        {
+            "XC_id": "00000000",
+            "spin_relativistic": "r",
+            "run_type": "ae",
+            "title": " C Test GS 2s1 2p3",
+            "chemical_symbol": "C",
+            "XC_flavor": "pb",
+            "fractional_atomic_number": 0.0,
+            "norbs_core": 1,
+            "norbs_valence": 2,
+            "orbital_block": [
+                [
+                    2,
+                    0,
+                    0.0,
+                    1.0
+                ],
+                [
+                    2,
+                    1,
+                    3.0,
+                    0.0
+                ]
+            ]
+        },
+        {
+            "XC_id": "00000000",
+            "spin_relativistic": "r",
+            "run_type": "ae",
+            "title": " C Test GS 2s1 2p3",
+            "chemical_symbol": "C",
+            "XC_flavor": "pb",
+            "fractional_atomic_number": 0.0,
+            "norbs_core": 1,
+            "norbs_valence": 2,
+            "orbital_block": [
+                [
+                    2,
+                    0,
+                    0.5,
+                    0.5
+                ],
+                [
+                    2,
+                    1,
+                    2.0,
+                    1.0
+                ]
+            ]
+        },
+        {
+            "XC_id": "00000000",
+            "spin_relativistic": "r",
+            "run_type": "ae",
+            "title": " C Test GS 2s2 2p1 3s1",
+            "chemical_symbol": "C",
+            "XC_flavor": "pb",
+            "fractional_atomic_number": 0.0,
+            "norbs_core": 1,
+            "norbs_valence": 3,
+            "orbital_block": [
+                [
+                    2,
+                    0,
+                    1.0,
+                    1.0
+                ],
+                [
+                    2,
+                    1,
+                    0.5,
+                    0.5
+                ],
+                [
+                    3,
+                    0,
+                    1.0,
+                    0.0
+                ]
+            ]
+        },
+        {
+            "XC_id": "00000000",
+            "spin_relativistic": "r",
+            "run_type": "ae",
+            "title": " C Test GS 2s2 2p1 3s1",
+            "chemical_symbol": "C",
+            "XC_flavor": "pb",
+            "fractional_atomic_number": 0.0,
+            "norbs_core": 1,
+            "norbs_valence": 3,
+            "orbital_block": [
+                [
+                    2,
+                    0,
+                    1.0,
+                    1.0
+                ],
+                [
+                    2,
+                    1,
+                    0.0,
+                    1.0
+                ],
+                [
+                    3,
+                    0,
+                    0.5,
+                    0.5
+                ]
+            ]
+        }
+    ]
+}

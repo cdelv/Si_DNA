@@ -1,0 +1,189 @@
+{
+    "input_psuedo": "/home/cdelv/Pseudos2/PBE/N/N.tm2.inp",
+    "input_test": "/home/cdelv/Pseudos2/PBE/N/N.test",
+    "pg": "/opt/Atom/atom-4.2.7-100/Tutorial/Utils/pg.sh",
+    "pt": "/opt/Atom/atom-4.2.7-100/Tutorial/Utils/pt.sh",
+    "script_dir": "/home/cdelv/Pseudos2/PBE/N",
+    "out_dir": "/home/cdelv/Pseudos2/PBE/N/Out",
+    "data_dir": "/home/cdelv/Pseudos2/PBE/N/Data",
+    "data_pfile": "/home/cdelv/Pseudos2/PBE/N/Data/temporary.inp",
+    "data_tfile": "/home/cdelv/Pseudos2/PBE/N/Data/test.inp",
+    "opvars": [
+        "rs",
+        "rp",
+        "rd"
+    ],
+    "maxiter": 1700,
+    "bounds": [
+        [
+            0.0,
+            2.5
+        ],
+        [
+            0.0,
+            3.0
+        ],
+        [
+            0.0,
+            3.5
+        ],
+        [
+            0.0,
+            4.0
+        ],
+        [
+            0.0,
+            3.0
+        ]
+    ],
+    "a": 0.45,
+    "b": 1.0,
+    "q0": 25.2,
+    "pseudo_config": {
+        "run_type": "pg",
+        "title": "  Oxygen",
+        "PS_flavor": "tm2",
+        "logder_r": 5.0,
+        "chemical_symbol": "N",
+        "XC_flavor": "pb",
+        "XC_id": "00000000",
+        "spin_relativistic": "r",
+        "fractional_atomic_number": 0.0,
+        "norbs_core": 1,
+        "norbs_valence": 3,
+        "rs": 1.3884400576353073,
+        "rp": 0.2837661966914311,
+        "rd": 1.3988516944662308,
+        "rf": 0.0,
+        "r_core_flag": 1.0,
+        "rcore": 0.0,
+        "orbital_block": [
+            [
+                2,
+                0,
+                1.0,
+                1.0
+            ],
+            [
+                2,
+                1,
+                3.0,
+                0.0
+            ],
+            [
+                3,
+                2,
+                0.0,
+                0.0
+            ]
+        ]
+    },
+    "tests": [
+        {
+            "XC_id": "00000000",
+            "spin_relativistic": "r",
+            "run_type": "ae",
+            "title": "  N Test -- GS 2s2 2p3",
+            "chemical_symbol": "N",
+            "XC_flavor": "pb",
+            "fractional_atomic_number": 0.0,
+            "norbs_core": 1,
+            "norbs_valence": 2,
+            "orbital_block": [
+                [
+                    2,
+                    0,
+                    1.0,
+                    1.0
+                ],
+                [
+                    2,
+                    1,
+                    1.5,
+                    1.5
+                ]
+            ]
+        },
+        {
+            "XC_id": "00000000",
+            "spin_relativistic": "r",
+            "run_type": "ae",
+            "title": "  N Test -- GS 2s2 2p3",
+            "chemical_symbol": "N",
+            "XC_flavor": "pb",
+            "fractional_atomic_number": 0.0,
+            "norbs_core": 1,
+            "norbs_valence": 2,
+            "orbital_block": [
+                [
+                    2,
+                    0,
+                    1.0,
+                    1.0
+                ],
+                [
+                    2,
+                    1,
+                    3.0,
+                    0.0
+                ]
+            ]
+        },
+        {
+            "XC_id": "00000000",
+            "spin_relativistic": "r",
+            "run_type": "ae",
+            "title": "  N Test -- GS 2s2 2p2 3s1",
+            "chemical_symbol": "N",
+            "XC_flavor": "pb",
+            "fractional_atomic_number": 0.0,
+            "norbs_core": 1,
+            "norbs_valence": 3,
+            "orbital_block": [
+                [
+                    2,
+                    0,
+                    1.0,
+                    1.0
+                ],
+                [
+                    2,
+                    1,
+                    2.0,
+                    0.0
+                ],
+                [
+                    3,
+                    0,
+                    0.5,
+                    0.5
+                ]
+            ]
+        },
+        {
+            "XC_id": "00000000",
+            "spin_relativistic": "r",
+            "run_type": "ae",
+            "title": "  N Test -- GS 2s1 2p4",
+            "chemical_symbol": "N",
+            "XC_flavor": "pb",
+            "fractional_atomic_number": 0.0,
+            "norbs_core": 1,
+            "norbs_valence": 2,
+            "orbital_block": [
+                [
+                    2,
+                    0,
+                    0.5,
+                    0.5
+                ],
+                [
+                    2,
+                    1,
+                    3.0,
+                    1.0
+                ]
+            ]
+        }
+    ]
+}

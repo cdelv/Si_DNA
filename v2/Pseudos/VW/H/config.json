@@ -1,0 +1,169 @@
+{
+    "input_psuedo": "/home/cdelv/Pseudos2/VW/H/H.tm2.inp",
+    "input_test": "/home/cdelv/Pseudos2/VW/H/H.test",
+    "pg": "/opt/Atom/atom-4.2.7-100/Tutorial/Utils/pg.sh",
+    "pt": "/opt/Atom/atom-4.2.7-100/Tutorial/Utils/pt.sh",
+    "script_dir": "/home/cdelv/Pseudos2/VW/H",
+    "out_dir": "/home/cdelv/Pseudos2/VW/H/Out",
+    "data_dir": "/home/cdelv/Pseudos2/VW/H/Data",
+    "data_pfile": "/home/cdelv/Pseudos2/VW/H/Data/temporary.inp",
+    "data_tfile": "/home/cdelv/Pseudos2/VW/H/Data/test.inp",
+    "opvars": [
+        "rs"
+    ],
+    "maxiter": 1700,
+    "bounds": [
+        [
+            0.0,
+            2.5
+        ],
+        [
+            0.0,
+            3.0
+        ],
+        [
+            0.0,
+            3.5
+        ],
+        [
+            0.0,
+            4.0
+        ],
+        [
+            0.0,
+            3.0
+        ]
+    ],
+    "a": 0.45,
+    "b": 0.0,
+    "q0": 25.2,
+    "pseudo_config": {
+        "run_type": "pg",
+        "title": " Hydrogen",
+        "PS_flavor": "tm2",
+        "logder_r": 2.0,
+        "chemical_symbol": "H",
+        "XC_flavor": "vw",
+        "XC_id": "00000000",
+        "spin_relativistic": "r",
+        "fractional_atomic_number": 0.0,
+        "norbs_core": 0,
+        "norbs_valence": 1,
+        "rs": 2.4947286640497905,
+        "rp": 0.0,
+        "rd": 1.0,
+        "rf": 1.0,
+        "r_core_flag": 1.0,
+        "rcore": 0.0,
+        "orbital_block": [
+            [
+                1,
+                0,
+                0.5,
+                0.5
+            ]
+        ]
+    },
+    "tests": [
+        {
+            "XC_id": "00000000",
+            "spin_relativistic": "r",
+            "run_type": "ae",
+            "title": " H Test -- GS 1s1",
+            "chemical_symbol": "H",
+            "XC_flavor": "vw",
+            "fractional_atomic_number": 0.0,
+            "norbs_core": 0,
+            "norbs_valence": 2,
+            "orbital_block": [
+                [
+                    1,
+                    0,
+                    0.5,
+                    0.5
+                ],
+                [
+                    2,
+                    0,
+                    0.0,
+                    0.0
+                ]
+            ]
+        },
+        {
+            "XC_id": "00000000",
+            "spin_relativistic": "r",
+            "run_type": "ae",
+            "title": " H Test -- GS 1s1",
+            "chemical_symbol": "H",
+            "XC_flavor": "vw",
+            "fractional_atomic_number": 0.0,
+            "norbs_core": 0,
+            "norbs_valence": 2,
+            "orbital_block": [
+                [
+                    1,
+                    0,
+                    1.0,
+                    0.0
+                ],
+                [
+                    2,
+                    0,
+                    0.0,
+                    0.0
+                ]
+            ]
+        },
+        {
+            "XC_id": "00000000",
+            "spin_relativistic": "r",
+            "run_type": "ae",
+            "title": " H Test -- GS 2s1",
+            "chemical_symbol": "H",
+            "XC_flavor": "vw",
+            "fractional_atomic_number": 0.0,
+            "norbs_core": 0,
+            "norbs_valence": 2,
+            "orbital_block": [
+                [
+                    1,
+                    0,
+                    0.0,
+                    0.0
+                ],
+                [
+                    2,
+                    0,
+                    1.0,
+                    0.0
+                ]
+            ]
+        },
+        {
+            "XC_id": "00000000",
+            "spin_relativistic": "r",
+            "run_type": "ae",
+            "title": " H Test -- GS 2s1",
+            "chemical_symbol": "H",
+            "XC_flavor": "vw",
+            "fractional_atomic_number": 0.0,
+            "norbs_core": 0,
+            "norbs_valence": 2,
+            "orbital_block": [
+                [
+                    1,
+                    0,
+                    0.0,
+                    0.0
+                ],
+                [
+                    2,
+                    0,
+                    0.5,
+                    0.5
+                ]
+            ]
+        }
+    ]
+}
